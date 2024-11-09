@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useSelector } from "react-redux";
 
-const PlayTrueFalsePage = ({ route }) => {
+const PlayTrueFalse = (props) => {
   const games = useSelector((state) => state.games.games);
-  const gameId = route.params.gameId;
+  const gameId = props.gameId;
   const game = games.find((game) => game.id === gameId);
   if (!game) {
     return (
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayTrueFalsePage;
+export default PlayTrueFalse;

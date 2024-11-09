@@ -1,7 +1,8 @@
 class Game {
-    constructor(id, type) {
+    constructor(id, type, parendId) {
         this.id = id;
         this.type = type;
+        this.parendId = parendId;
     }
   }
   

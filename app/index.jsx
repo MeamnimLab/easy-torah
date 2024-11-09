@@ -8,8 +8,7 @@ import AddGamePage from "../screens/AddGame";
 import AllGamesPage from "../screens/AllGames";
 import CreateTriviaPage from "../screens/createGame/Trivia";
 import CreateTrueFalsePage from "../screens/createGame/TrueFalse";
-import PlayTriviaPage from "../screens/playGame/Trivia";
-import PlayTrueFalsePage from "../screens/playGame/TrueFalse";
+import PlayGamePage from "../screens/playGame/Play";
 import store from '../redux/store'
 
 const Stack = createStackNavigator();
@@ -18,18 +17,17 @@ export default function Index() {
   return (
     <Provider store={store}>
       <NavigationContainer independent={true}>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="AllGames">
           <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="Result" component={ResultPage} />
           <Stack.Screen name="AddGame" component={AddGamePage} />
+          <Stack.Screen name="PlayGame" component={PlayGamePage} />
           <Stack.Screen name="AllGames" component={AllGamesPage} />
           <Stack.Screen name="CreateTrivia" component={CreateTriviaPage} />
           <Stack.Screen
             name="CreateTrueFalse"
             component={CreateTrueFalsePage}
           />
-          <Stack.Screen name="PlayTrivia" component={PlayTriviaPage} />
-          <Stack.Screen name="PlayTrueFalse" component={PlayTrueFalsePage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

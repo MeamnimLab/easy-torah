@@ -1,8 +1,8 @@
 import Game from "../game";
 
 class TrueFalse extends Game {
-    constructor(id, type, question, answer) {
-        super(id, type);
+    constructor(id, type, parentId, question, answer) {
+        super(id, type, parentId);
         this.question = question;
         this.answer = answer;
     }

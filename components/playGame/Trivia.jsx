@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
-const PlayTriviaPage = ({ route }) => {
+const PlayTrivia = (props) => {
   const games = useSelector((state) => state.games.games);
-  const gameId = route.params.gameId;
+  const gameId = props.gameId;
   const game = games.find((game) => game.id === gameId);
   if (!game) {
     return (
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayTriviaPage;
+export default PlayTrivia;
