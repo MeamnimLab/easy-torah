@@ -2,29 +2,29 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Game = (props) => {
-  const { id, type } = props;
+  const {gameId, type, levelId } = props;
   const navigation = useNavigation();
-  const startTriviaGameHandler = (gameId) => {
+  const startTriviaGameHandler = (gameId, levelId) => {
     console.log(gameId);
-    navigation.navigate("PlayTrivia", { gameId: id });
+    navigation.navigate("PlayTrivia", { gameId: gameId, levelId: levelId });
   };
   const startTrueFalseGameHandler = (gameId) => {
     console.log(gameId);
-    navigation.navigate("PlayTrueFalse", { gameId: id });
+    navigation.navigate("PlayTrueFalse", { gameId: gameId, levelId: levelId });
   };
   let content;
   switch (type) {
     case "trivia":
       content = (
         <View style={styles.screen}>
-          <Button title="startTriviaGame" onPress={startTriviaGameHandler.bind(this, id)} />
+          <Button title="startTriviaGame" onPress={startTriviaGameHandler.bind(this, gameId, levelId)} />
         </View>
       );
       break;
     case "trueFalse":
       content = (
         <View style={styles.screen}>
-          <Button title="startTrueFalseGame" onPress={startTrueFalseGameHandler.bind(this, id)} />
+          <Button title="startTrueFalseGame" onPress={startTrueFalseGameHandler.bind(this, gameId, levelId)} />
         </View>
       );
       break;

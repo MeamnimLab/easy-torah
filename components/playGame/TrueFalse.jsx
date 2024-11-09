@@ -2,17 +2,14 @@ import { View, Text, StyleSheet, Button } from "react-native";
 import { useSelector } from "react-redux";
 
 const PlayTrueFalse = (props) => {
-  const games = useSelector((state) => state.games.games);
-  const gameId = props.gameId;
-  const game = games.find((game) => game.id === gameId);
-  if (!game) {
+  if (!props.game) {
     return (
       <View style={styles.screen}>
         <Text style={styles.errorText}>Game not found</Text>
       </View>
     );
   }
-  const { question, answer } = game;
+  const { question, answer } = props.game;
   return (
     <View style={styles.screen}>
       <Text style={styles.questionText}>{question}</Text>

@@ -6,9 +6,13 @@ import PlayTrueFalse from '../../components/playGame/TrueFalse'
 
 const PlayGamePage = ({ route, navigation }) => {
   const [score, setScore] = useState(0);
-  const games = useSelector((state) => state.games.games);
   const level = route.params.level;
-  const levelGames = games.filter((game) => game.parendId === level);
+  const levels = useSelector((state) => state.levels.levels);
+  const levelData = levels.find((lev) => lev.id === level);
+  let levelGames = []
+  if(levelData && levelData.games){
+    levelGames = levelData.games
+  }
   const [currentIndex, setCurrentIndex] = useState(1);
   const [currentGame, setCurrentGame] = useState(levelGames[0]);
   console.log(levelGames);
@@ -27,12 +31,11 @@ const PlayGamePage = ({ route, navigation }) => {
   let game = <></>;
   switch (currentGame.type) {
     case "trivia":
-      game = <PlayTrivia gameId={currentGame.id}/>;
+      game = <PlayTrivia game={currentGame}/>;
       break;
     case "trueFalse":
-      game = <PlayTrueFalse gameId={currentGame.id}/>;
+      game = <PlayTrueFalse game={currentGame}/>;
       break;
-
     default:
       break;
   }
