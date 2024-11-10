@@ -1,10 +1,10 @@
-import { Pressable, View, Text, StyleSheet, Platform } from 'react-native';
+import { Pressable, View, Text, StyleSheet, Platform } from "react-native";
 
-function LevelGridTile({ title, color, onPress }) {
+function LevelGridTile({ title, content, color, onPress }) {
   return (
     <View style={styles.gridItem}>
       <Pressable
-        android_ripple={{ color: '#ccc' }}
+        android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => [
           styles.button,
           pressed ? styles.buttonPressed : null,
@@ -12,7 +12,8 @@ function LevelGridTile({ title, color, onPress }) {
         onPress={onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, styles.underline]}>{title}</Text>
+          <Text style={styles.title}>{content}</Text>
         </View>
       </Pressable>
     </View>
@@ -28,12 +29,12 @@ const styles = StyleSheet.create({
     height: 110,
     borderRadius: 8,
     elevation: 4,
-    backgroundColor: 'white',
-    shadowColor: 'black',
+    backgroundColor: "white",
+    shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
   button: {
     flex: 1,
@@ -45,11 +46,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 18,
+  },
+  underline: {
+    textDecorationLine: "underline",
   },
 });

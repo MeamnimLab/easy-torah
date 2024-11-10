@@ -9,7 +9,7 @@ import AllGamesPage from "../screens/AllGames";
 import CreateTriviaPage from "../screens/createGame/Trivia";
 import CreateTrueFalsePage from "../screens/createGame/TrueFalse";
 import PlayGamePage from "../screens/playGame/Play";
-import store from '../redux/store'
+import store from "../redux/store";
 
 const Stack = createStackNavigator();
 
@@ -21,7 +21,14 @@ export default function Index() {
           <Stack.Screen name="Home" component={HomePage} />
           <Stack.Screen name="Result" component={ResultPage} />
           <Stack.Screen name="AddGame" component={AddGamePage} />
-          <Stack.Screen name="PlayGame" component={PlayGamePage} />
+          <Stack.Screen
+            name="PlayGame"
+            component={PlayGamePage}
+            options={{
+              headerShown: true,
+              header: () => null,
+            }}
+          />
           <Stack.Screen name="AllGames" component={AllGamesPage} />
           <Stack.Screen name="CreateTrivia" component={CreateTriviaPage} />
           <Stack.Screen

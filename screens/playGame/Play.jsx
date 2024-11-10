@@ -1,57 +1,107 @@
-import { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { useSelector } from "react-redux";
-import PlayTrivia from '../../components/playGame/Trivia'
-import PlayTrueFalse from '../../components/playGame/TrueFalse'
+import { useEffect, useMemo, useRef, useState } from "react";
+import { View, StyleSheet } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import PlayTrivia from "../../components/playGame/Trivia";
+import PlayTrueFalse from "../../components/playGame/TrueFalse";
+import Header from "../../components/playGame/header/Header";
+import PagerView from "react-native-pager-view";
+import Animated from "react-native-reanimated";
+import { initAnswerdData, initNumOfQuestions, setAnswer } from "@/redux/gameSlice";
+const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const PlayGamePage = ({ route, navigation }) => {
-  const [score, setScore] = useState(0);
-  const level = route.params.level;
+  const dispatch = useDispatch();
   const levels = useSelector((state) => state.levels.levels);
-  const levelData = levels.find((lev) => lev.id === level);
-  let levelGames = []
-  if(levelData && levelData.games){
-    levelGames = levelData.games
-  }
+  const gameInfo = useSelector((state) => state.game.game);
+  const {finish: isGameFinished, numOfQuestions, correctAnswersAmount} = gameInfo;
+
+  const levelGames = useMemo(() => {
+    const level = levels.find((lev) => lev.id === gameInfo.levelId);
+    return level?.games || [];
+  }, [levels, gameInfo.levelId]);
+
+  const startTimeRef = useRef(Date.now());
+
+  useEffect(() => {
+    dispatch(initNumOfQuestions(levelGames.length));
+    dispatch(
+      initAnswerdData(
+        Array.from({ length: levelGames.length }, () => ({
+          selectedAnswer: null,
+          state: "WAIT",
+        }))
+      )
+    );
+  }, [levelGames]);
+
+  useEffect(() => {
+    if (isGameFinished) {
+      navigation.navigate("Result", {totalQuestions: levelGames.length,
+        timeTaken: Date.now() - startTimeRef.current, correctAnswers: correctAnswersAmount, totalQuestions: numOfQuestions});
+    }
+  }, [isGameFinished, navigation, levelGames.length, numOfQuestions, correctAnswersAmount]);
+
+
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [currentGame, setCurrentGame] = useState(levelGames[0]);
-  console.log(levelGames);
-  const nextHandler = (curIndex) => {
-    if (curIndex === levelGames.length) {
-      navigation.navigate("Result", {
-        score,
-        gamesAmount: levelGames.length,
+
+  const pagerViewRef = useRef(null);
+
+  // Effect run to update the header
+  useEffect(() => {
+    if (levelGames.length > 0) {
+      navigation.setOptions({
+        header: () => (
+          <Header
+            current={currentIndex}
+            onQuestionTouch={(index) => {
+              pagerViewRef.current?.setPage(index);
+            }}
+            onBackPress={navigation.goBack}
+          />
+        ),
       });
     }
-    else{
-        setCurrentIndex(curIndex + 1);
-        setCurrentGame(levelGames.find((game) => game.id === curIndex + 1));
+  }, [navigation, currentIndex, levelGames.length]);
+
+  const renderGame = (game) => {
+    if (!game) return null;
+    switch (game.type) {
+      case "trivia":
+        return <PlayTrivia game={game} onAnswered={onAnswered} />;
+      case "trueFalse":
+        return <PlayTrueFalse game={game} onAnswered={onAnswered} />;
+      default:
+        return null;
     }
   };
-  let game = <></>;
-  switch (currentGame.type) {
-    case "trivia":
-      game = <PlayTrivia game={currentGame}/>;
-      break;
-    case "trueFalse":
-      game = <PlayTrueFalse game={currentGame}/>;
-      break;
-    default:
-      break;
-  }
+
+  const onAnswered = (answer, selectedAnswer) => {
+    dispatch(setAnswer({gameIndex: currentIndex,state: answer,selectedAnswer: selectedAnswer}))
+  };
+
   return (
     <View style={styles.screen}>
-      <Text>
-        here will be {currentIndex}/{levelGames.length}
-      </Text>
-      {game}
-      <Button title="next" onPress={nextHandler.bind(this, currentIndex)} />
+      <AnimatedPagerView
+        ref={pagerViewRef}
+        style={{ flex: 1 }}
+        initialPage={0}
+        onPageSelected={(e) => setCurrentIndex(e.nativeEvent.position)}
+      >
+        {levelGames.map((game, index) => (
+          <View key={index} style={styles.page}>
+            {renderGame(game)}
+          </View>
+        ))}
+      </AnimatedPagerView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
+    flex: 1,
+  },
+  page: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
