@@ -14,7 +14,7 @@ const AllGamesPage = ({ navigation }) => {
         dispatch(initLevelId(item.id));
         navigation.navigate("PlayGame");
       } else {
-        Alert.alert("Here will be create game");
+        navigation.navigate("AddGame");
       }
     };
     return (

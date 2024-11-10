@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
+import QuizPage from './QuizPage'
 
 const AddGamePage = () => {
   return (
-    <View style={styles.screen}>
-      <Text>AddGamePage</Text>
-    </View>
+    <QuizPage/>
   );
 };
 

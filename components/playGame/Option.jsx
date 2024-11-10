@@ -1,17 +1,22 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 const Option = (props) => {
-    const {option, description, onPress, disabled} = props
+  const { option, description, onPress, disabled, bgColor } = props;
   return (
     <Pressable
+      android_ripple={{ color: "#ccc" }}
       disabled={disabled}
       onPress={onPress}
-      style={[
-        styles.root
+      style={({ pressed }) => [
+        styles.root,
+        disabled && bgColor && {backgroundColor: bgColor},
+        pressed ? styles.buttonPressed : null,
       ]}
     >
-      <Text style={styles.optionText}>{option}</Text>
-      {description ? <Text>{description}</Text> : null}
+      <View>
+        <Text style={styles.optionText}>{option}</Text>
+        {disabled && bgColor && <Text>{description}</Text>}
+      </View>
     </Pressable>
   );
 };
@@ -23,10 +28,13 @@ const styles = StyleSheet.create({
     padding: 16,
     borderWidth: 1,
     borderRadius: 12,
-    borderColor: "green",
+    borderColor: "gray",
   },
   optionText: {
     fontSize: 16,
     fontWeight: "bold",
+  },
+  buttonPressed: {
+    opacity: 0.5,
   },
 });
