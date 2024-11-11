@@ -1,23 +1,26 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { Surface, TouchableRipple } from "react-native-paper";
 
-const Option = (props) => {
-  const { option, description, onPress, disabled, bgColor } = props;
+const Option = ({ option, description, onPress, disabled, bgColor }) => {
   return (
-    <Pressable
-      android_ripple={{ color: "#ccc" }}
-      disabled={disabled}
-      onPress={onPress}
-      style={({ pressed }) => [
+    <Surface
+      style={[
         styles.root,
-        disabled && bgColor && {backgroundColor: bgColor},
-        pressed ? styles.buttonPressed : null,
+        disabled && bgColor && { backgroundColor: bgColor },
       ]}
     >
-      <View>
-        <Text style={styles.optionText}>{option}</Text>
-        {disabled && bgColor && <Text>{description}</Text>}
-      </View>
-    </Pressable>
+      <TouchableRipple
+        onPress={onPress}
+        disabled={disabled}
+        rippleColor="rgba(0, 0, 0, 0.1)"
+      >
+        <View style={styles.content}>
+          <Text style={styles.optionText}>{option}</Text>
+          {disabled && bgColor && <Text style={styles.description}>{description}</Text>}
+        </View>
+      </TouchableRipple>
+    </Surface>
   );
 };
 
@@ -25,16 +28,27 @@ export default Option;
 
 const styles = StyleSheet.create({
   root: {
-    padding: 16,
-    borderWidth: 1,
+    marginVertical: 2,
     borderRadius: 12,
-    borderColor: "gray",
+    elevation: 2,
+    overflow: "hidden",
+  },
+  touchable: {
+    borderRadius: 12,
+  },
+  content: {
+    minHeight: 50,
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    borderRadius: 12,
   },
   optionText: {
     fontSize: 16,
     fontWeight: "bold",
   },
-  buttonPressed: {
-    opacity: 0.5,
+  description: {
+    marginTop: 4,
+    fontSize: 14,
+    color: "gray",
   },
 });

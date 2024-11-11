@@ -23,7 +23,7 @@ const AllGamesPage = ({ navigation }) => {
       <LevelGridTile
         title={item.level}
         content={item.name}
-        color={item.hasGame ? colors.secondaryContainer : colors.surface}
+        color={item.hasGame ? colors.secondaryContainer : colors.background}
         onPress={pressHandler}
       />
     );
@@ -35,6 +35,7 @@ const AllGamesPage = ({ navigation }) => {
       keyExtractor={(item) => item.id}
       renderItem={renderLevel}
       numColumns={2}
+      style={{ backgroundColor: colors.background }}
     />
   );
 };

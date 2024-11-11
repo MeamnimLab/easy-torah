@@ -7,13 +7,16 @@ import Header from "../../components/playGame/header/Header";
 import PagerView from "react-native-pager-view";
 import Animated from "react-native-reanimated";
 import { initAnswerdData, initNumOfQuestions, setAnswer } from "@/redux/gameSlice";
+import { useTheme } from "react-native-paper";
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const PlayGamePage = ({ route, navigation }) => {
   const dispatch = useDispatch();
+  const {colors} = useTheme();
   const levels = useSelector((state) => state.levels.levels);
   const gameInfo = useSelector((state) => state.game.game);
   const {finish: isGameFinished, numOfQuestions, correctAnswersAmount} = gameInfo;
+  const screenStyle = { backgroundColor: colors.background }
 
   const levelGames = useMemo(() => {
     const level = levels.find((lev) => lev.id === gameInfo.levelId);
@@ -80,7 +83,7 @@ const PlayGamePage = ({ route, navigation }) => {
   };
 
   return (
-    <View style={styles.screen}>
+    <View style={[styles.screen, screenStyle]}>
       <AnimatedPagerView
         ref={pagerViewRef}
         style={{ flex: 1 }}
