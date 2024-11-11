@@ -2,6 +2,7 @@ import { Platform, View, StyleSheet, ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import QuestionNumbers from "./QuestionNumber";
 import { HeaderBackButton } from "@react-navigation/elements";
+import { Appbar } from "react-native-paper";
 
 const Header = (props) => {
   const { current, onBackPress, onQuestionTouch } = props;
@@ -9,8 +10,8 @@ const Header = (props) => {
 
   return (
     <View style={{ paddingTop: top }}>
-      <View style={styles.root}>
-        <HeaderBackButton labelVisible={false} onPress={onBackPress} />
+      <Appbar.Header style={styles.root}>
+        <Appbar.BackAction onPress={onBackPress} />
         <ScrollView
           style={styles.scrollView}
           horizontal
@@ -21,7 +22,7 @@ const Header = (props) => {
             onQuestionTouch={onQuestionTouch}
           />
         </ScrollView>
-      </View>
+      </Appbar.Header>
     </View>
   );
 };
@@ -33,10 +34,6 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: Platform.select({
-      android: 8,
-      default: 0,
-    }),
   },
   scrollView: {
     flexGrow: 1,

@@ -1,11 +1,13 @@
 import React from "react";
-import { FlatList, Alert } from "react-native";
+import { FlatList } from "react-native";
 
 import LevelGridTile from "../components/LevelGridTile";
 import { useDispatch, useSelector } from "react-redux";
 import { initLevelId } from "@/redux/gameSlice";
+import { useTheme } from "react-native-paper";
 
 const AllGamesPage = ({ navigation }) => {
+  const { colors } = useTheme(); 
   const dispatch = useDispatch();
   const levelData = useSelector((state) => state.levels.levels);
   const renderLevel = ({ item }) => {
@@ -21,7 +23,7 @@ const AllGamesPage = ({ navigation }) => {
       <LevelGridTile
         title={item.level}
         content={item.name}
-        color={item.hasGame ? "pink" : "#ccc"}
+        color={item.hasGame ? colors.secondaryContainer : colors.surface}
         onPress={pressHandler}
       />
     );
