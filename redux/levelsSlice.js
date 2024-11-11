@@ -12,14 +12,14 @@ const initialState = {
           1,
           "trivia",
           1,
-          "question A",
+          "When should a person wash their hands (Netilat Yadayim) in the morning according to Jewish law?",
           1,
           [1],
           [
-            { id: 1, answer: "answer 1.1", comment: "comment 1" },
-            { id: 2, answer: "answer 2.1", comment: "comment 2" },
-            { id: 3, answer: "answer 3.1", comment: "comment 3" },
-            { id: 4, answer: "answer 4.1", comment: "comment 4" },
+            { id: 1, answer: "Before making any blessings or prayers after waking up.", comment: "This is the correct answer. According to the Kitzur Shulchan Aruch, hand washing should be done before making any blessings or prayers in the morning to purify oneself." },
+            { id: 2, answer: "Only after eating breakfast.", comment: "This is incorrect. The obligation of Netilat Yadayim in the morning applies before eating or engaging in any activities, not specifically after breakfast." },
+            { id: 3, answer: "Only before going to sleep.", comment: "This is incorrect. The washing of hands before sleep is a separate halacha and is not related to the morning practice." },
+            { id: 4, answer: "After going to the bathroom.", comment: "This is incorrect. The washing of hands after using the bathroom is a separate halacha, but morning Netilat Yadayim should be done upon waking up before any activities." }
           ]
         )},
         {...new Trivia(
@@ -54,7 +54,7 @@ const initialState = {
           4,
           "trueFalse",
           1,
-          "this is a true false question 1",
+          "A person must wash their hands before making any blessings or prayers in the morning.",
           true
         )},
         {...new TrueFalse(

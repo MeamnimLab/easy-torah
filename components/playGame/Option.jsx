@@ -1,12 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Surface, TouchableRipple } from "react-native-paper";
+import { Surface, TouchableRipple, useTheme } from "react-native-paper";
 
 const Option = ({ option, description, onPress, disabled, bgColor }) => {
+  const {colors} = useTheme();
+  const backgroundColor = colors.myGray;
+  let showComment = false
+  if(bgColor=== colors.myRed || bgColor === colors.myGreen){
+    showComment = true
+  }
   return (
     <Surface
       style={[
         styles.root,
+        { backgroundColor: backgroundColor },
         disabled && bgColor && { backgroundColor: bgColor },
       ]}
     >
@@ -17,7 +24,7 @@ const Option = ({ option, description, onPress, disabled, bgColor }) => {
       >
         <View style={styles.content}>
           <Text style={styles.optionText}>{option}</Text>
-          {disabled && bgColor && <Text style={styles.description}>{description}</Text>}
+          {disabled && showComment && <Text style={styles.description}>{description}</Text>}
         </View>
       </TouchableRipple>
     </Surface>

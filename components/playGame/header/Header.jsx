@@ -9,7 +9,7 @@ const Header = (props) => {
   const { top } = useSafeAreaInsets();
 
   return (
-    <View style={{ paddingTop: top }}>
+    <View style={{ paddingTop: top, backgroundColor: "#F7EDE2" }}>
       <Appbar.Header style={styles.root}>
         <Appbar.BackAction onPress={onBackPress} />
         <ScrollView
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
+    backgroundColor: "#F7EDE2",
   },
   scrollView: {
     flexGrow: 1,

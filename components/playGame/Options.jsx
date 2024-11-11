@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { View } from "react-native";
 import Option from "./Option";
+import { useTheme } from "react-native-paper";
 
 const Options = (props) => {
+  const {colors} = useTheme();
   const { options, correctAnswersIds, onAnswered } = props;
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -10,11 +12,11 @@ const Options = (props) => {
   const optionsComponents = options.map((option) => {
     let bgColor;
     if (selectedAnswer && correctAnswersIds.includes(option.id)) {
-      bgColor = "#86efac";
+      bgColor = colors.myGreen;
     } else if (selectedAnswer === option.id) {
-      bgColor = "#fca5a5";
+      bgColor = colors.myRed;
     } else {
-      bgColor = null;
+      bgColor = colors.myGray;
     }
     return (
       <Option

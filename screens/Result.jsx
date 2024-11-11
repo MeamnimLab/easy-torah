@@ -1,11 +1,13 @@
-import { View, Text, StyleSheet, Button } from "react-native";
-import ResultsCard from '../components/result/ResultsCard';
-import TimeSpentCard from '../components/result/TimeSpentCard'
+import { View, Text, StyleSheet } from "react-native";
+import ResultsCard from "../components/result/ResultsCard";
+import TimeSpentCard from "../components/result/TimeSpentCard";
 import { resetGame } from "@/redux/gameSlice";
 import { useDispatch } from "react-redux";
+import { Button, useTheme } from "react-native-paper";
 
-const ResultPage = ({navigation, route}) => {
-  const {totalQuestions,correctAnswers, timeTaken} = route.params;
+const ResultPage = ({ navigation, route }) => {
+  const { colors } = useTheme();
+  const { totalQuestions, correctAnswers, timeTaken } = route.params;
   const dispatch = useDispatch();
 
   return (
@@ -21,14 +23,15 @@ const ResultPage = ({navigation, route}) => {
 
       <View style={styles.buttonContainer}>
         <Button
-          title="Return home"
-          textColor="#fafafa"
-          backgroundColor="#fbbf24"
+          icon="home"
+          mode="elevated"
           onPress={() => {
             dispatch(resetGame());
-            navigation.navigate("AllGames");    
+            navigation.navigate("AllGames");
           }}
-        />
+        >
+          Return home
+        </Button>
       </View>
     </View>
   );

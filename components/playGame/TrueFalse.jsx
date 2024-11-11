@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import Options from "./Options";
+import QuestionCard from "./QuestionCard";
 
 const PlayTrueFalse = (props) => {
   const { game, onAnswered } = props;
@@ -14,7 +15,7 @@ const PlayTrueFalse = (props) => {
   const { question, answer } = game;
   return (
     <View style={styles.root}>
-      <Text style={styles.questionText}>{question}</Text>
+      <QuestionCard question={question}/>
       <Options
         options={[{answer: "True", comment: 'comment to true answer', id: 1},{answer: "False", comment: 'comment to false answer', id: 2}]}
         correctAnswersIds={[answer? 1: 2]}
@@ -26,9 +27,12 @@ const PlayTrueFalse = (props) => {
 
 const styles = StyleSheet.create({
   root: {
+    flex: 1,
     padding: 16,
+    paddingVertical: 40,
     gap: 10,
     width: "100%",
+    justifyContent: "space-between"
   },
   questionText: {
     fontSize: 20,

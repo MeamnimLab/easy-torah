@@ -16,7 +16,7 @@ const PlayGamePage = ({ route, navigation }) => {
   const levels = useSelector((state) => state.levels.levels);
   const gameInfo = useSelector((state) => state.game.game);
   const {finish: isGameFinished, numOfQuestions, correctAnswersAmount} = gameInfo;
-  const screenStyle = { backgroundColor: colors.background }
+  const screenStyle = { backgroundColor: colors.myBeige }
 
   const levelGames = useMemo(() => {
     const level = levels.find((lev) => lev.id === gameInfo.levelId);
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   },
   page: {
     flex: 1,
+    height: '100%',
     justifyContent: "center",
     alignItems: "center",
   },

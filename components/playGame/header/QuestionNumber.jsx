@@ -1,22 +1,24 @@
 import { StyleSheet, Pressable, View, Text } from "react-native";
+import { useTheme } from "react-native-paper";
 import { useSelector } from "react-redux";
 
 const QuestionNumbers = (props) => {
+  const {colors} = useTheme();
   const { current, onQuestionTouch } = props;
 
   const gameInfo = useSelector((state) => state.game.game);
-  const { answeredData } = gameInfo;
+  const { answeredData = [] } = gameInfo;
   const numberQuestion = answeredData.map(({ state }, index) => {
     const circleStyles = { backgroundColor: null };
     if (current === index) {
       circleStyles.borderWidth = 1;
-      circleStyles.borderColor = "#fcd34d";
+      circleStyles.borderColor = colors.myOrange;
     } else if (state === "TRUE") {
-      circleStyles.backgroundColor = "#86efac";
+      circleStyles.backgroundColor = colors.myGreen;
     } else if (state === "FALSE") {
-      circleStyles.backgroundColor = "#fca5a5";
+      circleStyles.backgroundColor = colors.myRed;
     } else {
-      circleStyles.backgroundColor = "#e5e5e5";
+      circleStyles.backgroundColor = colors.myGray;
     }
 
     return (
