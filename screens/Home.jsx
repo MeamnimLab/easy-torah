@@ -17,6 +17,9 @@ const HomePage = () => {
         tabBarStyle: { backgroundColor: colors.myBeige },  // Set background color for the tab bar
         tabBarActiveTintColor: colors.myOrange,  // Set active tab icon color
         tabBarInactiveTintColor: colors.myGray,  // Set inactive tab icon color
+        headerStyle: {
+          backgroundColor: colors.myBeige,  // Set header background color
+        },
       }}
     >
       <Tab.Screen
