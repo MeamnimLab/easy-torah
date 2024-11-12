@@ -3,10 +3,11 @@ import { View, StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import PlayTrivia from "../../components/playGame/Trivia";
 import PlayTrueFalse from "../../components/playGame/TrueFalse";
+import PlayVocabulary from "../../components/playGame/Vocabulary";
 import Header from "../../components/playGame/header/Header";
 import PagerView from "react-native-pager-view";
 import Animated from "react-native-reanimated";
-import { initAnswerdData, initNumOfQuestions, setAnswer } from "@/redux/gameSlice";
+import { initAnswerdData, initNumOfQuestions, setAnswer, setVisited } from "@/redux/gameSlice";
 import { useTheme } from "react-native-paper";
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
@@ -26,15 +27,24 @@ const PlayGamePage = ({ route, navigation }) => {
   const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
-    dispatch(initNumOfQuestions(levelGames.length));
-    dispatch(
-      initAnswerdData(
-        Array.from({ length: levelGames.length }, () => ({
+    const initialAnswersData = levelGames.map((game)=>{
+      if(game.type === 'vocabulary'){
+        return {
           selectedAnswer: null,
-          state: "WAIT",
-        }))
-      )
-    );
+          state: "NOTGAME",
+        }
+      }
+      return {
+        selectedAnswer: null,
+        state: "WAIT",
+      }
+    })
+    Array.from({ length: levelGames.length }, () => ({
+      selectedAnswer: null,
+      state: "WAIT",
+    }))
+    dispatch(initNumOfQuestions(levelGames.length));
+    dispatch(initAnswerdData(initialAnswersData));
   }, [levelGames]);
 
   useEffect(() => {
@@ -57,6 +67,9 @@ const PlayGamePage = ({ route, navigation }) => {
           <Header
             current={currentIndex}
             onQuestionTouch={(index) => {
+              if(levelGames[index].type === 'vocabulary'){
+                dispatch(setVisited({gameIndex: currentIndex}));
+              }
               pagerViewRef.current?.setPage(index);
             }}
             onBackPress={navigation.goBack}
@@ -73,6 +86,8 @@ const PlayGamePage = ({ route, navigation }) => {
         return <PlayTrivia game={game} onAnswered={onAnswered} />;
       case "trueFalse":
         return <PlayTrueFalse game={game} onAnswered={onAnswered} />;
+      case "vocabulary":
+        return <PlayVocabulary game={game} />;
       default:
         return null;
     }
@@ -88,7 +103,11 @@ const PlayGamePage = ({ route, navigation }) => {
         ref={pagerViewRef}
         style={{ flex: 1 }}
         initialPage={0}
-        onPageSelected={(e) => setCurrentIndex(e.nativeEvent.position)}
+        onPageSelected={(e) => {
+          if(levelGames[e.nativeEvent.position].type === 'vocabulary'){
+            dispatch(setVisited({gameIndex: e.nativeEvent.position}));
+          }
+          setCurrentIndex(e.nativeEvent.position)}}
       >
         {levelGames.map((game, index) => (
           <View key={index} style={styles.page}>

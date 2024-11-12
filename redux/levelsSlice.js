@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import Level from "../models/level";
 import Trivia from "@/models/games/trivia";
 import TrueFalse from "@/models/games/trueFalse";
+import Vocabulary from "@/models/games/vocabulary";
 
 const initialState = {
   levels: [
@@ -70,6 +71,85 @@ const initialState = {
           1,
           "this is a true false question 3",
           false
+        )},
+        {...new Vocabulary(
+          7,
+          "vocabulary",
+          1,
+          "The bioluminescent organisms in the ocean create a mesmerizing glow that illuminates the water.",
+          [
+            {
+              "id": 1,
+              "sentence": "bioluminescent",
+              "explanation": "Organisms that produce their own light."
+            },
+            {
+              "id": 2,
+              "sentence": "mesmerizing",
+              "explanation": "Something that is very captivating or fascinating."
+            },
+            {
+              "id": 3,
+              "sentence": "illuminates",
+              "explanation": "Makes something bright or lights it up."
+            }
+          ]
+        )},
+        {...new Vocabulary(
+          8,
+          "vocabulary",
+          1,
+          "The architect designed a magnificent edifice that became a landmark in the city.",
+          [
+            {
+              "id": 1,
+              "sentence": "architect",
+              "explanation": "A person who designs buildings."
+            },
+            {
+              "id": 2,
+              "sentence": "magnificent",
+              "explanation": "Very impressive or beautiful."
+            },
+            {
+              "id": 3,
+              "sentence": "edifice",
+              "explanation": "A large and impressive building."
+            },
+            {
+              "id": 4,
+              "sentence": "landmark",
+              "explanation": "An important or recognizable building or place."
+            }
+          ]
+        )},
+        {...new Vocabulary(
+          9,
+          "vocabulary",
+          1,
+          "Astronomers use sophisticated telescopes to observe celestial phenomena far beyond our galaxy.",
+          [
+            {
+              "id": 1,
+              "sentence": "sophisticated",
+              "explanation": "Advanced or complex."
+            },
+            {
+              "id": 2,
+              "sentence": "celestial",
+              "explanation": "Related to the sky or outer space."
+            },
+            {
+              "id": 3,
+              "sentence": "phenomena",
+              "explanation": "Events or occurrences that can be observed, often remarkable or extraordinary."
+            },
+            {
+              "id": 4,
+              "sentence": "galaxy",
+              "explanation": "A large system of stars and planets in space."
+            }
+          ]
         )},
       ],
     },

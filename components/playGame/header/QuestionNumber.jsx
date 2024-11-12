@@ -17,6 +17,11 @@ const QuestionNumbers = (props) => {
       circleStyles.backgroundColor = colors.myGreen;
     } else if (state === "FALSE") {
       circleStyles.backgroundColor = colors.myRed;
+    } else if (state === "NOTGAME") {
+      circleStyles.borderWidth = 1;
+      circleStyles.borderColor = colors.myGreen;
+    } else if (state === "VISITED") {
+      circleStyles.backgroundColor = colors.myOrange;
     } else {
       circleStyles.backgroundColor = colors.myGray;
     }

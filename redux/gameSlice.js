@@ -28,10 +28,14 @@ const gameSlice = createSlice({
         state: action.payload.state ? "TRUE" : "FALSE",
         selectedAnswer: action.payload.selectedAnswer,
       };
-      state.game.finish = !state.game.answeredData.some((item) => item.state === 'WAIT');
+      state.game.finish = !state.game.answeredData.some((item) => item.state === 'WAIT' || item.state === 'NOTGAME');
       if(action.payload.state === true) {
         state.game.correctAnswersAmount += 1;
       }
+    },
+    setVisited: (state, action) => {
+      state.game.answeredData[action.payload.gameIndex].state = "VISITED"
+      state.game.finish = !state.game.answeredData.some((item) => item.state === 'WAIT' || item.state === 'NOTGAME');
     },
     resetGame: (state) => {
       state.game = initialState
@@ -39,6 +43,6 @@ const gameSlice = createSlice({
   },
 });
 
-export const { initLevelId, initAnswerdData, initNumOfQuestions, setAnswer, resetGame } =
+export const { initLevelId, initAnswerdData, initNumOfQuestions, setAnswer, resetGame,setVisited } =
   gameSlice.actions;
 export default gameSlice.reducer;
