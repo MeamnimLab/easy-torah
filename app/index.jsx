@@ -59,8 +59,8 @@ export default function Index() {
                 header: () => null,
               }}
             />
-            <Stack.Screen name="AllGames" component={AllGamesPage} />
-            <Stack.Screen name="CreateTrivia" component={CreateTriviaPage} />
+            {/* <Stack.Screen name="AllGames" component={AllGamesPage} />
+            <Stack.Screen name="CreateTrivia" component={CreateTriviaPage} /> */}
             <Stack.Screen
               name="CreateTrueFalse"
               component={CreateTrueFalsePage}
