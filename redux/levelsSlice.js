@@ -7,8 +7,13 @@ import Vocabulary from "@/models/games/vocabulary";
 const initialState = {
   levels: [
     {
-      ...new Level(1, "א", "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר", true),
-      icon: "sunny-outline",
+      ...new Level(
+        1,
+        "א",
+        "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר",
+        "sunny-outline",
+        true
+      ),
       games: [
         {
           ...new Trivia(
@@ -196,183 +201,289 @@ const initialState = {
       ],
     },
     {
-      ...new Level(2, "ב", "הִלְכוֹת נְטִילַת יָדַיִם", false),
-      icon: "water-outline",
+      ...new Level(2, "ב", "הִלְכוֹת נְטִילַת יָדַיִם", "water-outline", false),
     },
     {
-      ...new Level(3, "ג", "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ", false),
-      icon: "shirt-outline",
+      ...new Level(
+        3,
+        "ג",
+        "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ",
+        "shirt-outline",
+        false
+      ),
     },
     {
       ...new Level(
         4,
         "ד",
         "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר",
+        "water-outline",
         false
       ),
-      icon: "water-outline",
-    }, // represents Netilat Yadayim
+    },
     {
-      ...new Level(5, "ה", "נקיון המקום לדבר שבקדושה", false),
-      icon: "brush-outline",
-    }, // cleanliness and purity
+      ...new Level(5, "ה", "נקיון המקום לדבר שבקדושה", "brush-outline", false),
+    },
     {
       ...new Level(
         6,
         "ו",
         "קצת דיני ברכות ודיני ברוך הוא וברוך שמו ואמן",
+        "pricetag-outline",
         false
       ),
-      icon: "pricetag-outline",
     }, // blessings and respectful mention
-    { ...new Level(7, "ז", "הלכות ברכות השחר", false), icon: "sunny-outline" }, // morning blessings
+    { ...new Level(7, "ז", "הלכות ברכות השחר", "sunny-outline", false) }, // morning blessings
     {
-      ...new Level(8, "ח", "דברים האסורים משהאיר היום עד לאחר שיתפלל", false),
-      icon: "time-outline",
+      ...new Level(
+        8,
+        "ח",
+        "דברים האסורים משהאיר היום עד לאחר שיתפלל",
+        "time-outline",
+        false
+      ),
     }, // timing for prayers
-    { ...new Level(9, "ט", "הִלְכוֹת צִיצִית", false), icon: "shirt-outline" }, // Tzitzit (garment)
-    { ...new Level(10, "י", "הלכות תפילין", false), icon: "cube-outline" }, // Tefillin (symbolic of the box shape)
-    { ...new Level(11, "יא", "הלכות מזוזה", false), icon: "home-outline" }, // Mezuzah (placed on doorposts)
+    { ...new Level(9, "ט", "הִלְכוֹת צִיצִית", "shirt-outline", false) }, // Tzitzit (garment)
+    { ...new Level(10, "י", "הלכות תפילין", "cube-outline", false) }, // Tefillin (symbolic of the box shape)
+    { ...new Level(11, "יא", "הלכות מזוזה", "home-outline", false) }, // Mezuzah (placed on doorposts)
     {
       ...new Level(
         12,
         "יב",
         "הלכות הכנת הגוף לתפלה ומקומות שראוי להתפלל שם",
+        "person-outline",
         false
       ),
-      icon: "person-outline",
     },
     {
-      ...new Level(13, "יג", "דיני קדושת בית הכנסת ובית המדרש", false),
-      icon: "business-outline",
+      ...new Level(
+        13,
+        "יג",
+        "דיני קדושת בית הכנסת ובית המדרש",
+        "business-outline",
+        false
+      ),
     },
     {
-      ...new Level(14, "יד", "דיני פסוקי דזמרה", false),
-      icon: "musical-notes-outline",
+      ...new Level(
+        14,
+        "יד",
+        "דיני פסוקי דזמרה",
+        "musical-notes-outline",
+        false
+      ),
     },
     {
-      ...new Level(15, "טו", 'דיני דברים שבקדושה ודיני ש"ץ', false),
-      icon: "megaphone-outline",
+      ...new Level(
+        15,
+        "טו",
+        'דיני דברים שבקדושה ודיני ש"ץ',
+        "megaphone-outline",
+        false
+      ),
     },
     {
-      ...new Level(16, "טז", "דיני ההפסקות בקריאת שמע וברכותיה", false),
-      icon: "pause-outline",
+      ...new Level(
+        16,
+        "טז",
+        "דיני ההפסקות בקריאת שמע וברכותיה",
+        "pause-outline",
+        false
+      ),
     }, // pauses during Shema
-    { ...new Level(17, "יז", "דיני קריאת שמע", false), icon: "book-outline" }, // Shema reading
+    { ...new Level(17, "יז", "דיני קריאת שמע", "book-outline", false) }, // Shema reading
     {
-      ...new Level(18, "יח", "הלכות תפילת שמונה עשרה", false),
-      icon: "chatbubble-outline",
+      ...new Level(
+        18,
+        "יח",
+        "הלכות תפילת שמונה עשרה",
+        "chatbubble-outline",
+        false
+      ),
     }, // Amidah prayer
     {
-      ...new Level(19, "יט", "דיני משיב הרוח וטל ומטר ויעלה ויבא ועננו", false),
-      icon: "cloud-outline",
+      ...new Level(
+        19,
+        "יט",
+        "דיני משיב הרוח וטל ומטר ויעלה ויבא ועננו",
+        "cloud-outline",
+        false
+      ),
     }, // elements/weather prayer
-    { ...new Level(20, "כ", 'דיני חזרת הש"ץ', false), icon: "repeat-outline" }, // repetition of Amidah
+    { ...new Level(20, "כ", 'דיני חזרת הש"ץ', "repeat-outline", false) }, // repetition of Amidah
     {
-      ...new Level(21, "כא", "דין מי שלא התפלל היאך ישלימנה", false),
-      icon: "sync-outline",
+      ...new Level(
+        21,
+        "כא",
+        "דין מי שלא התפלל היאך ישלימנה",
+        "sync-outline",
+        false
+      ),
     }, // makeup prayers
-    { ...new Level(22, "כב", "דיני תחנון", false), icon: "hand-left-outline" }, // supplications
+    { ...new Level(22, "כב", "דיני תחנון", "hand-left-outline", false) }, // supplications
     {
-      ...new Level(23, "כג", "קצת דיני קריאת ספר תורה", false),
-      icon: "document-outline",
+      ...new Level(
+        23,
+        "כג",
+        "קצת דיני קריאת ספר תורה",
+        "document-outline",
+        false
+      ),
     }, // Torah reading
     {
-      ...new Level(24, "כד", "אם נמצא טעות או פסול בספר תורה", false),
-      icon: "alert-circle-outline",
+      ...new Level(
+        24,
+        "כד",
+        "אם נמצא טעות או פסול בספר תורה",
+        "alert-circle-outline",
+        false
+      ),
     }, // error in Torah scroll
     {
-      ...new Level(25, "כה", "דיני אשרי ובא לציון עד גמר התפילה", false),
-      icon: "checkmark-done-outline",
+      ...new Level(
+        25,
+        "כה",
+        "דיני אשרי ובא לציון עד גמר התפילה",
+        "checkmark-done-outline",
+        false
+      ),
     }, // conclusion of prayer
-    { ...new Level(26, "כו", "דיני קדיש יתום", false), icon: "people-outline" }, // Kaddish for the deceased
+    { ...new Level(26, "כו", "דיני קדיש יתום", "people-outline", false) }, // Kaddish for the deceased
     {
-      ...new Level(27, "כז", "הלכות תלמוד תורה", false),
-      icon: "school-outline",
+      ...new Level(27, "כז", "הלכות תלמוד תורה", "school-outline", false),
     }, // study of Torah
     {
-      ...new Level(28, "כח", "הלכות ספר תורה ושאר ספרי קודש", false),
-      icon: "library-outline",
+      ...new Level(
+        28,
+        "כח",
+        "הלכות ספר תורה ושאר ספרי קודש",
+        "library-outline",
+        false
+      ),
     }, // holy books
     {
-      ...new Level(29, "כט", "מידות שירגיל בהם האדם את עצמו", false),
-      icon: "options-outline",
+      ...new Level(
+        29,
+        "כט",
+        "מידות שירגיל בהם האדם את עצמו",
+        "options-outline",
+        false
+      ),
     }, // character traits
     {
-      ...new Level(30, "ל", "איסור רכילות, לשון הרע, נקימה ונטירה", false),
-      icon: "volume-mute-outline",
+      ...new Level(
+        30,
+        "ל",
+        "איסור רכילות, לשון הרע, נקימה ונטירה",
+        "volume-mute-outline",
+        false
+      ),
     }, // prohibition of gossip
     {
-      ...new Level(31, "לא", "שכל כוונות האדם יהיו לשם שמים", false),
-      icon: "heart-outline",
+      ...new Level(
+        31,
+        "לא",
+        "שכל כוונות האדם יהיו לשם שמים",
+        "heart-outline",
+        false
+      ),
     }, // for the sake of Heaven
     {
-      ...new Level(32, "לב", 'שמירת הגוף ע"פ הטבע', false),
-      icon: "fitness-outline",
+      ...new Level(32, "לב", 'שמירת הגוף ע"פ הטבע', "fitness-outline", false),
     }, // health and body care
     {
-      ...new Level(33, "לג", "דברים האסורים משום סכנה", false),
-      icon: "warning-outline",
+      ...new Level(
+        33,
+        "לג",
+        "דברים האסורים משום סכנה",
+        "warning-outline",
+        false
+      ),
     }, // prohibited due to danger
-    { ...new Level(34, "לד", "הלכות צדקה", false), icon: "cash-outline" }, // charity
-    { ...new Level(35, "לה", "הלכות חלה", false), icon: "restaurant-outline" }, // Challah (bread)
+    { ...new Level(34, "לד", "הלכות צדקה", "cash-outline", false) }, // charity
+    { ...new Level(35, "לה", "הלכות חלה", "restaurant-outline", false) }, // Challah (bread)
     {
       ...new Level(
         36,
         "מח",
         "הִלְכוֹת בְּרָכוֹת עַל מַאֲכָלִים מֵחֲמֵשֶׁת מִינֵי דָּגָן",
+        "help-outline",
         false
       ),
+    },
+    {
+      ...new Level(37, "לו", "הלכות מליחה", "help-outline", false),
       icon: "help-outline",
     },
-    { ...new Level(37, "לו", "הלכות מליחה", false), icon: "help-outline" },
     {
       ...new Level(
         38,
         "מט",
         "דִּין בִּרְכַּת הַיַּיִן וּבִרְכַּת הַטּוֹב וְהַמֵּטִיב",
+        "help-outline",
         false
       ),
-      icon: "help-outline",
     },
     {
       ...new Level(
         39,
         "נ",
         "כְּלָלִים בִּבְרָכָה רִאשׁוֹנָה מִבִּרְכוֹת הַנֶּהֱנִין",
+        "help-outline",
         false
       ),
-      icon: "help-outline",
     },
     {
-      ...new Level(40, "נא", "כְּלָלִים בִּבְרָכָה אַחֲרוֹנָה", false),
-      icon: "help-outline",
+      ...new Level(
+        40,
+        "נא",
+        "כְּלָלִים בִּבְרָכָה אַחֲרוֹנָה",
+        "help-outline",
+        false
+      ),
     },
     {
       ...new Level(
         41,
         "ס",
         "דִּין מִי שֶׁרוֹצֶה לֶאֱכֹל אוֹ לִשְׁתּוֹת קֹדֶם הַסְּעֻדָּה",
+        "help-outline",
         false
       ),
-      icon: "help-outline",
     },
-    { ...new Level(42, "סא", "משא ומתן והדרך", false), icon: "help-outline" },
     {
-      ...new Level(43, "סב", "הלכות כיבוד אב ואם", false),
+      ...new Level(42, "סא", "משא ומתן והדרך", "help-outline", false),
       icon: "help-outline",
     },
     {
-      ...new Level(44, "סג", "הלכות כיבוד רבו וזקן ותלמיד חכם וכהן", false),
-      icon: "help-outline",
+      ...new Level(43, "סב", "הלכות כיבוד אב ואם", "help-outline", false),
     },
     {
-      ...new Level(45, "סד", "הִלְכוֹת שִׁמּוּר בָּרוּת", false),
-      icon: "help-outline",
+      ...new Level(
+        44,
+        "סג",
+        "הלכות כיבוד רבו וזקן ותלמיד חכם וכהן",
+        "help-outline",
+        false
+      ),
     },
     {
-      ...new Level(46, "סה", "הִלְכוֹת הזדהות עם הקהל ביהודים השכנים", false),
-      icon: "help-outline",
+      ...new Level(
+        45,
+        "סד",
+        "הִלְכוֹת שִׁמּוּר בָּרוּת",
+        "help-outline",
+        false
+      ),
+    },
+    {
+      ...new Level(
+        46,
+        "סה",
+        "הִלְכוֹת הזדהות עם הקהל ביהודים השכנים",
+        "help-outline",
+        false
+      ),
     },
   ],
 };
