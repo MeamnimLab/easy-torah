@@ -25,6 +25,7 @@ const AllGamesPage = ({ navigation }) => {
         content={item.name}
         color={item.hasGame ? colors.myRed : colors.myGray}
         onPress={pressHandler}
+        icon={item.icon}
       />
     );
   };

@@ -1,8 +1,9 @@
 import React from "react";
-import { Pressable, Text, StyleSheet } from "react-native";
+import { Pressable, Text, StyleSheet, View } from "react-native";
 import { Surface } from "react-native-paper";
+import { Ionicons } from "@expo/vector-icons";
 
-function LevelGridTile({ title, content, color, onPress }) {
+function LevelGridTile({ title, content, color, onPress, icon }) {
   return (
     <Surface style={[styles.gridItem, { backgroundColor: color }]}>
       <Pressable
@@ -14,7 +15,10 @@ function LevelGridTile({ title, content, color, onPress }) {
         ]}
       >
         <Text style={styles.title}>{title}</Text>
-        <Text>{content}</Text>
+        <View style={styles.row}>
+          <Text style={styles.content}>{content}</Text>
+          <Ionicons name={icon} size={24} color={"#666"}/>
+        </View>
       </Pressable>
     </Surface>
   );
@@ -26,17 +30,31 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     margin: 10,
-    height: 110,
-    borderRadius: 30,
+    height: 130,
+    borderRadius: 20,
     overflow: "hidden",
+    elevation: 4,
   },
   button: {
     flex: 1,
-    padding: 16,
+    paddingVertical: 20,
+    paddingHorizontal: 16,
     justifyContent: "center",
     alignItems: "center",
   },
   title: {
     fontWeight: "bold",
+    fontSize: 18,
+    color: "#333",
+    marginBottom: 8,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  content: {
+    fontSize: 14,
+    color: "#666",
+    marginHorizontal: 3,
   },
 });
