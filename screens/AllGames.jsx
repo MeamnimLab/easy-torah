@@ -15,17 +15,17 @@ const AllGamesPage = ({ navigation }) => {
       if (item.hasGame && item.id) {
         dispatch(initLevelId(item.id));
         navigation.navigate("PlayGame");
-      } else {
-        navigation.navigate("AddGame");
       }
     };
+
     return (
       <LevelGridTile
         title={item.level}
         content={item.name}
-        color={item.hasGame ? colors.myRed : colors.myGray}
         onPress={pressHandler}
         icon={item.icon}
+        locked={!item.hasGame}
+        stars={-1}
       />
     );
   };

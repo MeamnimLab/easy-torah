@@ -124,6 +124,7 @@ const QuizPage = () => {
     }
   };
 
+  return(<></>)
   return (
     // <PanGestureHandler
     //   onGestureEvent={onGestureEvent}

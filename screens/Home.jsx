@@ -27,13 +27,14 @@ const HomePage = () => {
       {/* Wrapper to detect presses outside */}
       <TouchableWithoutFeedback onPress={closeDrawer}>
         <View style={styles.container}>
-          {/* <Appbar.Header style={{ backgroundColor: colors.myBeige }}>
+          <Appbar.Header style={{ backgroundColor: colors.myBeige }}>
             <Appbar.Action icon="menu" onPress={toggleDrawer} />
-            <Appbar.Content title="Home Page" />
-          </Appbar.Header> */}
+            <Appbar.Content />
+          </Appbar.Header>
 
           <Tab.Navigator
             screenOptions={{
+              headerShown: false,
               tabBarStyle: { backgroundColor: colors.myBeige },
               tabBarActiveTintColor: colors.myOrange,
               tabBarInactiveTintColor: colors.myGray,

@@ -1,16 +1,15 @@
-import { Platform, View, StyleSheet, ScrollView } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { View, StyleSheet, ScrollView } from "react-native";
 import QuestionNumbers from "./QuestionNumber";
-import { HeaderBackButton } from "@react-navigation/elements";
-import { Appbar } from "react-native-paper";
+import { Appbar, useTheme } from "react-native-paper";
 
 const Header = (props) => {
   const { current, onBackPress, onQuestionTouch } = props;
-  const { top } = useSafeAreaInsets();
+
+  const {colors} = useTheme();
 
   return (
-    <View style={{ paddingTop: top, backgroundColor: "#F7EDE2" }}>
-      <Appbar.Header style={styles.root}>
+    <View style={{ backgroundColor: colors.myBeige }}>
+      <Appbar.Header style={[styles.root, { backgroundColor: colors.myBeige }]}>
         <Appbar.BackAction onPress={onBackPress} />
         <ScrollView
           style={styles.scrollView}
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#F7EDE2",
   },
   scrollView: {
     flexGrow: 1,
