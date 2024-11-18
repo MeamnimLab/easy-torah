@@ -1,57 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, View } from "react-native";
+import { useDispatch } from "react-redux";
 
-import { useTheme } from "react-native-paper";
 import useHttp from "../hooks/http";
+import { initLevelId } from "@/redux/gameSlice";
+import { Button, useTheme } from "react-native-paper";
+import LevelGridTile from "@/components/LevelGridTile";
 
-const SubLevelsPage = ({ navigation }) => {
-//   const { colors } = useTheme();
-//   const [levelData, setLevelData] = useState([]);
+const SubLevelsPage = ({ navigation, route }) => {
+  const { colors } = useTheme();
+  const [subLevelData, setSubLevelData] = useState([]);
+  const { levelId } = route.params;
 
-//   const { isLoading, error, sendRequest: fetchLevelData } = useHttp();
+  const dispatch = useDispatch();
 
-//   const renderLevel = ({ item }) => {
-//     const pressHandler = () => {
-//       if (item.hasGame && item.id) {
-//         console.log("go to sub level", item.id);
-//       }
-//       // else if (state === 'SUB_LEVEL' && item.hasGame && item.id) {
-//       //   dispatch(initLevelId(item.id));
-//       //   navigation.navigate("PlayGame");
-//       // }
-//     };
+  const { isLoading, error, sendRequest: fetchSubLevelData } = useHttp();
 
-//     return (
-//       <LevelGridTile
-//         title={item.name.title}
-//         content={item.name.description}
-//         onPress={pressHandler}
-//         icon={item.icon.name}
-//         locked={!item.hasGame}
-//         stars={-1}
-//       />
-//     );
-//   };
+  const renderSubLevel = ({ item }) => {
+    const pressHandler = () => {
+      if (item.hasGame && item.id) {
+        dispatch(initLevelId(item.id));
+        navigation.navigate("PlayGame");
+      }
+    };
 
-//   useEffect(() => {
-//     let url = "http://10.0.2.2:3000/api/level/getLevelsWithProgress/1";
+    return (
+      <LevelGridTile
+      title={item.name}
+      onPress={pressHandler}
+    />
+    );
+  };
 
-//     const transformLevels = (levelsObj) => {
-//       setLevelData(levelsObj.data);
-//     };
+  useEffect(() => {
+    let url = `http://192.168.43.175:3000/api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
 
-//     fetchLevelData({ url }, transformLevels);
-//   }, [fetchLevelData]);
+    const transformSubLevels = (subLevelsObj) => {
+      setSubLevelData(subLevelsObj.data);
+    };
 
-//   // useEffect(() => {
-//   //   console.log(levelData)
-//   // }, [levelData]);
+    fetchSubLevelData({ url }, transformSubLevels);
+  }, [fetchSubLevelData, levelId]);
+
+  useEffect(() => {
+    console.log(subLevelData)
+  }, [subLevelData]);
 
   let content = (
     <FlatList
-      data={levelData}
+      data={subLevelData}
       keyExtractor={(item) => item.id}
-      renderItem={renderLevel}
+      renderItem={renderSubLevel}
       numColumns={2}
       style={{ backgroundColor: colors.myBeige }}
     />

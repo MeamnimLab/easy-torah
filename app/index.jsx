@@ -9,6 +9,7 @@ import {
 import HomePage from "../screens/Home";
 import ResultPage from "../screens/Result";
 import AddGamePage from "../screens/AddGame";
+import SubLevelsPage from "../screens/SubLevels";
 import CreateTrueFalsePage from "../screens/createGame/TrueFalse";
 import PlayGamePage from "../screens/playGame/Play";
 import store from "../redux/store";
@@ -48,6 +49,7 @@ export default function Index() {
             <Stack.Screen name="Home" component={HomePage} options={{ headerShown: false }} />
             <Stack.Screen name="Result" component={ResultPage} />
             <Stack.Screen name="AddGame" component={AddGamePage} />
+            <Stack.Screen name="SubLevels" component={SubLevelsPage} />
             <Stack.Screen
               name="PlayGame"
               component={PlayGamePage}

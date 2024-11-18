@@ -6,8 +6,14 @@ import GameService from '../services/game.service';
 class GameController extends BaseController {
   public service = new GameService();
 
-  public get = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-      this.sendResponse(res, {data: 'hi'}, 'Game retruned successfully', 200);
+  public getSubLevelGames = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    const { subLevelId } = req.params;
+      const games = await this.service.getSubLevelGames(subLevelId);
+      if (games) {
+        this.sendResponse(res, games, "Games retruned successfully", 200);
+      } else {
+        this.sendError("error getting games", 404);
+      }  
   });
 }
 

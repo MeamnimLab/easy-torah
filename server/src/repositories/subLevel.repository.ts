@@ -21,6 +21,7 @@ class SubLevelRepository extends BaseRepository<SubLevel> {
           "userSubLevelProgress.levelProgressId = :levelId AND userSubLevelProgress.userId = :userId",
           { userId, levelId }
         )
+        .where("subLevel.levelId = :levelId", { levelId })
         .getMany();
   
       return subLevels;

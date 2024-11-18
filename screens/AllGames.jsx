@@ -18,12 +18,8 @@ const AllGamesPage = ({ navigation }) => {
 
     const pressHandler = () => {
       if(item.hasGame && item.id){
-        console.log("go to sub level", item.id)
-      } 
-      // else if (state === 'SUB_LEVEL' && item.hasGame && item.id) {
-      //   dispatch(initLevelId(item.id));
-      //   navigation.navigate("PlayGame");
-      // }
+        navigation.navigate("SubLevels", {levelId: item.id});
+      }
     };
 
     return (
@@ -39,7 +35,7 @@ const AllGamesPage = ({ navigation }) => {
   };
 
   useEffect(() => {
-    let url = "http://10.0.2.2:3000/api/level/getLevelsWithProgress/1"
+    let url = "http://192.168.43.175:3000/api/level/getLevelsWithProgress/1"
 
     const transformLevels = (levelsObj) => {
       setLevelData(levelsObj.data)

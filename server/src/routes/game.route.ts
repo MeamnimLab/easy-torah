@@ -11,7 +11,7 @@ class GameRoute extends BaseRoutes {
   }
 
   protected defineRoutes(): RouteDefinition[] {
-    return [[RouterMethod.GET, '/', [this.controller.get]]];
+    return [[RouterMethod.GET, '/:subLevelId', [this.controller.getSubLevelGames]]];
   }
 }
 

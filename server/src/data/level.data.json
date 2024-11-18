@@ -19,7 +19,7 @@
     "icon": {
       "name": "water-outline"
     },
-    "hasGame": false
+    "hasGame": true
   },
   {
     "id": 3,
@@ -30,7 +30,7 @@
     "icon": {
       "name": "shirt-outline"
     },
-    "hasGame": false
+    "hasGame": true
   },
   {
     "id": 4,
@@ -41,7 +41,7 @@
     "icon": {
       "name": "water-outline"
     },
-    "hasGame": false
+    "hasGame": true
   },
   {
     "id": 5,
@@ -52,7 +52,7 @@
     "icon": {
       "name": "brush-outline"
     },
-    "hasGame": false
+    "hasGame": true
   },
   {
     "id": 6,

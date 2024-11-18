@@ -9,13 +9,6 @@ class UserProgressRepository extends BaseRepository<UserProgress> {
   constructor() {
     super(UserProgress);
   }
-
-  // public async find2(userId: any): Promise<any> {
-  //   return await this.repository.find({
-  //       where: { user: { id: userId } },
-  //       relations: ['level'],
-  //   });
-  // }
 }
 
 export default UserProgressRepository;

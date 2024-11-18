@@ -13,6 +13,9 @@ export class SubLevel implements ISubLevel {
     @Column()
     name!: string;
 
+    @Column({default: false})
+    hasGame!: boolean;
+
     @ManyToOne(() => Level, (level) => level.subLevels)
     @JoinColumn({ name: 'levelId' })
     level!: Level;

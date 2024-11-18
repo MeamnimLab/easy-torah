@@ -9,25 +9,38 @@ import PagerView from "react-native-pager-view";
 import Animated from "react-native-reanimated";
 import { initAnswerdData, initNumOfQuestions, setAnswer, setVisited } from "@/redux/gameSlice";
 import { useTheme } from "react-native-paper";
+import useHttp from "@/hooks/http";
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const PlayGamePage = ({ route, navigation }) => {
   const dispatch = useDispatch();
   const {colors} = useTheme();
-  const levels = useSelector((state) => state.levels.levels);
+  // const levels = useSelector((state) => state.levels.levels);
   const gameInfo = useSelector((state) => state.game.game);
-  const {finish: isGameFinished, numOfQuestions, correctAnswersAmount} = gameInfo;
+  const {finish: isGameFinished, numOfQuestions, correctAnswersAmount, levelId} = gameInfo;
   const screenStyle = { backgroundColor: colors.myBeige }
 
-  const levelGames = useMemo(() => {
-    const level = levels.find((lev) => lev.id === gameInfo.levelId);
-    return level?.games || [];
-  }, [levels, gameInfo.levelId]);
+  const [subLevelGames, setSubLevelGames] = useState([]);
+  const { isLoading, error, sendRequest: fetchSubLevelGames } = useHttp();
 
   const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
-    const initialAnswersData = levelGames.map((game)=>{
+    let url = `http://192.168.43.175:3000/api/game/${levelId}`
+
+    const transformGames = (gamesObj) => {
+      setSubLevelGames(gamesObj.data)
+    };
+
+    fetchSubLevelGames(
+      { url },
+      transformGames
+    );
+
+  }, [fetchSubLevelGames]);
+
+  useEffect(() => {
+    const initialAnswersData = subLevelGames.map((game)=>{
       if(game.type === 'vocabulary'){
         return {
           selectedAnswer: null,
@@ -39,20 +52,20 @@ const PlayGamePage = ({ route, navigation }) => {
         state: "WAIT",
       }
     })
-    Array.from({ length: levelGames.length }, () => ({
+    Array.from({ length: subLevelGames.length }, () => ({
       selectedAnswer: null,
       state: "WAIT",
     }))
-    dispatch(initNumOfQuestions(levelGames.length));
+    dispatch(initNumOfQuestions(subLevelGames.length));
     dispatch(initAnswerdData(initialAnswersData));
-  }, [levelGames]);
+  }, [subLevelGames]);
 
   useEffect(() => {
     if (isGameFinished) {
-      navigation.navigate("Result", {totalQuestions: levelGames.length,
+      navigation.navigate("Result", {totalQuestions: subLevelGames.length,
         timeTaken: Date.now() - startTimeRef.current, correctAnswers: correctAnswersAmount, totalQuestions: numOfQuestions});
     }
-  }, [isGameFinished, navigation, levelGames.length, numOfQuestions, correctAnswersAmount]);
+  }, [isGameFinished, navigation, subLevelGames.length, numOfQuestions, correctAnswersAmount]);
 
 
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -61,13 +74,13 @@ const PlayGamePage = ({ route, navigation }) => {
 
   // Effect run to update the header
   useEffect(() => {
-    if (levelGames.length > 0) {
+    if (subLevelGames.length > 0) {
       navigation.setOptions({
         header: () => (
           <Header
             current={currentIndex}
             onQuestionTouch={(index) => {
-              if(levelGames[index].type === 'vocabulary'){
+              if(subLevelGames[index].type === 'vocabulary'){
                 dispatch(setVisited({gameIndex: currentIndex}));
               }
               pagerViewRef.current?.setPage(index);
@@ -77,7 +90,7 @@ const PlayGamePage = ({ route, navigation }) => {
         ),
       });
     }
-  }, [navigation, currentIndex, levelGames.length]);
+  }, [navigation, currentIndex, subLevelGames.length]);
 
   const renderGame = (game) => {
     if (!game) return null;
@@ -104,12 +117,12 @@ const PlayGamePage = ({ route, navigation }) => {
         style={{ flex: 1 }}
         initialPage={0}
         onPageSelected={(e) => {
-          if(levelGames[e.nativeEvent.position].type === 'vocabulary'){
+          if(subLevelGames[e.nativeEvent.position].type === 'vocabulary'){
             dispatch(setVisited({gameIndex: e.nativeEvent.position}));
           }
           setCurrentIndex(e.nativeEvent.position)}}
       >
-        {levelGames.map((game, index) => (
+        {subLevelGames.map((game, index) => (
           <View key={index} style={styles.page}>
             {renderGame(game)}
           </View>

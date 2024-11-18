@@ -1,23 +1,30 @@
 {
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
+  ],
   "env": {
     "browser": true,
     "node": true,
-    "react-native/react-native": true,  // Add this if you're using React Native
+    "react-native/react-native": true,
     "es6": true
   },
-  "plugins": ["react"],
-  "parser": "babel-eslint",  // Make sure ESLint understands JSX
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     }
   },
+  "plugins": [
+    "react"
+  ],
   "rules": {
-    "no-unused-vars": "warn",
-    "no-undef": "error",  // This will flag undeclared variables
-    "react/prop-types": "off",
-    "react/jsx-uses-react": "off",  // React 17+ no longer requires importing React
-    "react/react-in-jsx-scope": "off"
+    "no-unused-vars": "warn",  // Warn for unused variables
+    "no-undef": "error",  // Error for undeclared variables
+    "react/prop-types": "off",  // Disable prop-types rule
+    "react/react-in-jsx-scope": "off",  // Off for newer React versions
+    "react/jsx-uses-react": "off",  // Off for newer React versions
+    "react/jsx-uses-vars": "warn"  // Warn for unused React variables
   }
 }
