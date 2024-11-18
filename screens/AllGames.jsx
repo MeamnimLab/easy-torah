@@ -35,7 +35,7 @@ const AllGamesPage = ({ navigation }) => {
   };
 
   useEffect(() => {
-    let url = "http://192.168.43.175:3000/api/level/getLevelsWithProgress/1"
+    let url = "https://easy-torah.onrender.com/api/level/getLevelsWithProgress/1"
 
     const transformLevels = (levelsObj) => {
       setLevelData(levelsObj.data)

@@ -7,18 +7,28 @@ import PlayVocabulary from "../../components/playGame/Vocabulary";
 import Header from "../../components/playGame/header/Header";
 import PagerView from "react-native-pager-view";
 import Animated from "react-native-reanimated";
-import { initAnswerdData, initNumOfQuestions, setAnswer, setVisited } from "@/redux/gameSlice";
+import {
+  initAnswerdData,
+  initNumOfQuestions,
+  setAnswer,
+  setVisited,
+} from "@/redux/gameSlice";
 import { useTheme } from "react-native-paper";
 import useHttp from "@/hooks/http";
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const PlayGamePage = ({ route, navigation }) => {
   const dispatch = useDispatch();
-  const {colors} = useTheme();
+  const { colors } = useTheme();
   // const levels = useSelector((state) => state.levels.levels);
   const gameInfo = useSelector((state) => state.game.game);
-  const {finish: isGameFinished, numOfQuestions, correctAnswersAmount, levelId} = gameInfo;
-  const screenStyle = { backgroundColor: colors.myBeige }
+  const {
+    finish: isGameFinished,
+    numOfQuestions,
+    correctAnswersAmount,
+    levelId,
+  } = gameInfo;
+  const screenStyle = { backgroundColor: colors.myBeige };
 
   const [subLevelGames, setSubLevelGames] = useState([]);
   const { isLoading, error, sendRequest: fetchSubLevelGames } = useHttp();
@@ -26,47 +36,55 @@ const PlayGamePage = ({ route, navigation }) => {
   const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
-    let url = `http://192.168.43.175:3000/api/game/${levelId}`
+    let url = `https://easy-torah.onrender.com/api/game/${levelId}`;
 
     const transformGames = (gamesObj) => {
-      setSubLevelGames(gamesObj.data)
+      setSubLevelGames(gamesObj.data);
+      console.log(gameInfo.data)
     };
 
-    fetchSubLevelGames(
-      { url },
-      transformGames
-    );
-
+    fetchSubLevelGames({ url }, transformGames);
   }, [fetchSubLevelGames]);
 
   useEffect(() => {
-    const initialAnswersData = subLevelGames.map((game)=>{
-      if(game.type === 'vocabulary'){
+    if (subLevelGames.length > 0) {
+      const initialAnswersData = subLevelGames.map((game) => {
+        if (game.type === "vocabulary") {
+          return {
+            selectedAnswer: null,
+            state: "NOTGAME",
+          };
+        }
         return {
           selectedAnswer: null,
-          state: "NOTGAME",
-        }
-      }
-      return {
+          state: "WAIT",
+        };
+      });
+      Array.from({ length: subLevelGames.length }, () => ({
         selectedAnswer: null,
         state: "WAIT",
-      }
-    })
-    Array.from({ length: subLevelGames.length }, () => ({
-      selectedAnswer: null,
-      state: "WAIT",
-    }))
-    dispatch(initNumOfQuestions(subLevelGames.length));
-    dispatch(initAnswerdData(initialAnswersData));
+      }));
+      dispatch(initNumOfQuestions(subLevelGames.length));
+      dispatch(initAnswerdData(initialAnswersData));
+    }
   }, [subLevelGames]);
 
   useEffect(() => {
     if (isGameFinished) {
-      navigation.navigate("Result", {totalQuestions: subLevelGames.length,
-        timeTaken: Date.now() - startTimeRef.current, correctAnswers: correctAnswersAmount, totalQuestions: numOfQuestions});
+      navigation.navigate("Result", {
+        totalQuestions: subLevelGames.length,
+        timeTaken: Date.now() - startTimeRef.current,
+        correctAnswers: correctAnswersAmount,
+        totalQuestions: numOfQuestions,
+      });
     }
-  }, [isGameFinished, navigation, subLevelGames.length, numOfQuestions, correctAnswersAmount]);
-
+  }, [
+    isGameFinished,
+    navigation,
+    subLevelGames.length,
+    numOfQuestions,
+    correctAnswersAmount,
+  ]);
 
   const [currentIndex, setCurrentIndex] = useState(1);
 
@@ -80,8 +98,8 @@ const PlayGamePage = ({ route, navigation }) => {
           <Header
             current={currentIndex}
             onQuestionTouch={(index) => {
-              if(subLevelGames[index].type === 'vocabulary'){
-                dispatch(setVisited({gameIndex: currentIndex}));
+              if (subLevelGames[index].type === "vocabulary") {
+                dispatch(setVisited({ gameIndex: currentIndex }));
               }
               pagerViewRef.current?.setPage(index);
             }}
@@ -107,7 +125,13 @@ const PlayGamePage = ({ route, navigation }) => {
   };
 
   const onAnswered = (answer, selectedAnswer) => {
-    dispatch(setAnswer({gameIndex: currentIndex,state: answer,selectedAnswer: selectedAnswer}))
+    dispatch(
+      setAnswer({
+        gameIndex: currentIndex,
+        state: answer,
+        selectedAnswer: selectedAnswer,
+      })
+    );
   };
 
   return (
@@ -117,12 +141,13 @@ const PlayGamePage = ({ route, navigation }) => {
         style={{ flex: 1 }}
         initialPage={0}
         onPageSelected={(e) => {
-          if(subLevelGames[e.nativeEvent.position].type === 'vocabulary'){
-            dispatch(setVisited({gameIndex: e.nativeEvent.position}));
+          if (subLevelGames[e.nativeEvent.position].type === "vocabulary") {
+            dispatch(setVisited({ gameIndex: e.nativeEvent.position }));
           }
-          setCurrentIndex(e.nativeEvent.position)}}
+          setCurrentIndex(e.nativeEvent.position);
+        }}
       >
-        {subLevelGames.map((game, index) => (
+        {subLevelGames.length > 0 && subLevelGames.map((game, index) => (
           <View key={index} style={styles.page}>
             {renderGame(game)}
           </View>
@@ -138,7 +163,7 @@ const styles = StyleSheet.create({
   },
   page: {
     flex: 1,
-    height: '100%',
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
   },

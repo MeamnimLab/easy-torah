@@ -33,7 +33,7 @@ const SubLevelsPage = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    let url = `http://192.168.43.175:3000/api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
+    let url = `https://easy-torah.onrender.com/api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
 
     const transformSubLevels = (subLevelsObj) => {
       setSubLevelData(subLevelsObj.data);
