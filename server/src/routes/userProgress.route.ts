@@ -13,6 +13,7 @@ class UserProgressRoute extends BaseRoutes {
   protected defineRoutes(): RouteDefinition[] {
     return [
       [RouterMethod.POST, '/:userId/:subLevelId', [this.controller.createUserProgress]],
+      [RouterMethod.POST, '/finish/:userId/:subLevelId', [this.controller.finishSubLevel]],
     ];
   }
 }

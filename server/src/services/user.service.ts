@@ -1,4 +1,3 @@
-import { HttpException } from '../controllers/base/baseController.controller';
 import { ICreateUserDto } from '../dtos/createUser.dto';
 import User from '../entities/user.entity';
 import { IUser } from '../interfaces/user.interface';

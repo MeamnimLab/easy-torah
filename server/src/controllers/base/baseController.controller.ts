@@ -1,12 +1,6 @@
 import { Response } from 'express';
 import BaseService from '../../services/base/baseService.service';
 
-export declare class HttpException extends Error {
-  statusCode: number;
-  key?: string[];
-  constructor(statusCode: number, message: string, key?: string[]);
-}
-
 abstract class BaseController {
   public abstract service: BaseService;
 
@@ -19,7 +13,7 @@ abstract class BaseController {
   }
 
   protected sendError(message: string, statusCode: number): void {
-    throw new HttpException(statusCode, message);
+    throw {statusCode, message};
   }
 }
 

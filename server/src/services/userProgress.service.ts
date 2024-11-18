@@ -19,12 +19,12 @@ class UserProgressService extends BaseService {
     new UserRepository(),
     new SubLevelRepository(),
     new LevelRepository(),
-    new UserSubLevelProgressRepository()
+    new UserSubLevelProgressRepository(),
   ];
 
   public async createUserProgress(
     userId: string,
-    subLevelId: string
+    subLevelId: string,
   ): Promise<any> {
     const user = await this.repositories[1].findById(userId);
     const subLevel = await this.repositories[2].findById(subLevelId);
@@ -54,27 +54,64 @@ class UserProgressService extends BaseService {
     }
 
     // Check if sub-level progress exists
-    let subLevelProgress = await this.repositories[4].findOne(+userId, +subLevelId);
+    let subLevelProgress = await this.repositories[4].findOne(
+      +userId,
+      +subLevelId
+    );
 
     if (!subLevelProgress) {
-        // If no sub-level progress found, create a new UserSubLevelProgress entry
-        subLevelProgress = new UserSubLevelProgress({
-          user: user,
-          subLevel: subLevel,
-          completed: false,
-          score: 0,
-          levelProgress: userProgress,
-        });
-  
-        // Save the new UserSubLevelProgress
-        await this.repositories[4].save(subLevelProgress);
-      } else {
-        // Update the sub-level progress if it exists
-        subLevelProgress.completed = false;
-        await this.repositories[4].save(subLevelProgress);
-      }
+      // If no sub-level progress found, create a new UserSubLevelProgress entry
+      subLevelProgress = new UserSubLevelProgress({
+        user: user,
+        subLevel: subLevel,
+        completed: false,
+        score: 0,
+        levelProgress: userProgress,
+      });
 
-      return {userProgress, subLevelProgress}
+      // Save the new UserSubLevelProgress
+      await this.repositories[4].save(subLevelProgress);
+    } else {
+      // Update the sub-level progress if it exists
+      subLevelProgress.completed = false;
+      await this.repositories[4].save(subLevelProgress);
+    }
+
+    return { userProgress, subLevelProgress };
+  }
+
+  public async finishSubLevel(
+    userId: string,
+    subLevelId: string,
+    score: number
+  ): Promise<any> {
+    const user = await this.repositories[1].findById(userId);
+    const subLevel = await this.repositories[2].findById(subLevelId);
+    const level = await this.repositories[3].findById(subLevelId.slice(0, -1));
+
+    const userProgress = await this.repositories[0].findUserProgress(
+      +userId,
+      +subLevelId
+    );
+    const subLevelProgress = await this.repositories[4].findOne(
+      +userId,
+      +subLevelId
+    );
+    if (!user || !subLevel || !level || !userProgress || !subLevelProgress) {
+      return null;
+    }
+
+    // Update the sub-level progress if it exists
+    subLevelProgress.completed = true;
+    subLevelProgress.score = score;
+    await this.repositories[4].save(subLevelProgress);
+    
+    userProgress.score = Math.floor(Math.random() * 4);
+    userProgress.subLevelsCompleted +=1
+    userProgress.completed = !userProgress.completed;
+    await this.repositories[0].save(userProgress);
+
+    return { userProgress, subLevelProgress };
   }
 }
 

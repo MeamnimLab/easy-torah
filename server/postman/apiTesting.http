@@ -17,4 +17,12 @@ GET http://localhost:3000/api/subLevel/getSubLevelsWithProgress/1/1
 GET http://localhost:3000/api/game/11
 ###
 
-POST http://localhost:3000/api/userProgress/1/11
+POST http://localhost:3000/api/userProgress/1/12
+###
+
+POST http://localhost:3000/api/userProgress/finish/1/12
+Content-Type: application/json
+
+{
+  "score": 1
+}

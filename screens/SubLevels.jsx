@@ -18,6 +18,13 @@ const SubLevelsPage = ({ navigation, route }) => {
   const { sendRequest: postSubLevelUserProgress } = useHttp();
 
   const renderSubLevel = ({ item }) => {
+    console.log("item")
+    console.log(item)
+    let stars = -1
+    if(item.userSubLevelProgress.completed){
+      stars = Math.floor(Math.random() * 4)
+    }
+
     const pressHandler = () => {
       if (item.hasGame && item.id) {
         dispatch(initLevelId(item.id));
@@ -37,7 +44,7 @@ const SubLevelsPage = ({ navigation, route }) => {
       title={item.name}
       onPress={pressHandler}
       locked={!item.hasGame}
-      stars={-1}
+      stars={stars}
     />
     );
   };

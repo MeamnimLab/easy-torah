@@ -31,7 +31,7 @@ const PlayGamePage = ({ route, navigation }) => {
   const screenStyle = { backgroundColor: colors.myBeige };
 
   const [subLevelGames, setSubLevelGames] = useState([]);
-  const { isLoading, error, sendRequest: fetchSubLevelGames } = useHttp();
+  const { isLoading, error, sendRequest } = useHttp();
 
   const startTimeRef = useRef(Date.now());
 
@@ -43,8 +43,8 @@ const PlayGamePage = ({ route, navigation }) => {
       console.log(gamesObj.data)
     };
 
-    fetchSubLevelGames({ url }, transformGames);
-  }, [fetchSubLevelGames]);
+    sendRequest({ url }, transformGames);
+  }, [sendRequest]);
 
   useEffect(() => {
     if (subLevelGames.length > 0) {
@@ -71,6 +71,13 @@ const PlayGamePage = ({ route, navigation }) => {
 
   useEffect(() => {
     if (isGameFinished) {
+      let url = `https://easy-torah.onrender.com/api/userProgress/finish/1/${levelId}`;
+
+      const transform = (gamesObj) => {
+        console.log(gamesObj.data)
+      };
+  
+      sendRequest({ url, body:{score: Math.floor(Math.random() * 4)} }, transform);
       navigation.navigate("Result", {
         totalQuestions: subLevelGames.length,
         timeTaken: Date.now() - startTimeRef.current,

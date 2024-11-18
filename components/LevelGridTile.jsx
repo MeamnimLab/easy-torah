@@ -60,10 +60,10 @@ function LevelGridTile({ title, content, onPress, icon, locked,stars }) {
 
         )}
 
-        <View style={styles.titleSection}>
+        {content && <View style={styles.titleSection}>
           <View style={styles.divider} />
           <Text style={styles.title}>{content}</Text>
-        </View>
+        </View>}
       </Pressable>
     </Surface>
   );
