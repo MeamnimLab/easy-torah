@@ -40,7 +40,7 @@ const PlayGamePage = ({ route, navigation }) => {
 
     const transformGames = (gamesObj) => {
       setSubLevelGames(gamesObj.data);
-      console.log(gameInfo.data)
+      console.log(gamesObj.data)
     };
 
     fetchSubLevelGames({ url }, transformGames);
@@ -111,7 +111,7 @@ const PlayGamePage = ({ route, navigation }) => {
   }, [navigation, currentIndex, subLevelGames.length]);
 
   const renderGame = (game) => {
-    if (!game) return null;
+    if (!game.type) return null;
     switch (game.type) {
       case "trivia":
         return <PlayTrivia game={game} onAnswered={onAnswered} />;
@@ -136,7 +136,7 @@ const PlayGamePage = ({ route, navigation }) => {
 
   return (
     <View style={[styles.screen, screenStyle]}>
-      <AnimatedPagerView
+      {subLevelGames.length > 0 && <AnimatedPagerView
         ref={pagerViewRef}
         style={{ flex: 1 }}
         initialPage={0}
@@ -152,7 +152,7 @@ const PlayGamePage = ({ route, navigation }) => {
             {renderGame(game)}
           </View>
         ))}
-      </AnimatedPagerView>
+      </AnimatedPagerView>}
     </View>
   );
 };

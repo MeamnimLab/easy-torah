@@ -15,11 +15,19 @@ const SubLevelsPage = ({ navigation, route }) => {
   const dispatch = useDispatch();
 
   const { isLoading, error, sendRequest: fetchSubLevelData } = useHttp();
+  const { sendRequest: postSubLevelUserProgress } = useHttp();
 
   const renderSubLevel = ({ item }) => {
     const pressHandler = () => {
       if (item.hasGame && item.id) {
         dispatch(initLevelId(item.id));
+        const url = `https://easy-torah.onrender.com/api/userProgress/1/${item.id}`;
+
+        const afterPost = (obj) => {
+          console.log(obj)
+        };
+    
+        postSubLevelUserProgress({ url, method: 'POST' }, afterPost);
         navigation.navigate("PlayGame");
       }
     };
@@ -28,6 +36,8 @@ const SubLevelsPage = ({ navigation, route }) => {
       <LevelGridTile
       title={item.name}
       onPress={pressHandler}
+      locked={!item.hasGame}
+      stars={-1}
     />
     );
   };
@@ -42,9 +52,10 @@ const SubLevelsPage = ({ navigation, route }) => {
     fetchSubLevelData({ url }, transformSubLevels);
   }, [fetchSubLevelData, levelId]);
 
-  useEffect(() => {
-    console.log(subLevelData)
-  }, [subLevelData]);
+
+  // useEffect(() => {
+  //   console.log(subLevelData)
+  // }, [subLevelData]);
 
   let content = (
     <FlatList

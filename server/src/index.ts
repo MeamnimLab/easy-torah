@@ -4,6 +4,7 @@ import GameRoute from './routes/game.route';
 import UserRoute from './routes/user.route';
 import LevelRoute from './routes/level.route';
 import SubLevelRoute from './routes/subLevel.route';
+import UserProgressRoute from './routes/userProgress.route';
 
 const app = express();
 const port = 3000;
@@ -16,6 +17,7 @@ app.use('/api/user', new UserRoute().router);
 app.use('/api/game', new GameRoute().router);
 app.use('/api/level', new LevelRoute().router);
 app.use('/api/subLevel', new SubLevelRoute().router);
+app.use('/api/userProgress', new UserProgressRoute().router);
 
 // Start the server
 app.listen(port, () => {

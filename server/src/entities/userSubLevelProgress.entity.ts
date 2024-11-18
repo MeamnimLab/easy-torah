@@ -19,10 +19,10 @@ export default class UserSubLevelProgress {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column()
+  @Column({default: false})
   completed!: boolean;
 
-  @Column()
+  @Column({default: 0})
   score!: number;
 
   @ManyToOne(() => SubLevel)
