@@ -13,6 +13,9 @@ class GameRepository extends BaseRepository<Game> {
   public async getSubLevelGames(subLevelId: string): Promise<any> {
     const games = await this.repository
       .createQueryBuilder("game")
+      .leftJoinAndSelect("game.triviaGames", "triviaGames")
+      .leftJoinAndSelect("game.trueFalseGames", "trueFalseGames")
+      .leftJoinAndSelect("game.vocabularyGames", "vocabularyGames")
       .where("CAST(game.id AS TEXT) LIKE :subLevelId", {
         subLevelId: `${subLevelId}%`,
       })
