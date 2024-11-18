@@ -77,7 +77,7 @@ const PlayGamePage = ({ route, navigation }) => {
         console.log(gamesObj.data)
       };
   
-      sendRequest({ url, body:{score: Math.floor(Math.random() * 4)} }, transform);
+      sendRequest({ url, method: "POST", body:{score: Math.floor(Math.random() * 4)} }, transform);
       navigation.navigate("Result", {
         totalQuestions: subLevelGames.length,
         timeTaken: Date.now() - startTimeRef.current,
