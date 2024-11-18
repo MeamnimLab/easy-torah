@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 11,
+    "userId": 1,
+    "levelProgressId": 1
+  },
+  {
+    "id": 2,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 12,
+    "userId": 1,
+    "levelProgressId": 1
+  },
+  {
+    "id": 3,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 21,
+    "userId": 1,
+    "levelProgressId": 2
+  },
+  {
+    "id": 4,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 22,
+    "userId": 1,
+    "levelProgressId": 2
+  },
+  {
+    "id": 5,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 31,
+    "userId": 1,
+    "levelProgressId": 3
+  },
+  {
+    "id": 6,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 32,
+    "userId": 1,
+    "levelProgressId": 3
+  },
+  {
+    "id": 7,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 41,
+    "userId": 1,
+    "levelProgressId": 4
+  },
+  {
+    "id": 8,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 42,
+    "userId": 1,
+    "levelProgressId": 4
+  },
+  {
+    "id": 9,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 51,
+    "userId": 1,
+    "levelProgressId": 5
+  },
+  {
+    "id": 10,
+    "completed": false,
+    "score": 0,
+    "subLevelId": 52,
+    "userId": 1,
+    "levelProgressId": 5
+  }
+]

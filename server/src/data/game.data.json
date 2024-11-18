@@ -1,0 +1,22 @@
+[
+    {"id": 111, "type": "trivia", "subLevelId": 11},
+    {"id": 112, "type": "trueFalse", "subLevelId": 11},
+    {"id": 113, "type": "trivia", "subLevelId": 11},
+    {"id": 114, "type": "vocabulary", "subLevelId": 11},
+    {"id": 121, "type": "trivia", "subLevelId": 12},
+    {"id": 122, "type": "trueFalse", "subLevelId": 12},
+    {"id": 211, "type": "trivia", "subLevelId": 21},
+    {"id": 212, "type": "trueFalse", "subLevelId": 21},
+    {"id": 221, "type": "trivia", "subLevelId": 22},
+    {"id": 222, "type": "trueFalse", "subLevelId": 22},
+    {"id": 223, "type": "vocabulary", "subLevelId": 22},
+    {"id": 311, "type": "trivia", "subLevelId": 31},
+    {"id": 321, "type": "trivia", "subLevelId": 32},
+    {"id": 322, "type": "vocabulary", "subLevelId": 32},
+    {"id": 411, "type": "trueFalse", "subLevelId": 41},
+    {"id": 421, "type": "trueFalse", "subLevelId": 42},
+    {"id": 422, "type": "vocabulary", "subLevelId": 42},
+    {"id": 511, "type": "trueFalse", "subLevelId": 51},
+    {"id": 521, "type": "trivia", "subLevelId": 52},
+    {"id": 522, "type": "vocabulary", "subLevelId": 52}
+]

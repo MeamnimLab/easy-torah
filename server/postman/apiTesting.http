@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/user/
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "role": "user"
+}
+
+###
+
+GET http://localhost:3000/api/level/getLevelsWithProgress/1
+###
+
+GET http://localhost:3000/api/subLevel/getSubLevelsWithProgress/1/1

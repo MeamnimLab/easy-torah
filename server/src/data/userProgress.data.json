@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "score": 0,
+    "completed": false,
+    "subLevelsCompleted": 0,
+    "levelId": 1
+  },
+  {
+    "id": 2,
+    "userId": 1,
+    "score": 0,
+    "completed": false,
+    "subLevelsCompleted": 0,
+    "levelId": 2
+  },
+  {
+    "id": 3,
+    "userId": 1,
+    "score": 0,
+    "completed": false,
+    "subLevelsCompleted": 0,
+    "levelId": 3
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "score": 0,
+    "completed": false,
+    "subLevelsCompleted": 0,
+    "levelId": 4
+  },
+  {
+    "id": 5,
+    "userId": 1,
+    "score": 0,
+    "completed": false,
+    "subLevelsCompleted": 0,
+    "levelId": 5
+  }
+]

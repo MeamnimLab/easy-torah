@@ -1,0 +1,132 @@
+[
+  {
+    "id": 114,
+    "text": "The bioluminescent organisms in the ocean create a mesmerizing glow that illuminates the water.",
+    "hardSentences": [
+      {
+        "id": 1,
+        "sentence": "bioluminescent",
+        "explanation": "Organisms that produce their own light."
+      },
+      {
+        "id": 2,
+        "sentence": "mesmerizing",
+        "explanation": "Something that is very captivating or fascinating."
+      },
+      {
+        "id": 3,
+        "sentence": "illuminates",
+        "explanation": "Makes something bright or lights it up."
+      }
+    ],
+    "gameId": 114
+  },
+  {
+    "id": 223,
+    "text": "The architect designed a magnificent edifice that became a landmark in the city.",
+    "hardSentences": [
+      {
+        "id": 1,
+        "sentence": "architect",
+        "explanation": "A person who designs buildings."
+      },
+      {
+        "id": 2,
+        "sentence": "magnificent",
+        "explanation": "Very impressive or beautiful."
+      },
+      {
+        "id": 3,
+        "sentence": "edifice",
+        "explanation": "A large and impressive building."
+      },
+      {
+        "id": 4,
+        "sentence": "landmark",
+        "explanation": "An important or recognizable building or place."
+      }
+    ],
+    "gameId": 223
+  },
+  {
+    "id": 322,
+    "text": "Astronomers use sophisticated telescopes to observe celestial phenomena far beyond our galaxy.",
+    "hardSentences": [
+      {
+        "id": 1,
+        "sentence": "sophisticated",
+        "explanation": "Advanced or complex."
+      },
+      {
+        "id": 2,
+        "sentence": "celestial",
+        "explanation": "Related to the sky or outer space."
+      },
+      {
+        "id": 3,
+        "sentence": "phenomena",
+        "explanation": "Events or occurrences that can be observed, often remarkable or extraordinary."
+      },
+      {
+        "id": 4,
+        "sentence": "galaxy",
+        "explanation": "A large system of stars and planets in space."
+      }
+    ],
+    "gameId": 322
+  },
+  {
+    "id": 422,
+    "text": "The ancient manuscript contained cryptic symbols that puzzled historians for decades.",
+    "hardSentences": [
+      {
+        "id": 1,
+        "sentence": "manuscript",
+        "explanation": "A handwritten or old document."
+      },
+      {
+        "id": 2,
+        "sentence": "cryptic",
+        "explanation": "Having a mysterious or hidden meaning."
+      },
+      {
+        "id": 3,
+        "sentence": "puzzled",
+        "explanation": "Confused or difficult to understand."
+      },
+      {
+        "id": 4,
+        "sentence": "historians",
+        "explanation": "People who study and write about history."
+      }
+    ],
+    "gameId": 422
+  },
+  {
+    "id": 522,
+    "text": "The volcanic eruption was a catastrophic event that reshaped the landscape and affected countless species.",
+    "hardSentences": [
+      {
+        "id": 1,
+        "sentence": "volcanic",
+        "explanation": "Related to a volcano, which is a mountain that can erupt with lava."
+      },
+      {
+        "id": 2,
+        "sentence": "eruption",
+        "explanation": "An explosion or release of lava and ash from a volcano."
+      },
+      {
+        "id": 3,
+        "sentence": "catastrophic",
+        "explanation": "Causing a lot of destruction or disaster."
+      },
+      {
+        "id": 4,
+        "sentence": "landscape",
+        "explanation": "The natural features of an area of land."
+      }
+    ],
+    "gameId": 522
+  }
+]

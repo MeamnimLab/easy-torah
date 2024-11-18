@@ -1,0 +1,508 @@
+[
+  {
+    "id": 1,
+    "name": {
+      "title": "א",
+      "description": "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר"
+    },
+    "icon": {
+      "name": "sunny-outline"
+    },
+    "hasGame": true
+  },
+  {
+    "id": 2,
+    "name": {
+      "title": "ב",
+      "description": "הִלְכוֹת נְטִילַת יָדַיִם"
+    },
+    "icon": {
+      "name": "water-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 3,
+    "name": {
+      "title": "ג",
+      "description": "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ"
+    },
+    "icon": {
+      "name": "shirt-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 4,
+    "name": {
+      "title": "ד",
+      "description": "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר"
+    },
+    "icon": {
+      "name": "water-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 5,
+    "name": {
+      "title": "ה",
+      "description": "נקיון המקום לדבר שבקדושה"
+    },
+    "icon": {
+      "name": "brush-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 6,
+    "name": {
+      "title": "ו",
+      "description": "קצת דיני ברכות ודיני ברוך הוא וברוך שמו ואמן"
+    },
+    "icon": {
+      "name": "pricetag-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 7,
+    "name": {
+      "title": "ז",
+      "description": "הלכות ברכות השחר"
+    },
+    "icon": {
+      "name": "sunny-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 8,
+    "name": {
+      "title": "ח",
+      "description": "דברים האסורים משהאיר היום עד לאחר שיתפלל"
+    },
+    "icon": {
+      "name": "time-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 9,
+    "name": {
+      "title": "ט",
+      "description": "הִלְכוֹת צִיצִית"
+    },
+    "icon": {
+      "name": "shirt-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 10,
+    "name": {
+      "title": "י",
+      "description": "הלכות תפילין"
+    },
+    "icon": {
+      "name": "cube-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 11,
+    "name": {
+      "title": "יא",
+      "description": "הלכות תפילה"
+    },
+    "icon": {
+      "name": "flag-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 12,
+    "name": {
+      "title": "יב",
+      "description": "הִלְכוֹת קְרוֹבֵי אִשּׁוּר"
+    },
+    "icon": {
+      "name": "person-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 13,
+    "name": {
+      "title": "יג",
+      "description": "הִלְכוֹת סְכוֹת"
+    },
+    "icon": {
+      "name": "book-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 14,
+    "name": {
+      "title": "יד",
+      "description": "הִלְכוֹת חַיּוֹת"
+    },
+    "icon": {
+      "name": "paw-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 15,
+    "name": {
+      "title": "טו",
+      "description": "הִלְכוֹת תּוֹבוּת"
+    },
+    "icon": {
+      "name": "reload-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 16,
+    "name": {
+      "title": "טז",
+      "description": "הִלְכוֹת שׁוֹפָר"
+    },
+    "icon": {
+      "name": "volume-high-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 17,
+    "name": {
+      "title": "יז",
+      "description": "הִלְכוֹת לֵיל הַסֵּדֶר"
+    },
+    "icon": {
+      "name": "restaurant-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 18,
+    "name": {
+      "title": "יח",
+      "description": "הִלְכוֹת הַפְסָח"
+    },
+    "icon": {
+      "name": "home-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 19,
+    "name": {
+      "title": "יט",
+      "description": "הִלְכוֹת בַּיְרוּת"
+    },
+    "icon": {
+      "name": "water-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 20,
+    "name": {
+      "title": "כ",
+      "description": "הִלְכוֹת צְרוֹרֵי פֶּסַח"
+    },
+    "icon": {
+      "name": "gift-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 21,
+    "name": {
+      "title": "כא",
+      "description": "הִלְכוֹת שְׁחִיטַת פֶּסַח"
+    },
+    "icon": {
+      "name": "cut-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 22,
+    "name": {
+      "title": "כב",
+      "description": "הִלְכוֹת חַיּוֹת וּבוֹרְאוֹת"
+    },
+    "icon": {
+      "name": "paw-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 23,
+    "name": {
+      "title": "כג",
+      "description": "הִלְכוֹת דִּין חַיּוֹת שֶׁאֵין אֲכִילָה"
+    },
+    "icon": {
+      "name": "bug-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 24,
+    "name": {
+      "title": "כד",
+      "description": "הִלְכוֹת קִרְבַּנֵי פֶּסַח"
+    },
+    "icon": {
+      "name": "restaurant-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 25,
+    "name": {
+      "title": "כה",
+      "description": "הִלְכוֹת עִיבּוּד אֵינוּת"
+    },
+    "icon": {
+      "name": "person-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 26,
+    "name": {
+      "title": "כו",
+      "description": "הִלְכוֹת תַּפְרִיט"
+    },
+    "icon": {
+      "name": "clipboard-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 27,
+    "name": {
+      "title": "כז",
+      "description": "הִלְכוֹת אֵחָי"
+    },
+    "icon": {
+      "name": "heart-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 28,
+    "name": {
+      "title": "כח",
+      "description": "הִלְכוֹת עֲבוֹדָה"
+    },
+    "icon": {
+      "name": "help-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 29,
+    "name": {
+      "title": "כט",
+      "description": "הִלְכוֹת שׁוֹפָר שֶׁשְׁרוּי"
+    },
+    "icon": {
+      "name": "volume-low-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 30,
+    "name": {
+      "title": "ל",
+      "description": "הִלְכוֹת שַׁפְּרוּת"
+    },
+    "icon": {
+      "name": "snow-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 31,
+    "name": {
+      "title": "לא",
+      "description": "הִלְכוֹת סְגוּרוּת"
+    },
+    "icon": {
+      "name": "shield-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 32,
+    "name": {
+      "title": "לב",
+      "description": "הִלְכוֹת פְּרוֹיֵך"
+    },
+    "icon": {
+      "name": "flag-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 33,
+    "name": {
+      "title": "לג",
+      "description": "הִלְכוֹת חֶסֶד"
+    },
+    "icon": {
+      "name": "heart-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 34,
+    "name": {
+      "title": "לד",
+      "description": "הִלְכוֹת עֲבוֹדָה שִׁקְרוֹ"
+    },
+    "icon": {
+      "name": "shield-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 35,
+    "name": {
+      "title": "לה",
+      "description": "הִלְכוֹת שְׁרוּי עִקְרָב"
+    },
+    "icon": {
+      "name": "bug-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 36,
+    "name": {
+      "title": "לו",
+      "description": "הִלְכוֹת תַּפְרִיט"
+    },
+    "icon": {
+      "name": "clipboard-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 37,
+    "name": {
+      "title": "לז",
+      "description": "הִלְכוֹת אֵחָי"
+    },
+    "icon": {
+      "name": "heart-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 38,
+    "name": {
+      "title": "לח",
+      "description": "הִלְכוֹת עֲבוֹדָה"
+    },
+    "icon": {
+      "name": "help-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 39,
+    "name": {
+      "title": "לט",
+      "description": "הִלְכוֹת שׁוֹפָר שֶׁשְׁרוּי"
+    },
+    "icon": {
+      "name": "volume-low-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 40,
+    "name": {
+      "title": "מ",
+      "description": "הִלְכוֹת שַׁפְּרוּת"
+    },
+    "icon": {
+      "name": "snow-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 41,
+    "name": {
+      "title": "מא",
+      "description": "הִלְכוֹת סְגוּרוּת"
+    },
+    "icon": {
+      "name": "shield-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 42,
+    "name": {
+      "title": "מב",
+      "description": "הִלְכוֹת פְּרוֹיֵך"
+    },
+    "icon": {
+      "name": "flag-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 43,
+    "name": {
+      "title": "מג",
+      "description": "הִלְכוֹת חֶסֶד"
+    },
+    "icon": {
+      "name": "heart-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 44,
+    "name": {
+      "title": "מד",
+      "description": "הִלְכוֹת עֲבוֹדָה שִׁקְרוֹ"
+    },
+    "icon": {
+      "name": "shield-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 45,
+    "name": {
+      "title": "מה",
+      "description": "הִלְכוֹת שְׁרוּי עִקְרָב"
+    },
+    "icon": {
+      "name": "bug-outline"
+    },
+    "hasGame": false
+  },
+  {
+    "id": 46,
+    "name": {
+      "title": "מו",
+      "description": "הִלְכוֹת תַּפְרִיט"
+    },
+    "icon": {
+      "name": "clipboard-outline"
+    },
+    "hasGame": false
+  }
+]

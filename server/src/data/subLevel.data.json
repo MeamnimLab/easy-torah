@@ -1,0 +1,12 @@
+[
+    {"id": 11, "name": "sub level 1.1", "levelId":1},
+    {"id": 12, "name": "sub level 1.2", "levelId":1},
+    {"id": 21, "name": "sub level 2.1", "levelId":2},
+    {"id": 22, "name": "sub level 2.2", "levelId":2},
+    {"id": 31, "name": "sub level 3.1", "levelId":3},
+    {"id": 32, "name": "sub level 3.2", "levelId":3},
+    {"id": 41, "name": "sub level 4.1", "levelId":4},
+    {"id": 42, "name": "sub level 4.2", "levelId":4},
+    {"id": 51, "name": "sub level 5.1", "levelId":5},
+    {"id": 52, "name": "sub level 5.2", "levelId":5}
+]
