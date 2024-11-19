@@ -1,22 +1,34 @@
 import React from "react";
 import { Drawer } from "react-native-paper";
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { useLanguage } from "./context/LanguageContext";
 
 const DrawerMenu = ({ visible, onClose }) => {
+  const { changeLanguage, t } = useLanguage();
+
   if (!visible) return null;
 
   return (
-    <TouchableWithoutFeedback onPress={onClose}>
-      <View style={styles.overlay}>
-        <View style={styles.drawerContainer}>
-          <Drawer.Section title="Drawer Menu">
-            <Drawer.Item label="Item 1" onPress={onClose} />
-            <Drawer.Item label="Item 2" onPress={onClose} />
-            <Drawer.Item label="Item 3" onPress={onClose} />
-          </Drawer.Section>
-        </View>
+    <View style={styles.overlay}>
+      <View style={styles.drawerContainer}>
+        <Drawer.Section title="Language Settings">
+          <Drawer.Item
+            label={t('switchToEnglish')}
+            onPress={() => {
+              changeLanguage("en");
+              onClose();
+            }}
+          />
+          <Drawer.Item
+            label={t('switchToHebrew')}
+            onPress={() => {
+              changeLanguage("he");
+              onClose();
+            }}
+          />
+        </Drawer.Section>
       </View>
-    </TouchableWithoutFeedback>
+    </View>
   );
 };
 
@@ -31,7 +43,7 @@ const styles = StyleSheet.create({
     zIndex: 1000,
   },
   drawerContainer: {
-    backgroundColor: "#F7EDE2", //change to my beige
+    backgroundColor: "#F7EDE2", // Your custom beige color
     width: 250,
     height: "100%",
     padding: 16,
