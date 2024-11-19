@@ -47,12 +47,14 @@ const translations = {
   en: { 
     welcome: 'Hello', 
     switchToEnglish: 'Switch to English',
-    switchToHebrew: 'Switch to Hebrew'
+    switchToHebrew: 'Switch to Hebrew',
+    language: 'English'
   },
   he: { 
     welcome: 'שלום',
     switchToEnglish: 'החלף לאנגלית',
-    switchToHebrew: 'החלף לעברית'
+    switchToHebrew: 'החלף לעברית',
+    language: 'עברית'
   },
 };
 

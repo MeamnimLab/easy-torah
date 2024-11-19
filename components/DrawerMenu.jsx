@@ -1,31 +1,54 @@
-import React from "react";
-import { Drawer } from "react-native-paper";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
+import { Drawer, Button, Text } from "react-native-paper";
+import { useTheme } from "react-native-paper";
 import { useLanguage } from "./context/LanguageContext";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const DrawerMenu = ({ visible, onClose }) => {
-  const { changeLanguage, t } = useLanguage();
+  const { colors } = useTheme(); // Access the theme colors
+  const { changeLanguage, t, currentLanguage } = useLanguage();
+  const [isEnglish, setIsEnglish] = useState(currentLanguage === "en");
+
+  const currentLanguageLabel = isEnglish ? "English" : "עברית";
+
+  // Toggle language when the button is pressed
+  const toggleLanguage = () => {
+    const newLanguage = isEnglish ? "he" : "en";
+    changeLanguage(newLanguage);
+    setIsEnglish(!isEnglish);
+    onClose();
+  };
 
   if (!visible) return null;
 
   return (
     <View style={styles.overlay}>
-      <View style={styles.drawerContainer}>
-        <Drawer.Section title="Language Settings">
-          <Drawer.Item
-            label={t('switchToEnglish')}
-            onPress={() => {
-              changeLanguage("en");
-              onClose();
-            }}
-          />
-          <Drawer.Item
-            label={t('switchToHebrew')}
-            onPress={() => {
-              changeLanguage("he");
-              onClose();
-            }}
-          />
+      <View
+        style={[
+          styles.drawerContainer,
+          { backgroundColor: colors.myBeige }, // Use theme color
+        ]}
+      >
+        <Drawer.Section>
+          <View style={styles.languageContainer}>
+            <MaterialCommunityIcons
+              name={"earth"}
+              size={24}
+              color={colors.text} // Use theme color for icon
+            />
+            <Text style={[styles.languageText, { color: colors.text }]}>
+              {currentLanguageLabel}
+            </Text>
+          </View>
+
+          <Button
+            mode="contained"
+            onPress={toggleLanguage}
+            style={[styles.button, { backgroundColor: colors.myOrange }]} // Use theme color
+          >
+            {isEnglish ? t("switchToHebrew") : t("switchToEnglish")}
+          </Button>
         </Drawer.Section>
       </View>
     </View>
@@ -43,10 +66,24 @@ const styles = StyleSheet.create({
     zIndex: 1000,
   },
   drawerContainer: {
-    backgroundColor: "#F7EDE2", // Your custom beige color
     width: 250,
     height: "100%",
-    padding: 16,
+    paddingTop: 40, // Increased top padding for more space from the top
+    paddingHorizontal: 16,
+    justifyContent: "space-between",
+  },
+  languageContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  languageText: {
+    fontSize: 18,
+    marginLeft: 8,
+    fontWeight: "bold",
+  },
+  button: {
+    borderRadius: 8, // Additional styling if needed
   },
 });
 
