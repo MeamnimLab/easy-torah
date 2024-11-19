@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList, StyleSheet, Text } from "react-native";
 
 import LevelGridTile from "../components/LevelGridTile";
-import { useDispatch, useSelector } from "react-redux";
-import { initLevelId } from "@/redux/gameSlice";
+import { useDispatch } from "react-redux";
 import { useTheme } from "react-native-paper";
 import useHttp from "../hooks/http";
+import Loading from '../components/ui/Loading'
 
 const AllGamesPage = ({ navigation }) => {
   const { colors } = useTheme();
@@ -62,8 +62,8 @@ const AllGamesPage = ({ navigation }) => {
     />
   );
 
-  if(isLoading){
-    content = <Text>loading</Text>
+  if (isLoading) {
+    content = <Loading/>
   }
 
   if(error){
@@ -74,3 +74,11 @@ const AllGamesPage = ({ navigation }) => {
 };
 
 export default AllGamesPage;
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

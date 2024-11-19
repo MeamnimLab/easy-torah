@@ -6,6 +6,7 @@ import useHttp from "../hooks/http";
 import { initLevelId } from "@/redux/gameSlice";
 import { Button, useTheme } from "react-native-paper";
 import LevelGridTile from "@/components/LevelGridTile";
+import Loading from "@/components/ui/Loading";
 
 const SubLevelsPage = ({ navigation, route }) => {
   const { colors } = useTheme();
@@ -75,7 +76,7 @@ const SubLevelsPage = ({ navigation, route }) => {
   );
 
   if (isLoading) {
-    content = <Text>loading</Text>;
+    content = <Loading/>
   }
 
   if (error) {
