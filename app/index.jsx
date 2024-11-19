@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider } from "react-redux";
-import {
-  MD3LightTheme as DefaultTheme,
-  PaperProvider,
-} from "react-native-paper";
+import { Appbar, PaperProvider } from "react-native-paper";
 
+import { theme } from "../styles/theme";
+import store from "../redux/store";
+import { LanguageProvider } from "../components/context/LanguageContext";
+import DrawerMenu from "../components/DrawerMenu";
 import HomePage from "../screens/Home";
 import ResultPage from "../screens/Result";
 import AddGamePage from "../screens/AddGame";
@@ -13,75 +15,81 @@ import SubLevelsPage from "../screens/SubLevels";
 import CreateTrueFalsePage from "../screens/createGame/TrueFalse";
 import PlayGamePage from "../screens/playGame/Play";
 import SplashScreen from "../screens/SplashScreen";
-import store from "../redux/store";
-import { useState } from "react";
 
 const Stack = createStackNavigator();
 
-const customColors = {
-  myOrange: "#F6BD60", // Light Orange
-  myBeige: "#F7EDE2", // Light Beige
-  myPink: "#F5CAC3", // Light Pink
-  myGreen: "#84A59D", // Muted Green
-  myRed: "#F28482", // Soft Red
-  myGray: "#e5e5e5",
-};
-
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    ...customColors,
-    background: customColors.myBeige,
-  },
-};
-
 export default function Index() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
+  const [drawerVisible, setDrawerVisible] = useState(false);
 
-  const handleAnimationFinish = () => {
+  const animationFinishHandler = () => {
     setIsSplashVisible(false);
   };
 
+  const menuPressHandler = () => {
+    setDrawerVisible((state) => !state);
+  };
+
+  const closeDrawer = () => {
+    setDrawerVisible(false);
+  };
+
+  const menuHeader = (
+    <>
+      <Appbar.Action
+        icon="menu"
+        onPress={menuPressHandler}
+        style={{ marginHorizontal: 10 }}
+      />
+      <Appbar.Content />
+    </>
+  );
+
+  let content = <SplashScreen onAnimationFinish={animationFinishHandler} />;
+
+  if (!isSplashVisible) {
+    content = (
+      <>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerShown: true,
+            headerStyle: {
+              backgroundColor: theme.colors.myBeige,
+              shadowColor: theme.colors.headerShadowColor,
+              elevation: 5,
+            },
+            headerTitleStyle: {
+              display: "none",
+            },
+            headerRight: () => (menuHeader),
+          }}
+        >
+          <Stack.Screen name="Home" component={HomePage} />
+          <Stack.Screen name="Result" component={ResultPage} />
+          <Stack.Screen name="AddGame" component={AddGamePage} />
+          <Stack.Screen name="SubLevels" component={SubLevelsPage} />
+          <Stack.Screen name="PlayGame" component={PlayGamePage} />
+          <Stack.Screen
+            name="CreateTrueFalse"
+            component={CreateTrueFalsePage}
+          />
+        </Stack.Navigator>
+
+        <DrawerMenu visible={drawerVisible} onClose={closeDrawer} />
+      </>
+    );
+  }
+
   return (
     <Provider store={store}>
-      <PaperProvider theme={theme}>
-        {isSplashVisible ? (
-          <SplashScreen onAnimationFinish={handleAnimationFinish} />
-        ) : (
+      <LanguageProvider>
+        <PaperProvider theme={theme}>
           <NavigationContainer independent={true}>
-            <Stack.Navigator
-              initialRouteName="Home"
-              screenOptions={{
-                headerShown: false,
-              }}
-            >
-              <Stack.Screen
-                name="Home"
-                component={HomePage}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen name="Result" component={ResultPage} />
-              <Stack.Screen name="AddGame" component={AddGamePage} />
-              <Stack.Screen name="SubLevels" component={SubLevelsPage} />
-              <Stack.Screen
-                name="PlayGame"
-                component={PlayGamePage}
-                options={{
-                  headerShown: true,
-                  header: () => null,
-                }}
-              />
-              {/* <Stack.Screen name="AllGames" component={AllGamesPage} />
-            <Stack.Screen name="CreateTrivia" component={CreateTriviaPage} /> */}
-              <Stack.Screen
-                name="CreateTrueFalse"
-                component={CreateTrueFalsePage}
-              />
-            </Stack.Navigator>
+            {content}
           </NavigationContainer>
-        )}
-      </PaperProvider>
+        </PaperProvider>
+      </LanguageProvider>
     </Provider>
   );
 }

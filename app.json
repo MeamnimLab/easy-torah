@@ -28,7 +28,8 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true
@@ -36,7 +37,8 @@
     "extra": {
       "eas": {
         "projectId": "46c5eb8f-6d40-4457-b21c-59f86fe8a0a1"
-      }
+      },
+      "supportsRTL": true
     }
   }
 }
