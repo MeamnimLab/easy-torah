@@ -5,24 +5,30 @@ import { Appbar, useTheme } from "react-native-paper";
 const Header = (props) => {
   const { current, onBackPress, onQuestionTouch } = props;
 
-  const {colors} = useTheme();
+  const { colors } = useTheme();
 
   return (
-    <View style={{ backgroundColor: colors.myBeige }}>
-      <Appbar.Header style={[styles.root, { backgroundColor: colors.myBeige }]}>
-        <Appbar.BackAction onPress={onBackPress} />
-        <ScrollView
-          style={styles.scrollView}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        >
-          <QuestionNumbers
-            current={current}
-            onQuestionTouch={onQuestionTouch}
-          />
-        </ScrollView>
-      </Appbar.Header>
-    </View>
+    // <View style={{ backgroundColor: colors.myBeige }}>
+    <Appbar.Header
+      style={[
+        styles.root,
+        {
+          backgroundColor: colors.myBeige,
+          shadowColor: colors.headerShadowColor,
+          elevation: 5,
+        },
+      ]}
+    >
+      <Appbar.BackAction onPress={onBackPress} />
+      <ScrollView
+        style={styles.scrollView}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        <QuestionNumbers current={current} onQuestionTouch={onQuestionTouch} />
+      </ScrollView>
+    </Appbar.Header>
+    // </View>
   );
 };
 
