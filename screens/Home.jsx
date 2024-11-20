@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "react-native-paper";
 import AllGamesPage from "./AllGames";
 import AddGamePage from "./AddGame";
+import AllLevelsPage from "./create/Levels";
 
 const Tab = createBottomTabNavigator();
 
@@ -43,8 +44,8 @@ const HomePage = () => {
           }}
         />
         <Tab.Screen
-          name="AddGame"
-          component={AddGamePage}
+          name="LevelsOfCreate"
+          component={AllLevelsPage}
           options={{
             tabBarLabel: "Create",
             tabBarLabelStyle: { color: colors.myRed },

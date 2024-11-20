@@ -12,6 +12,7 @@ import HomePage from "../screens/Home";
 import ResultPage from "../screens/Result";
 import AddGamePage from "../screens/AddGame";
 import SubLevelsPage from "../screens/SubLevels";
+import AllLevelsPage from "../screens/create/Levels";
 import CreateTrueFalsePage from "../screens/createGame/TrueFalse";
 import PlayGamePage from "../screens/playGame/Play";
 import SplashScreen from "../screens/SplashScreen";
@@ -69,6 +70,7 @@ export default function Index() {
           <Stack.Screen name="Result" component={ResultPage} />
           <Stack.Screen name="AddGame" component={AddGamePage} />
           <Stack.Screen name="SubLevels" component={SubLevelsPage} />
+          <Stack.Screen name="LevelsOfCreate" component={AllLevelsPage} />
           <Stack.Screen name="PlayGame" component={PlayGamePage} />
           <Stack.Screen
             name="CreateTrueFalse"

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text } from "react-native";
-
-import LevelGridTile from "../components/LevelGridTile";
-import { useDispatch } from "react-redux";
+import { FlatList, Text } from "react-native";
+import LevelBox from "../../components/LevelBox";
 import { useTheme } from "react-native-paper";
-import useHttp from "../hooks/http";
-import Loading from '../components/ui/Loading'
+import useHttp from "../../hooks/http";
+import Loading from '../../components/ui/Loading'
 
-const AllGamesPage = ({ navigation }) => {
+const AllLevelsPage = ({ navigation }) => {
   const { colors } = useTheme();
-  const dispatch = useDispatch();
   const [levelData, setLevelData] = useState([]);
 
   const { isLoading, error, sendRequest: fetchLevelData } = useHttp();
@@ -18,24 +15,29 @@ const AllGamesPage = ({ navigation }) => {
 
     const pressHandler = () => {
       if(item.hasGame && item.id){
-        navigation.navigate("SubLevels", {levelId: item.id});
+        navigation.navigate("SubLevelsOfCreate", {levelId: item.id});
       }
     };
 
+    // const pressHandler = () => {
+    //   if(item.hasGame && item.id){
+    //     navigation.navigate("SubLevelsPage", {levelId: item.id, type: 'create'});
+    //   }
+    // };
+
     return (
-      <LevelGridTile
+      <LevelBox
         title={item.name.title.en}
         content={item.name.description.en}
         onPress={pressHandler}
         icon={item.icon.name}
         locked={!item.hasGame}
-        stars={-1}
       />
     );
   };
 
   useEffect(() => {
-    let url = "https://easy-torah.onrender.com/api/level/getLevelsWithProgress/1"
+    let url = "https://easy-torah.onrender.com/api/level/"
 
     const transformLevels = (levelsObj) => {
       setLevelData(levelsObj.data)
@@ -73,12 +75,12 @@ const AllGamesPage = ({ navigation }) => {
   return content;
 };
 
-export default AllGamesPage;
+export default AllLevelsPage;
 
-const styles = StyleSheet.create({
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+// const styles = StyleSheet.create({
+//   loadingContainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+// });
