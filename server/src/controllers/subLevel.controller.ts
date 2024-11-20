@@ -17,6 +17,32 @@ class SubLevelController extends BaseController {
       }
     }
   );
+
+  public getSubLevel = asyncHandler(
+    async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+      const { levelId } = req.params;
+      const subLevels = await this.service.getSubLevel(levelId);
+      if (subLevels) {
+        this.sendResponse(res, subLevels, "sub levels returned successfully", 200);
+      } else {
+        this.sendError("error getting sub levels", 404);
+      }
+    }
+  );
+
+  public editSubLevel = asyncHandler(
+    async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+      const {subLevelId} = req.params;
+      const {name} = req.body;
+
+      const level = await this.service.editSubLevel(subLevelId, name);
+      if (level) {
+        this.sendResponse(res, level, "Sub level updated successfully", 200);
+      } else {
+        this.sendError("Sub level not found", 404);
+      }
+    }
+  );
 }
 
 export default SubLevelController;

@@ -27,14 +27,15 @@ class SubLevelRepository extends BaseRepository<SubLevel> {
       return subLevels;
     }
 
+    public async getSubLevel(levelId: string): Promise<any> {
+      const subLevels = await this.repository
+        .createQueryBuilder("subLevel")
+        .where("subLevel.levelId = :levelId", { levelId })
+        .getMany();
+  
+      return subLevels;
+    }
+
   }
   
   export default SubLevelRepository;
-
-  // .select([
-  //   "subLevel.id",
-  //   "subLevel.name",
-  //   "userProgress.completed",
-  //   "userProgress.score",
-  //   "userProgress.subLevelsCompleted",
-  // ])

@@ -5,7 +5,7 @@ import {
   ObjectLiteral,
   Repository,
 } from "typeorm";
-import { dbConfig } from '../configs/dbConfig';
+import { dbConfig } from "../configs/dbConfig";
 import path from "path";
 import fs from "fs/promises";
 import User from "../entities/user.entity";
@@ -17,6 +17,12 @@ import { TrueFalseGame } from "../entities/trueFalse.entity";
 import { VocabularyGame } from "../entities/vocabulary.entity";
 import UserProgress from "../entities/userProgress.entity";
 import UserSubLevelProgress from "../entities/userSubLevelProgress.entity";
+import {
+  validateAndNormalizeLanguage,
+  validateAndNormalizeLevelName,
+  validateAndNormalizeTriviaAnswers,
+  validateAndNormalizeVocabularyHardSentences,
+} from "../utils/validation.util";
 
 export class Database {
   private static instance: Database;
@@ -38,6 +44,20 @@ export class Database {
 
     const { host, user, password, database, ssl } = dbConfig;
 
+    // this.dataSource = new DataSource({
+    //   type: "postgres",
+    //   host: host,
+    //   port: 5432,
+    //   username: user,
+    //   password: password,
+    //   database: database,
+    //   synchronize: synchronize,
+    //   logging: false,
+    //   ssl: false,
+    //   entities: [path.join(__dirname, "../entities/*.entity{.ts,.js}")],
+    //   migrations: [],
+    //   subscribers: [],
+    // });
     this.dataSource = new DataSource({
       type: "postgres",
       host: host,
@@ -134,30 +154,57 @@ export class Database {
     const filePath: string = path.join(__dirname, `../data/${name}.data.json`);
     const fileData: string = await fs.readFile(filePath, "utf-8");
     const records: any[] = JSON.parse(fileData);
-    if (name === "subLevel") {
-      const levelRepository: Repository<Level> = this.dataSource!.getRepository(Level);
+    if (name === "level") {
+      records.forEach((record) => {
+        record.name = validateAndNormalizeLevelName(record.name);
+      });
+    } else if (name === "subLevel") {
+      const levelRepository: Repository<Level> =
+        this.dataSource!.getRepository(Level);
       for (const subLevel of records) {
+        subLevel.name = validateAndNormalizeLanguage(subLevel.name);
         subLevel.level = await levelRepository.findOneBy({
           id: subLevel.levelId,
         });
       }
     } else if (name === "game") {
-      const subLevelRepository: Repository<SubLevel> = this.dataSource!.getRepository(SubLevel);
+      const subLevelRepository: Repository<SubLevel> =
+        this.dataSource!.getRepository(SubLevel);
       for (const game of records) {
         game.subLevel = await subLevelRepository.findOneBy({
           id: game.subLevelId,
         });
       }
-    } else if (name === "trivia" || name === 'trueFalse' || name === 'vocabulary') {
-      const gameRepository: Repository<Game> = this.dataSource!.getRepository(Game);
+    } else if (
+      name === "trivia" ||
+      name === "trueFalse" ||
+      name === "vocabulary"
+    ) {
+      const gameRepository: Repository<Game> =
+        this.dataSource!.getRepository(Game);
       for (const gameData of records) {
+        if (name === "trivia") {
+          gameData.question = validateAndNormalizeLanguage(gameData.question);
+          gameData.answers = validateAndNormalizeTriviaAnswers(
+            gameData.answers
+          );
+        } else if (name === "trueFalse") {
+          gameData.question = validateAndNormalizeLanguage(gameData.question);
+        } else if (name === "vocabulary") {
+          gameData.text = validateAndNormalizeLanguage(gameData.text);
+          gameData.hardSentences = validateAndNormalizeVocabularyHardSentences(
+            gameData.hardSentences
+          );
+        }
         gameData.game = await gameRepository.findOneBy({
           id: gameData.gameId,
         });
       }
     } else if (name === "userProgress") {
-      const levelRepository: Repository<Level> = this.dataSource!.getRepository(Level);
-      const userRepository: Repository<User> = this.dataSource!.getRepository(User);
+      const levelRepository: Repository<Level> =
+        this.dataSource!.getRepository(Level);
+      const userRepository: Repository<User> =
+        this.dataSource!.getRepository(User);
       for (const userProgress of records) {
         userProgress.level = await levelRepository.findOneBy({
           id: userProgress.levelId,
@@ -167,9 +214,12 @@ export class Database {
         });
       }
     } else if (name === "userSubLevelProgress") {
-      const subLevelRepository: Repository<SubLevel> = this.dataSource!.getRepository(SubLevel);
-      const userRepository: Repository<User> = this.dataSource!.getRepository(User);
-      const userProgressRepository: Repository<UserProgress> = this.dataSource!.getRepository(UserProgress);
+      const subLevelRepository: Repository<SubLevel> =
+        this.dataSource!.getRepository(SubLevel);
+      const userRepository: Repository<User> =
+        this.dataSource!.getRepository(User);
+      const userProgressRepository: Repository<UserProgress> =
+        this.dataSource!.getRepository(UserProgress);
       for (const userProgress of records) {
         userProgress.subLevel = await subLevelRepository.findOneBy({
           id: userProgress.subLevelId,

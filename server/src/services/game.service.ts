@@ -1,8 +1,15 @@
+import { ICreateTriviaDto } from '../dtos/createTrivia.dto';
+import { ICreateTrueFalseDto } from '../dtos/createTrueFalse.dto';
+import { ICreateVocabularyDto } from '../dtos/createVocabulary.dto';
+import { TriviaGame } from '../entities/trivia.entity';
 import GameRepository from '../repositories/game.repository';
+import TriviaRepository from '../repositories/trivia.repository';
+import TrueFalseRepository from '../repositories/trueFalse.repository';
+import VocabularyRepository from '../repositories/vocabulary.repository';
 import BaseService from './base/baseService.service';
 
 class GameService extends BaseService {
-  public repositories = [new GameRepository()];
+  public repositories: [GameRepository, TriviaRepository, TrueFalseRepository, VocabularyRepository] = [new GameRepository(), new TriviaRepository(), new TrueFalseRepository(), new VocabularyRepository()];
 
   async getSubLevelGames(subLevelId: string) {
     const games = await this.repositories[0].getSubLevelGames(subLevelId);
@@ -22,6 +29,28 @@ class GameService extends BaseService {
     });
 
     return transformedGames;
+  }
+
+  async createTrivia(subLevelId: string, game: ICreateTriviaDto) {
+    return null;
+  }
+  async createTrueFalse(subLevelId: string, game: ICreateTrueFalseDto) {
+    return null;
+  }
+  async createVocabulary(subLevelId: string, game: ICreateVocabularyDto) {
+    return null;
+  }
+  async editTrivia(gameId: string) {
+    return null;
+  }
+  async editTrueFalse(gameId: string) {
+    return null;
+  }
+  async editVocabulary(gameId: string) {
+    return null;
+  }
+  async deleteGame(gameId: string) {
+    return null;
   }
 }
 

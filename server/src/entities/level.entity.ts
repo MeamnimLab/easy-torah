@@ -1,6 +1,9 @@
-import { Entity, Column, OneToMany, PrimaryColumn } from 'typeorm';
+import { Entity, Column, OneToMany, PrimaryColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
 import { SubLevel } from './subLevel.entity';
 import { ILevel } from '../interfaces/level.interface';
+import { ILevelName } from '../interfaces/levelName.interface';
+import { IIcon } from '../interfaces/icon.interface';
+import { validateAndNormalizeLevelName } from '../utils/validation.util';
 
 @Entity('levels')
 export class Level implements ILevel {
@@ -8,14 +11,20 @@ export class Level implements ILevel {
     id!: number;
 
     @Column("jsonb")
-    name!: {title: string, description: string};
+    name!: ILevelName;
 
     @Column("jsonb", { default: { name: "help-outline", color: "default" } })
-    icon!: { name: string; color: string };
+    icon!: IIcon;
 
     @Column({default: false})
     hasGame!: boolean;
 
     @OneToMany(() => SubLevel, (subLevel) => subLevel.level)
     subLevels!: SubLevel[];
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    validateAndNormalizeName() {
+        this.name = validateAndNormalizeLevelName(this.name);
+    }
 }

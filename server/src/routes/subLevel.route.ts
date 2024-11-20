@@ -1,9 +1,9 @@
-import SubLevelController from '../controllers/subLevel.controller';
-import { RouteDefinition, RouterMethod } from '../types/routeDefinition.type';
-import { BaseRoutes } from './base/baseRoutes.route';
+import SubLevelController from "../controllers/subLevel.controller";
+import { RouteDefinition, RouterMethod } from "../types/routeDefinition.type";
+import { BaseRoutes } from "./base/baseRoutes.route";
 
 class SubLevelRoute extends BaseRoutes {
-  public basePath: string = '/api/subLevel';
+  public basePath: string = "/api/subLevel";
   public controller!: SubLevelController;
 
   constructor() {
@@ -11,7 +11,23 @@ class SubLevelRoute extends BaseRoutes {
   }
 
   protected defineRoutes(): RouteDefinition[] {
-    return [[RouterMethod.GET, '/getSubLevelsWithProgress/:userId/:levelId', [this.controller.getSubLevelsWithProgress]]];
+    return [
+      [
+        RouterMethod.GET,
+        "/getSubLevelsWithProgress/:userId/:levelId",
+        [this.controller.getSubLevelsWithProgress],
+      ],
+      [
+        RouterMethod.GET,
+        "/:levelId",
+        [this.controller.getSubLevel],
+      ],
+      [
+        RouterMethod.PATCH,
+        "/:subLevelId",
+        [this.controller.editSubLevel],
+      ],
+    ];
   }
 }
 

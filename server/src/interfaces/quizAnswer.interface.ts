@@ -1,5 +1,7 @@
+import { ILanguage } from "./languageString.interface";
+
 export interface IQuizAnswer {
     id: number;
-    answer: string;
-    description: string;
+    answer: ILanguage;
+    description: ILanguage;
 }

@@ -1,3 +1,5 @@
+import { IIcon } from "../interfaces/icon.interface";
+import { ILevelName } from "../interfaces/levelName.interface";
 import LevelRepository from "../repositories/level.repository";
 import UserProgressRepository from "../repositories/userProgress.repository";
 import BaseService from "./base/baseService.service";
@@ -8,19 +10,20 @@ class LevelService extends BaseService {
   async getLevelsWithProgress(userId: string) {
     const levels = await this.repositories[0].getAllLevelsWithUserProgress(userId);
     return levels;
-    // const userProgress = await this.repositories[1].find2(userId);
+  }
 
-    // const levelsWithProgress = levels.map((level: any) => {
-    //   const progress = userProgress.find((p: any) => p.level.id === level.id);
-    //   return {
-    //     ...level,
-    //     userProgress: progress
-    //       ? progress
-    //       : { completed: false, score: 0, subLevelsCompleted: 0 },
-    //   };
-    // });
+  async getAll() {
+    const levels = await this.repositories[0].findAll();
+    return levels;
+  }
 
-    // return levelsWithProgress;
+  async editLevel(levelId: string, name: ILevelName, icon: IIcon) {
+    const level = await this.repositories[0].findById(levelId);
+    if(!level) return;
+    level.name = name;
+    level.icon = icon;
+    const updatedLevel = await this.repositories[0].save(level)
+    return updatedLevel;
   }
 }
 
