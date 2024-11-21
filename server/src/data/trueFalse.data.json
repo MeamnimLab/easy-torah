@@ -1,9 +1,44 @@
 [
-    {"id": 112, "question": "true false question 112", "answer": true, "gameId": 112},
-    {"id": 122, "question": "true false question 122", "answer": true, "gameId": 122},
-    {"id": 212, "question": "true false question 212", "answer": true, "gameId": 212},
-    {"id": 222, "question": "true false question 222", "answer": true, "gameId": 222},
-    {"id": 411, "question": "true false question 411", "answer": true, "gameId": 411},
-    {"id": 421, "question": "true false question 421", "answer": true, "gameId": 421},
-    {"id": 511, "question": "true false question 511", "answer": true, "gameId": 511}
+  {
+    "id": 112,
+    "question": "האמירה 'שויתי ה' לנגדי תמיד' היא כלל גדול בתורה.",
+    "answer": true,
+    "gameId": 112
+  },
+  {
+    "id": 122,
+    "question": "האדם מתנהג באותו אופן כאשר הוא לבד בביתו וכאשר הוא נמצא לפני מלך גדול.",
+    "answer": false,
+    "gameId": 122
+  },
+  {
+    "id": 212,
+    "question": "כאשר האדם זוכר שה' רואה אותו, עליו להרגיש יראה והכנעה.",
+    "answer": true,
+    "gameId": 212
+  },
+  {
+    "id": 222,
+    "question": "מותר לאדם להסתיר את מעשיו מהמקומות הנסתרים מעיני ה'.",
+    "answer": false,
+    "gameId": 222
+  },
+  {
+    "id": 411,
+    "question": "על האדם לזכור לפני מי הוא שוכב, גם בזמן מנוחתו.",
+    "answer": true,
+    "gameId": 411
+  },
+  {
+    "id": 421,
+    "question": "הפסוק 'חדשים לבקרים רבה אמונתך' מדגיש את התחדשות האדם בכל בוקר.",
+    "answer": true,
+    "gameId": 421
+  },
+  {
+    "id": 511,
+    "question": "מותר לומר 'מודה אני' בבוקר גם אם הידיים אינן נקיות.",
+    "answer": true,
+    "gameId": 511
+  }
 ]

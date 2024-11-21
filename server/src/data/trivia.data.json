@@ -1,196 +1,161 @@
 [
   {
     "id": 111,
-    "question": "This is the 111 trivia question",
+    "question": "מהו הכלל הגדול שמתארים בקטע זה?",
     "correctAnswersIds": [1],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 111",
-        "description": "Good job!"
+        "answer": "לזכור את ה' בכל פעולה.",
+        "description": "נכון מאוד! לזכור את ה' תמיד הוא היסוד המרכזי שמדריך את מעשינו."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 111",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "לעמוד במושב המלך.",
+        "description": "לא מדויק, אבל רעיון יפה! זכור שהמטרה היא לזכור את ה' בכל רגע בחיינו, גם בבית וגם בחוץ."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 111",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 111",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "לשבת בבית לבד.",
+        "description": "טעות, אבל למידה חשובה! נסה לחשוב על איך לזכור את ה' בכל פעולה, לא רק בבית."
       }
     ],
     "gameId": 111
   },
   {
     "id": 113,
-    "question": "This is the 113 trivia question",
-    "correctAnswersIds": [1],
+    "question": "מה ההבדל בין התנהגות האדם לבד בביתו להתנהגותו לפני מלך גדול?",
+    "correctAnswersIds": [2],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 113",
-        "description": "Good job!"
+        "answer": "בביתו הוא מקפיד יותר.",
+        "description": "לא מדויק, נסה לחשוב על המעמד של האדם מול מלך גדול - הוא מקפיד יותר כשהוא לפני המלך."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 113",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "לפני המלך הוא מקפיד יותר.",
+        "description": "מעולה! כשהאדם לפני מלך גדול, הוא מקפיד על מעשיו ודיבוריו."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 113",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 113",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "אין הבדל.",
+        "description": "טעות, אבל טוב שניסית! יש הבדל משמעותי - האדם מקפיד יותר כשהוא לפני המלך."
       }
     ],
     "gameId": 113
   },
   {
     "id": 121,
-    "question": "This is the 121 trivia question",
-    "correctAnswersIds": [1],
+    "question": "מה משתנה בדיבורו של האדם כשהוא במושב המלך?",
+    "correctAnswersIds": [2],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 121",
-        "description": "Good job!"
+        "answer": "הוא מדבר בחופשיות.",
+        "description": "טעות, אך רעיון מעניין! במושב המלך, האדם דווקא מקפיד יותר על דבריו."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 121",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "הוא מקפיד על דבריו.",
+        "description": "נכון מאוד! במושב המלך, האדם מדבר בצורה מתוקנת יותר."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 121",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 121",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "הוא מתעלם מהמלך.",
+        "description": "טעות, אך חשוב להמשיך לנסות! האדם אינו מתעלם, אלא נוהג בכבוד ויראה."
       }
     ],
     "gameId": 121
   },
   {
     "id": 211,
-    "question": "This is the 211 trivia question",
+    "question": "למה משגיח האדם על תנועותיו ודיבוריו במושב המלך?",
     "correctAnswersIds": [1],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 211",
-        "description": "Good job!"
+        "answer": "כדי להיות מתוקן כראוי.",
+        "description": "נכון מאוד! האדם משתדל להתנהג בצורה ראויה ומכובדת במושב המלך."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 211",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "כדי להרשים את בני משפחתו.",
+        "description": "טעות, אבל למידה נכונה! החשיבות היא להתנהג כראוי מול המלך, לא רק מול המשפחה."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 211",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 211",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "כדי להתחמק ממעשים רעים.",
+        "description": "לא מדויק, נסה שוב! הכוונה היא להתנהג כראוי מתוך יראה וכבוד."
       }
     ],
     "gameId": 211
   },
   {
     "id": 221,
-    "question": "This is the 221 trivia question",
+    "question": "מה צריך לזכור האדם לגבי הקב\"ה?",
     "correctAnswersIds": [1],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 221",
-        "description": "Good job!"
+        "answer": "שהוא מלא כל הארץ כבודו.",
+        "description": "מעולה! זוהי האמונה המרכזית שהקב\"ה רואה הכל ונמצא בכל מקום."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 221",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "שהוא מתעלם ממעשיו.",
+        "description": "טעות, אבל חשוב לזכור שהקב\"ה דווקא רואה הכל ונמצא איתנו בכל עת."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 221",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 221",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "שהוא אינו רואה הכל.",
+        "description": "לא נכון, נסה לחשוב על ההיקף האינסופי של נוכחות ה'."
       }
     ],
     "gameId": 221
   },
   {
     "id": 311,
-    "question": "This is the 311 trivia question",
-    "correctAnswersIds": [1],
+    "question": "מה המשמעות של הפסוק \"הלא את השמים ואת הארץ אני מלא\"?",
+    "correctAnswersIds": [2],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 311",
-        "description": "Good job!"
+        "answer": "שהקב\"ה מוגבל למקום אחד.",
+        "description": "טעות, אך למידה נכונה! הפסוק מתאר שהקב\"ה נוכח בכל מקום."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 311",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "שהקב\"ה נוכח בכל מקום.",
+        "description": "מצוין! הפסוק מדגיש את נוכחותו האינסופית של הקב\"ה בכל מקום."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 311",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 311",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "שהקב\"ה רואה רק את השמים.",
+        "description": "טעות, נסה שוב! הקב\"ה רואה את השמים ואת הארץ כאחד."
       }
     ],
     "gameId": 311
   },
   {
     "id": 321,
-    "question": "This is the 321 trivia question",
-    "correctAnswersIds": [1],
+    "question": "איזו תחושה מתעוררת באדם כשהוא זוכר שה' רואה אותו?",
+    "correctAnswersIds": [2],
     "answers": [
       {
         "id": 1,
-        "answer": "this is the first answer and the correct answer for trivia question 321",
-        "description": "Good job!"
+        "answer": "שמחה וגאווה.",
+        "description": "לא מדויק, התחושה המרכזית היא יראה והכנעה."
       },
       {
         "id": 2,
-        "answer": "this is the second answer and wrong answer for trivia question 321",
-        "description": "Wrong because - here why 2 is wrong"
+        "answer": "יראה והכנעה.",
+        "description": "מעולה! זו התחושה הטבעית כשזוכרים שה' משגיח עלינו."
       },
       {
         "id": 3,
-        "answer": "this is the third answer and wrong answer for trivia question 321",
-        "description": "Wrong because - here why 3 is wrong"
-      },
-      {
-        "id": 4,
-        "answer": "this is the forth answer and wrong answer for trivia question 321",
-        "description": "Wrong because - here why 4 is wrong"
+        "answer": "כעס ותסכול.",
+        "description": "טעות, אך טוב שניסית! התחושה המרכזית היא של יראה והכנעה, לא כעס."
       }
     ],
     "gameId": 321
