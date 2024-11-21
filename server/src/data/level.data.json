@@ -3,7 +3,10 @@
     "id": 1,
     "name": {
       "title": "א",
-      "description": "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר"
+      "description": {
+        "en": "Laws of Morning Awakening",
+        "he": "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר"
+      }
     },
     "icon": {
       "name": "sunny-outline"
@@ -14,7 +17,10 @@
     "id": 2,
     "name": {
       "title": "ב",
-      "description": "הִלְכוֹת נְטִילַת יָדַיִם"
+      "description": {
+        "en": "Laws of Handwashing",
+        "he": "הִלְכוֹת נְטִילַת יָדַיִם"
+      }
     },
     "icon": {
       "name": "water-outline"
@@ -25,7 +31,10 @@
     "id": 3,
     "name": {
       "title": "ג",
-      "description": "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ"
+      "description": {
+        "en": "Laws of Dressing and Walking",
+        "he": "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ"
+      }
     },
     "icon": {
       "name": "shirt-outline"
@@ -36,7 +45,10 @@
     "id": 4,
     "name": {
       "title": "ד",
-      "description": "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר"
+      "description": {
+        "en": "Conduct in the Restroom and the 'Asher Yatzar' Blessing",
+        "he": "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר"
+      }
     },
     "icon": {
       "name": "water-outline"
@@ -47,7 +59,10 @@
     "id": 5,
     "name": {
       "title": "ה",
-      "description": "נקיון המקום לדבר שבקדושה"
+      "description": {
+        "en": "Cleanliness for Sacred Matters",
+        "he": "נקיון המקום לדבר שבקדושה"
+      }
     },
     "icon": {
       "name": "brush-outline"
@@ -58,7 +73,10 @@
     "id": 6,
     "name": {
       "title": "ו",
-      "description": "קצת דיני ברכות ודיני ברוך הוא וברוך שמו ואמן"
+      "description": {
+        "en": "Laws of Blessings and Responses",
+        "he": "קצת דיני ברכות ודיני ברוך הוא וברוך שמו ואמן"
+      }
     },
     "icon": {
       "name": "pricetag-outline"
@@ -69,7 +87,10 @@
     "id": 7,
     "name": {
       "title": "ז",
-      "description": "הלכות ברכות השחר"
+      "description": {
+        "en": "Laws of Morning Blessings",
+        "he": "הלכות ברכות השחר"
+      }
     },
     "icon": {
       "name": "sunny-outline"
@@ -80,7 +101,10 @@
     "id": 8,
     "name": {
       "title": "ח",
-      "description": "דברים האסורים משהאיר היום עד לאחר שיתפלל"
+      "description": {
+        "en": "Forbidden Activities Before Prayer",
+        "he": "דברים האסורים משהאיר היום עד לאחר שיתפלל"
+      }
     },
     "icon": {
       "name": "time-outline"
@@ -91,7 +115,10 @@
     "id": 9,
     "name": {
       "title": "ט",
-      "description": "הִלְכוֹת צִיצִית"
+      "description": {
+        "en": "Laws of Tzitzit",
+        "he": "הִלְכוֹת צִיצִית"
+      }
     },
     "icon": {
       "name": "shirt-outline"
@@ -102,7 +129,10 @@
     "id": 10,
     "name": {
       "title": "י",
-      "description": "הלכות תפילין"
+      "description": {
+        "en": "Laws of Tefillin",
+        "he": "הלכות תפילין"
+      }
     },
     "icon": {
       "name": "cube-outline"

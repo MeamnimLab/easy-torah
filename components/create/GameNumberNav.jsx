@@ -1,7 +1,13 @@
+import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Pressable, View, Text, ScrollView } from "react-native";
 import { useTheme } from "react-native-paper";
 
-const GameNumberNav = ({ currentIndex, onQuestionTouch, questionsAmount }) => {
+const GameNumberNav = ({
+  currentIndex,
+  onQuestionTouch,
+  questionsAmount,
+  onAddPress,
+}) => {
   const { colors } = useTheme();
 
   const numberQuestion = Array.from({ length: questionsAmount }, (_, index) => {
@@ -21,6 +27,20 @@ const GameNumberNav = ({ currentIndex, onQuestionTouch, questionsAmount }) => {
       </Pressable>
     );
   });
+
+  // Add the "+" circle at the end
+  numberQuestion.push(
+    <Pressable key="add" onPress={onAddPress}>
+      {/* <View
+        style={[
+          styles.circle,
+          { borderWidth: 2, borderColor: colors.myGray },
+        ]}
+      > */}
+        <Ionicons name="add-circle-outline" size={29} color={colors.myGreen} />
+      {/* </View> */}
+    </Pressable>
+  );
 
   return (
     <View style={styles.container}>
