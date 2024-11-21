@@ -6,11 +6,13 @@ import { useDispatch } from "react-redux";
 import { useTheme } from "react-native-paper";
 import useHttp from "../hooks/http";
 import Loading from '../components/ui/Loading'
+import { useLanguage } from "@/components/context/LanguageContext";
 
 const AllGamesPage = ({ navigation }) => {
   const { colors } = useTheme();
   const dispatch = useDispatch();
   const [levelData, setLevelData] = useState([]);
+  const { locale } = useLanguage();
 
   const { isLoading, error, sendRequest: fetchLevelData } = useHttp();
 
@@ -24,8 +26,8 @@ const AllGamesPage = ({ navigation }) => {
 
     return (
       <LevelGridTile
-        title={item.name.title.en}
-        content={item.name.description.en}
+        title={item.name.title[locale]}
+        content={item.name.description[locale]}
         onPress={pressHandler}
         icon={item.icon.name}
         locked={!item.hasGame}

@@ -4,10 +4,12 @@ import LevelBox from "../../components/LevelBox";
 import { useTheme } from "react-native-paper";
 import useHttp from "../../hooks/http";
 import Loading from '../../components/ui/Loading'
+import { useLanguage } from "@/components/context/LanguageContext";
 
 const AllLevelsPage = ({ navigation }) => {
   const { colors } = useTheme();
   const [levelData, setLevelData] = useState([]);
+  const { locale } = useLanguage();
 
   const { isLoading, error, sendRequest: fetchLevelData } = useHttp();
 
@@ -27,8 +29,8 @@ const AllLevelsPage = ({ navigation }) => {
 
     return (
       <LevelBox
-        title={item.name.title.en}
-        content={item.name.description.en}
+        title={item.name.title[locale]}
+        content={item.name.description[locale]}
         onPress={pressHandler}
         icon={item.icon.name}
         locked={!item.hasGame}
@@ -49,10 +51,6 @@ const AllLevelsPage = ({ navigation }) => {
     );
 
   }, [fetchLevelData]);
-
-  // useEffect(() => {
-  //   console.log(levelData)
-  // }, [levelData]);
 
   let content = (
     <FlatList
@@ -76,11 +74,3 @@ const AllLevelsPage = ({ navigation }) => {
 };
 
 export default AllLevelsPage;
-
-// const styles = StyleSheet.create({
-//   loadingContainer: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-// });

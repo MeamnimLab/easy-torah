@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 import Options from "./Options";
 import QuestionCard from "./QuestionCard";
+import { useLanguage } from "../context/LanguageContext";
 
 const PlayTrueFalse = (props) => {
   const { game, onAnswered } = props;
+  const {locale} = useLanguage();
 
   if (!game) {
     return (
@@ -15,9 +17,9 @@ const PlayTrueFalse = (props) => {
   const { question, answer } = game;
   return (
     <View style={styles.root}>
-      <QuestionCard question={question}/>
+      <QuestionCard question={question[locale]}/>
       <Options
-        options={[{answer: "True", comment: 'comment to true answer', id: 1},{answer: "False", comment: 'comment to false answer', id: 2}]}
+        options={[{answer: {en: "True", he: 'נכון'}, description: {he:'הערה על התשובה הנכונה', en:'description to true answer'}, id: 1},{answer: {en: "False", he: 'לא נכון'}, description: {he:'הערה על התשובה הלא נכונה', en:'description to false answer'}, id: 2}]}
         correctAnswersIds={[answer? 1: 2]}
         onAnswered={onAnswered}
       />

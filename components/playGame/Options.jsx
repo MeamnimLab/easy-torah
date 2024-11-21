@@ -2,10 +2,12 @@ import { useState } from "react";
 import { View } from "react-native";
 import Option from "./Option";
 import { useTheme } from "react-native-paper";
+import { useLanguage } from "../context/LanguageContext";
 
 const Options = (props) => {
   const {colors} = useTheme();
   const { options, correctAnswersIds, onAnswered } = props;
+  const {locale} = useLanguage();
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
@@ -20,8 +22,8 @@ const Options = (props) => {
     }
     return (
       <Option
-        option={option.answer}
-        description={option.comment}
+        option={option.answer[locale]}
+        description={option.description[locale]}
         disabled={selectedAnswer ? true : false}
         bgColor={bgColor}
         onPress={() => {

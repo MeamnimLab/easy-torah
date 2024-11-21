@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Card, Dialog, Portal, Button, useTheme } from "react-native-paper";
+import { useLanguage } from "../context/LanguageContext";
 
 const PlayVocabulary = (props) => {
     const {colors} = useTheme();
   const { game } = props;
   const { text, hardSentences } = game;
+  const {locale} = useLanguage();
 
   // Create a map for easy lookup of explanations
   const sentenceMap = hardSentences.reduce((map, item) => {
-    map[item.sentence] = item.explanation;
+    map[item.sentence[locale]] = item.explanation[locale];
     return map;
   }, {});
 
   // Split the text into words
-  const words = text.split(/(\s+)/); // Split by spaces, keeping the spaces
+  const words = text[locale].split(/(\s+)/); // Split by spaces, keeping the spaces
 
   // State to manage Dialog visibility and content
   const [visible, setVisible] = useState(false);

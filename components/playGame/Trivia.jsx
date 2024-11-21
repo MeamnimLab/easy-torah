@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 import Options from "./Options";
 import QuestionCard from './QuestionCard'
+import { useLanguage } from "../context/LanguageContext";
 
 const PlayTrivia = (props) => {
   const { game, onAnswered } = props;
+  const {locale} = useLanguage();
 
   if (!game) {
     return (
@@ -15,7 +17,7 @@ const PlayTrivia = (props) => {
   const { answers, correctAnswersIds, question } = game;
   return (
     <View style={styles.root}>
-      <QuestionCard question={question}/>
+      <QuestionCard question={question[locale]}/>
       <Options
         options={answers}
         correctAnswersIds={correctAnswersIds}
