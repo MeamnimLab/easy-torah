@@ -3,19 +3,14 @@ import { Pressable, Text, StyleSheet, View } from "react-native";
 import { Surface, useTheme } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 
-function LevelBox({ title, content, onPress, onLongPress, icon, locked }) {
+function EditLevelBox({ title, content, icon, locked }) {
   const { colors } = useTheme();
 
   return (
     <Surface style={[styles.gridItem]}>
       <Pressable
-        onPress={onPress}
-        onLongPress={onLongPress}
         android_ripple={{ color: "rgba(0, 0, 0, 0.1)" }}
-        style={({ pressed }) => [
-          styles.button,
-          pressed ? { backgroundColor: "rgba(0, 0, 0, 0.1)" } : null,
-        ]}
+        style={styles.button}
       >
         <View style={styles.numberContainer}>
           <Text style={styles.number}>{title}</Text>
@@ -44,11 +39,10 @@ function LevelBox({ title, content, onPress, onLongPress, icon, locked }) {
   );
 }
 
-export default LevelBox;
+export default EditLevelBox;
 
 const styles = StyleSheet.create({
   gridItem: {
-    flex: 1,
     margin: 8,
     height: 160,
     width: 160,
@@ -61,9 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 12,
     justifyContent: "space-between",
-  },
-  pressed: {
-    opacity: 0.7,
   },
   locked: {
     opacity: 0.5,
