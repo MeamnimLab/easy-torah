@@ -28,7 +28,9 @@ const Options = (props) => {
         bgColor={bgColor}
         onPress={() => {
           const isCorrect = correctAnswersIds.includes(option.id);
-          onAnswered(isCorrect, option.id);
+          if(onAnswered){
+            onAnswered(isCorrect, option.id);
+          }
           setSelectedAnswer(option.id);
         }}
         key={option.id}
