@@ -60,21 +60,53 @@
 // });
 
 // export default SelectableText;
-import React from 'react';
-import { View, Text } from 'react-native';
-import { RNSelectableText } from 'react-native-selectable-text'; // Make sure to adjust based on your package name
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import SelectableText from 'react-native-selectable-text';
 
-const SelectableText = () => {
+const SelectableText2 = () => {
+  const [selectedText, setSelectedText] = useState('');
+
+  const handleSelectionChange = (selection) => {
+    setSelectedText(selection);
+  };
+
   return (
-    <View>
-      <Text>Example of Using RNSelectableText</Text>
-      <RNSelectableText
-        text="This is some selectable text"
-        onSelection={(e) => console.log('Selected text:', e.nativeEvent)}
-      />
+    <View style={styles.container}>
+      <SelectableText
+        style={styles.text}
+        onSelectionChange={handleSelectionChange}
+      >
+        This is some selectable text. Try selecting a part of it to see the result below.
+      </SelectableText>
+
+      {selectedText ? (
+        <Text style={styles.selectedText}>Selected Text: {selectedText}</Text>
+      ) : (
+        <Text style={styles.selectedText}>No text selected</Text>
+      )}
     </View>
   );
 };
 
-export default SelectableText;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  text: {
+    fontSize: 16,
+    color: 'black',
+    marginBottom: 20,
+  },
+  selectedText: {
+    fontSize: 16,
+    color: 'blue',
+  },
+});
+
+export default SelectableText2;
+
 

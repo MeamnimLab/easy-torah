@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, TextInput } from "react-native";
 import { Card, useTheme } from "react-native-paper";
-import SelectableText from '../../../components/SelectableText'
+import SelectableText2 from '../../../components/SelectableText'
 
 const CreateVocabulary = () => {
   const { colors } = useTheme();
@@ -51,7 +51,7 @@ const CreateVocabulary = () => {
           color={colors.secondary}
         />
       </View>
-      <SelectableText/>
+      <SelectableText2/>
     </View>
   );
 };
