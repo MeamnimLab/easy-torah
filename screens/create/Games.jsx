@@ -1,22 +1,16 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import PlayTrivia from "../../components/playGame/Trivia";
 import PlayTrueFalse from "../../components/playGame/TrueFalse";
 import PlayVocabulary from "../../components/playGame/Vocabulary";
-import Header from "../../components/playGame/header/Header";
 import PagerView from "react-native-pager-view";
 import Animated from "react-native-reanimated";
-import {
-  initAnswerdData,
-  initNumOfQuestions,
-  setAnswer,
-  setVisited,
-} from "@/redux/gameSlice";
 import { ProgressBar, useTheme } from "react-native-paper";
 import useHttp from "@/hooks/http";
 import Loading from "@/components/ui/Loading";
-import GameNumberNav from '../../components/create/GameNumberNav'
+import GameNumberNav from "../../components/create/GameNumberNav";
+import GameOptionsListModal from "../../components/GamesOptionsListModal";
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const AllSubLevelGamesPage = ({ route, navigation }) => {
@@ -26,7 +20,9 @@ const AllSubLevelGamesPage = ({ route, navigation }) => {
   const screenStyle = { backgroundColor: colors.myBeige };
 
   const [subLevelGames, setSubLevelGames] = useState([]);
+  const [isModalVisible, setModalVisible] = useState(false);
   const { isLoading, error, sendRequest } = useHttp();
+  const { sendRequest: postAddGame } = useHttp();
 
   useEffect(() => {
     let url = `https://easy-torah.onrender.com/api/game/${subLevelId}`;
@@ -56,21 +52,27 @@ const AllSubLevelGamesPage = ({ route, navigation }) => {
     }
   };
 
+  const addPressHandler = () => {
+    console.log("pressed add");
+    setModalVisible(true);
+  };
+
   let content = (
     <View style={[styles.screen, screenStyle]}>
       {subLevelGames.length > 0 && (
         <>
-            <ProgressBar
-              progress={(currentIndex + 1) / subLevelGames.length}
-              color={colors.myGreen}
-              style={styles.progressBar}
-            />
+          <ProgressBar
+            progress={(currentIndex + 1) / subLevelGames.length}
+            color={colors.myGreen}
+            style={styles.progressBar}
+          />
           <GameNumberNav
             currentIndex={currentIndex}
             onQuestionTouch={(index) => {
               pagerViewRef.current?.setPage(index);
             }}
             questionsAmount={subLevelGames.length}
+            onAddPress={addPressHandler}
           />
           <AnimatedPagerView
             ref={pagerViewRef}
@@ -99,7 +101,16 @@ const AllSubLevelGamesPage = ({ route, navigation }) => {
     content = <Text>error: {error}</Text>;
   }
 
-  return content;
+  return (
+    <View style={{ flex: 1 }}>
+      {content}
+      <GameOptionsListModal
+        isVisible={isModalVisible}
+        onClose={() => setModalVisible(false)}
+        onCardPress={()=> console.log("card press")}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

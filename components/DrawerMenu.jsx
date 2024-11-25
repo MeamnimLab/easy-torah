@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, TouchableWithoutFeedback } from "react-native";
 import { Drawer, Button, Text } from "react-native-paper";
 import { useTheme } from "react-native-paper";
 import { useLanguage } from "./context/LanguageContext";
@@ -23,35 +23,39 @@ const DrawerMenu = ({ visible, onClose }) => {
   if (!visible) return null;
 
   return (
-    <View style={styles.overlay}>
-      <View
-        style={[
-          styles.drawerContainer,
-          { backgroundColor: colors.myBeige }, // Use theme color
-        ]}
-      >
-        <Drawer.Section>
-          <View style={styles.languageContainer}>
-            <MaterialCommunityIcons
-              name={"earth"}
-              size={24}
-              color={colors.text} // Use theme color for icon
-            />
-            <Text style={[styles.languageText, { color: colors.text }]}>
-              {currentLanguageLabel}
-            </Text>
-          </View>
-
-          <Button
-            mode="contained"
-            onPress={toggleLanguage}
-            style={[styles.button, { backgroundColor: colors.myOrange }]} // Use theme color
+    <TouchableWithoutFeedback onPress={onClose}>
+      <View style={styles.overlay}>
+        <TouchableWithoutFeedback>
+          <View
+            style={[
+              styles.drawerContainer,
+              { backgroundColor: colors.myBeige }, // Use theme color
+            ]}
           >
-            {isEnglish ? t("switchToHebrew") : t("switchToEnglish")}
-          </Button>
-        </Drawer.Section>
+            <Drawer.Section>
+              <View style={styles.languageContainer}>
+                <MaterialCommunityIcons
+                  name={"earth"}
+                  size={24}
+                  color={colors.text} // Use theme color for icon
+                />
+                <Text style={[styles.languageText, { color: colors.text }]}>
+                  {currentLanguageLabel}
+                </Text>
+              </View>
+
+              <Button
+                mode="contained"
+                onPress={toggleLanguage}
+                style={[styles.button, { backgroundColor: colors.myOrange }]} // Use theme color
+              >
+                {isEnglish ? t("switchToHebrew") : t("switchToEnglish")}
+              </Button>
+            </Drawer.Section>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

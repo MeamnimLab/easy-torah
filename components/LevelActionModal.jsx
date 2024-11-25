@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   View,
@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import EditLevelBox from "./EditLevelBox";
-import { Button, TextInput, useTheme } from "react-native-paper";
+import { ActivityIndicator, Button, TextInput, useTheme } from "react-native-paper";
 
 const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
   if (!levelData) return null;
@@ -25,6 +25,7 @@ const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
     levelData.name.description["en"]
   );
   const [icon, setIcon] = useState(levelData.icon.name);
+  const [isSaving, setIsSaving] = useState(false);
 
   const textInputStyle = {
     colors: {
@@ -35,15 +36,37 @@ const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
   };
 
   const handleSave = () => {
+    setIsSaving(true);
     const updatedData = {
       name: {
         title: { he: heTitle, en: enTitle },
         description: { he: heDescription, en: enDescription },
       },
-      icon: { name: icon, color: 'white' },
+      icon: { name: icon, color: "white" },
     };
-    onSave(updatedData);
+
+    setTimeout(() => {
+      onSave(updatedData);
+      setIsSaving(false);
+    }, 1000);
   };
+
+  const handleCancel = () => {
+    setEnDescription(null);
+    setEnTitle(null);
+    setHeDescription(null);
+    setHeTitle(null);
+    setIcon(null);
+    onClose();
+  };
+
+  useEffect(() => {
+    setHeTitle(levelData.name.title["he"]);
+    setEnTitle(levelData.name.title["en"]);
+    setHeDescription(levelData.name.description["he"]);
+    setEnDescription(levelData.name.description["en"]);
+    setIcon(levelData.icon.name);
+  }, [levelData]);
 
   return (
     <Modal
@@ -67,7 +90,7 @@ const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
             <EditLevelBox
               title={heTitle}
               content={heDescription}
-              icon={levelData.icon.name}
+              icon={icon}
               locked={!levelData.hasGame}
             />
             <TextInput
@@ -110,17 +133,26 @@ const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
             <Button
               mode="text"
               onPress={handleSave}
+              disabled={isSaving}
               textColor={colors.myGreen}
               style={styles.modalButton}
               icon={() => (
                 <MaterialIcons name="save" size={20} color={colors.myGreen} />
               )}
             >
-              <Text style={styles.modalButtonText}>Save</Text>
+              {isSaving ? (
+                <ActivityIndicator
+                  animating={true}
+                  color={colors.myGreen}
+                  size="small"
+                />
+              ) : (
+                <Text style={styles.modalButtonText}>Save</Text>
+              )}
             </Button>
             <Button
               mode="text"
-              onPress={onClose}
+              onPress={handleCancel}
               textColor={colors.myGreen}
               style={styles.modalButton}
             >
