@@ -15,6 +15,7 @@ import SubLevelsPage from "../screens/SubLevels";
 import AllLevelsPage from "../screens/create/Levels";
 import AllSubLevelsPage from "../screens/create/SubLevels";
 import AllSubLevelGamesPage from "../screens/create/Games";
+import CreateVocabulary from "../screens/create/games/Vocabulary";
 import CreateTrueFalsePage from "../screens/createGame/TrueFalse";
 import PlayGamePage from "../screens/playGame/Play";
 import SplashScreen from "../screens/SplashScreen";
@@ -54,7 +55,8 @@ export default function Index() {
     content = (
       <>
         <Stack.Navigator
-          initialRouteName="LevelsOfCreate"
+          // initialRouteName="LevelsOfCreate"
+          initialRouteName="CreateVocabulary"
           // initialRouteName="Home"
           screenOptions={{
             headerShown: true,
@@ -76,6 +78,7 @@ export default function Index() {
           <Stack.Screen name="LevelsOfCreate" component={AllLevelsPage} />
           <Stack.Screen name="SubLevelsOfCreate" component={AllSubLevelsPage} />
           <Stack.Screen name="SubLevelGamesOfCreate" component={AllSubLevelGamesPage} />
+          <Stack.Screen name="CreateVocabulary" component={CreateVocabulary} />
           <Stack.Screen name="PlayGame" component={PlayGamePage} />
           <Stack.Screen
             name="CreateTrueFalse"
