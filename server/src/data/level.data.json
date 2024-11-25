@@ -2,10 +2,10 @@
   {
     "id": 1,
     "name": {
-      "title": "א",
+      "title": {"he":"א", "en":"1"},
       "description": {
         "en": "Laws of Morning Awakening",
-        "he": "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר"
+        "he": "דיני השכמת הבקר"
       }
     },
     "icon": {
@@ -19,7 +19,7 @@
       "title": "ב",
       "description": {
         "en": "Laws of Handwashing",
-        "he": "הִלְכוֹת נְטִילַת יָדַיִם"
+        "he": "הלכות נטילת ידים שחרית"
       }
     },
     "icon": {
@@ -33,7 +33,7 @@
       "title": "ג",
       "description": {
         "en": "Laws of Dressing and Walking",
-        "he": "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ"
+        "he": "דין לבישת בגדיו והלוכו"
       }
     },
     "icon": {
@@ -47,7 +47,7 @@
       "title": "ד",
       "description": {
         "en": "Conduct in the Restroom and the 'Asher Yatzar' Blessing",
-        "he": "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר"
+        "he": "הנהגת בית הכסא ודיני ברכת אשר יצר"
       }
     },
     "icon": {
@@ -61,7 +61,7 @@
       "title": "ה",
       "description": {
         "en": "Cleanliness for Sacred Matters",
-        "he": "נקיון המקום לדבר שבקדושה"
+        "he": "נקיון המקום לדבר שבקדשה"
       }
     },
     "icon": {

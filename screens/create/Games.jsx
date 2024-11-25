@@ -107,7 +107,7 @@ const AllSubLevelGamesPage = ({ route, navigation }) => {
       <GameOptionsListModal
         isVisible={isModalVisible}
         onClose={() => setModalVisible(false)}
-        onCardPress={()=> console.log("card press")}
+        onCardPress={()=> navigation.navigate("CreateVocabulary")}
       />
     </View>
   );

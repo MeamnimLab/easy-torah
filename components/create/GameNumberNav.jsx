@@ -13,8 +13,8 @@ const GameNumberNav = ({
   const numberQuestion = Array.from({ length: questionsAmount }, (_, index) => {
     const circleStyles = { backgroundColor: null };
     if (currentIndex === index) {
-      circleStyles.borderWidth = 2;
-      circleStyles.borderColor = colors.myOrange;
+      // circleStyles.borderWidth = 2;
+      circleStyles.backgroundColor = colors.myOrange;
     } else {
       circleStyles.backgroundColor = colors.myGray;
     }
