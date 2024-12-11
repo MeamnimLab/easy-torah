@@ -29,7 +29,7 @@ const SubLevelsPage = ({ navigation, route }) => {
     const pressHandler = () => {
       if (item.hasGame && item.id) {
         dispatch(initLevelId(item.id));
-        const url = `https://easy-torah.onrender.com/api/userProgress/1/${item.id}`;
+        const url = `https://easy-torah-production.up.railway.app/api/userProgress/1/${item.id}`;
 
         const afterPost = (obj) => {
           console.log(obj)
@@ -51,7 +51,7 @@ const SubLevelsPage = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    let url = `https://easy-torah.onrender.com/api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
+    let url = `https://easy-torah-production.up.railway.app/api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
 
     const transformSubLevels = (subLevelsObj) => {
       setSubLevelData(subLevelsObj.data);

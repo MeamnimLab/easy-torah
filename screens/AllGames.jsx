@@ -37,7 +37,7 @@ const AllGamesPage = ({ navigation }) => {
   };
 
   useEffect(() => {
-    let url = "https://easy-torah.onrender.com/api/level/getLevelsWithProgress/1"
+    let url = "https://easy-torah-production.up.railway.app/api/level/getLevelsWithProgress/1"
 
     const transformLevels = (levelsObj) => {
       setLevelData(levelsObj.data)

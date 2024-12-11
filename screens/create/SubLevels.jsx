@@ -32,7 +32,7 @@ const AllSubLevelsPage = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    let url = `https://easy-torah.onrender.com/api/subLevel/${levelId}`;
+    let url = `https://easy-torah-production.up.railway.app/api/subLevel/${levelId}`;
 
     const transformSubLevels = (subLevelsObj) => {
       setSubLevelData(subLevelsObj.data);
