@@ -1,4 +1,3 @@
-import { Database } from '../../databases/database';
 import {
   DeleteResult,
   EntityTarget,
@@ -7,6 +6,7 @@ import {
   FindOptionsWhere,
   FindOptionsWhereProperty
 } from 'typeorm';
+import { AppDataSource } from '../../databases/dataSource';
 
 abstract class BaseRepository<Entity extends ObjectLiteral> {
   protected abstract repository: Repository<Entity>;
@@ -15,8 +15,7 @@ abstract class BaseRepository<Entity extends ObjectLiteral> {
   constructor(entity: EntityTarget<Entity>) {
     (async () => {
       try {
-        const database: Database =  await Database.getInstance();
-        this.repository = await database.getRepository(entity);
+        this.repository = AppDataSource.getRepository(entity);
       } catch (error) {
         console.error('Error initializing repository:', error);
       }

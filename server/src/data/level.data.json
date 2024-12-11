@@ -2,23 +2,10 @@
   {
     "id": 1,
     "name": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "title": "א",
-      "description": {
-        "en": "Laws of Morning Awakening",
-        "he": "דִּינֵי הַשְׁכָּמַת הַבּוֹקֶר"
-=======
-=======
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
       "title": {"he":"א", "en":"1"},
       "description": {
         "en": "Laws of Morning Awakening",
         "he": "דיני השכמת הבקר"
-<<<<<<< HEAD
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
-=======
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
       }
     },
     "icon": {
@@ -32,15 +19,7 @@
       "title": "ב",
       "description": {
         "en": "Laws of Handwashing",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "he": "הִלְכוֹת נְטִילַת יָדַיִם"
-=======
-        "he": "הלכות נטילת ידים שחרית"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
-=======
-        "he": "הלכות נטילת ידים שחרית"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
       }
     },
     "icon": {
@@ -54,15 +33,7 @@
       "title": "ג",
       "description": {
         "en": "Laws of Dressing and Walking",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "he": "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ"
-=======
-        "he": "דין לבישת בגדיו והלוכו"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
-=======
-        "he": "דין לבישת בגדיו והלוכו"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
       }
     },
     "icon": {
@@ -76,15 +47,7 @@
       "title": "ד",
       "description": {
         "en": "Conduct in the Restroom and the 'Asher Yatzar' Blessing",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "he": "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר"
-=======
-        "he": "הנהגת בית הכסא ודיני ברכת אשר יצר"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
-=======
-        "he": "הנהגת בית הכסא ודיני ברכת אשר יצר"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
       }
     },
     "icon": {
@@ -98,15 +61,7 @@
       "title": "ה",
       "description": {
         "en": "Cleanliness for Sacred Matters",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "he": "נקיון המקום לדבר שבקדושה"
-=======
-        "he": "נקיון המקום לדבר שבקדשה"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
-=======
-        "he": "נקיון המקום לדבר שבקדשה"
->>>>>>> eff26ddf9b85d903666bb9aca456cecced911225
       }
     },
     "icon": {
