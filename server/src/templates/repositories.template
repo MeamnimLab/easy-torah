@@ -1,0 +1,14 @@
+import { Repository } from 'typeorm';
+import BaseRepository from './base/baseRepository.repository';
+import {Resource} from '../entities/{resource_lc}.entity';
+
+class {Resource}Repository extends BaseRepository<{Resource}> {
+  protected repository!: Repository<{Resource}>;
+  protected relations: string[] = [];
+
+  constructor() {
+    super({Resource});
+  }
+}
+
+export default {Resource}Repository;

@@ -1,0 +1,19 @@
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn
+} from 'typeorm';
+import { I{Resource} } from '../interfaces/{resource_lc}.interface';
+
+@Entity()
+export default class {Resource} implements I{Resource} {
+  constructor({resource_lc}Data: Partial<{Resource}>) {
+    Object.assign(this, {resource_lc}Data);
+  }
+
+  @PrimaryGeneratedColumn()
+  id!: number;
+
+  @Column()
+  name!: string;
+}

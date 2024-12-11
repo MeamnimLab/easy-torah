@@ -1,0 +1,8 @@
+import BaseController from './base/baseController.controller';
+import {Resource}Service from '../services/{resource_lc}.service';
+
+class {Resource}Controller extends BaseController {
+  public service = new {Resource}Service();
+}
+
+export default {Resource}Controller;

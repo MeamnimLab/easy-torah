@@ -1,0 +1,13 @@
+import {Resource} from '../entities/{resource_lc}.entity';
+import {Resource}Repository from '../repositories/{resource_lc}.repository';
+import BaseService from './base/baseService.service';
+
+class {Resource}Service extends BaseService {
+  public repositories: [
+    {Resource}Repository
+  ] = [
+    new {Resource}Repository()
+  ];
+}
+
+export default {Resource}Service;

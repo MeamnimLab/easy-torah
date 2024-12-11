@@ -1,0 +1,21 @@
+import {Resource}Controller from '../controllers/{resource_lc}.controller';
+import { RouteDefinition } from '../types/routeDefinition.type';
+import { BaseRoutes } from './base/baseRoutes.route';
+
+class {Resource}Route extends BaseRoutes {
+  public basePath: string = '/api/{resource_lc}';
+  public controller!: {Resource}Controller;
+
+  constructor() {
+    super(new {Resource}Controller());
+  }
+
+  protected defineRoutes(): RouteDefinition[] {
+    return [];
+  }
+}
+
+export default {Resource}Route;
+
+
+
