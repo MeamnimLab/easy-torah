@@ -1,4 +1,4 @@
-import { initalizeDataFromJsons } from "./databases/database";
+import { initalizeDataFromJsons } from "./databases/initData";
 import { AppDataSource } from "./databases/dataSource";
 
 async function initializeData() {
