@@ -456,19 +456,14 @@
 
 // export default CreateVocabulary;
 
-
-
-
-
-
-
-
-
-
-
+import {
+  AntDesign,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import React, { useState } from "react";
-import { View, StyleSheet, Button, TextInput, ScrollView, Text } from "react-native";
-import { Card, Dialog, Portal, useTheme } from "react-native-paper";
+import { View, StyleSheet, TextInput, ScrollView, Text } from "react-native";
+import { Button, Card, Dialog, Portal, useTheme } from "react-native-paper";
 
 const CreateVocabulary = () => {
   const { colors } = useTheme();
@@ -478,6 +473,7 @@ const CreateVocabulary = () => {
     en: { text: "", hardSentences: [] },
   });
   const [lang, setLang] = useState("he");
+  const [preview, setPreview] = useState(false);
   const [isTextSaved, setTextSaved] = useState(false);
   const [selectedText, setSelectedText] = useState({
     start: 0,
@@ -497,16 +493,33 @@ const CreateVocabulary = () => {
   const screenStyle = { backgroundColor: colors.myBeige };
 
   const saveHandler = () => {
-    console.log(`Saving text for language: ${lang}`);
     setTextSaved(true);
-    setFinalText((prevFinalText) => ({
-      ...prevFinalText,
-      [lang]: { ...prevFinalText[lang], text: text[lang] },
-    }));
+    if (text["he"].length > 0) {
+      setFinalText((prevFinalText) => ({
+        ...prevFinalText,
+        ["he"]: { ...prevFinalText["he"], text: text["he"] },
+      }));
+    }
+    if (text["en"].length > 0) {
+      setFinalText((prevFinalText) => ({
+        ...prevFinalText,
+        ["en"]: { ...prevFinalText["en"], text: text["en"] },
+      }));
+    }
   };
 
   const toggleLanguage = () => {
     setLang((prevLang) => (prevLang === "he" ? "en" : "he"));
+    if (isTextSaved) {
+      setSelectedText({
+        start: 0,
+        end: 0,
+        text: "",
+      });
+    }
+  };
+  const togglePreview = () => {
+    setPreview((prev) => !prev);
   };
 
   const handleTextChange = (newText) => {
@@ -590,24 +603,34 @@ const CreateVocabulary = () => {
         />
       </Card>
 
-      {!isTextSaved && (
-        <View style={styles.buttons}>
-          <Button title="Save" onPress={saveHandler} color={colors.primary} />
-          <Button
-            title={`Switch to ${lang === "he" ? "English" : "Hebrew"}`}
-            onPress={toggleLanguage}
-            color={colors.secondary}
-          />
-        </View>
-      )}
+      <View style={styles.buttons}>
+        {!isTextSaved && (text["he"].length > 0 || text["en"].length > 0) && (
+          <Button onPress={saveHandler}>Save</Button>
+        )}
+        {isTextSaved && selectedText.text.length > 0 && (
+          <Button disabled={selectedText.text.length > 20} onPress={showDialog}>
+            {selectedText.text.length > 20
+              ? "Too long"
+              : `Selected: ${selectedText.text}`}
+          </Button>
+        )}
+        {(!isTextSaved ||
+          (finalText["en"].text.length > 0 &&
+            finalText["he"].text.length > 0)) && (
+          <Button onPress={toggleLanguage}>
+            {lang == "he" ? (
+              <MaterialIcons name="abc" size={22} />
+            ) : (
+              <MaterialCommunityIcons name="abjad-hebrew" />
+            )}
+          </Button>
+        )}
+      </View>
 
-      {isTextSaved && selectedText.text.length > 0 && (
-        <Button
-          title={selectedText.text.length > 20 ? "Too long" : `Use: ${selectedText.text}`}
-          disabled={selectedText.text.length > 20}
-          onPress={showDialog}
-          color={colors.primary}
-        />
+      {isTextSaved && (
+        <Button onPress={togglePreview}>
+          {preview == false ? <AntDesign name="eye" /> : <AntDesign name="edit" />}
+        </Button>
       )}
 
       <Portal>
@@ -627,10 +650,10 @@ const CreateVocabulary = () => {
             />
           </Dialog.Content>
           <Dialog.Actions>
-            <Button title="Save" onPress={saveSentence} color={colors.primary} />
+            <Button onPress={saveSentence}>Save</Button>
           </Dialog.Actions>
           <Dialog.Actions>
-            <Button title="Close" onPress={hideDialog} color={colors.primary} />
+            <Button onPress={hideDialog}>Close</Button>
           </Dialog.Actions>
         </Dialog>
       </Portal>
@@ -709,13 +732,6 @@ const styles = StyleSheet.create({
 });
 
 export default CreateVocabulary;
-
-
-
-
-
-
-
 
 // import React, { useState } from "react";
 // import { View, StyleSheet, Button, TextInput, ScrollView, Text } from "react-native";
