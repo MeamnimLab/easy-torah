@@ -3,8 +3,8 @@ import { useState, useCallback } from 'react';
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const BASE_URL = "https://easy-torah-production.up.railway.app/"
-  // const BASE_URL = "http://192.168.152.163:3000/";
+  // const BASE_URL = "https://easy-torah-production.up.railway.app/"
+  const BASE_URL = "http://192.168.152.163:3000/";
 
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
