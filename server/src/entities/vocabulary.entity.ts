@@ -9,12 +9,12 @@ import {
 } from "typeorm";
 import { IVocabulary } from "../interfaces/vocabulary.interface";
 import { Game } from "./game.entity";
-import { IHardSentence } from "../interfaces/hardSentence.interface";
 import { ILanguage } from "../interfaces/languageString.interface";
 import {
   validateAndNormalizeLanguage,
   validateAndNormalizeVocabularyHardSentences,
 } from "../utils/validation.util";
+import { IHardSentences } from "../interfaces/hardSentences.interface";
 
 @Entity("vocabulary_games")
 export class VocabularyGame implements IVocabulary {
@@ -29,7 +29,7 @@ export class VocabularyGame implements IVocabulary {
   text!: ILanguage;
 
   @Column("jsonb")
-  hardSentences!: IHardSentence[];
+  hardSentences!: IHardSentences;
 
   @ManyToOne(() => Game, (game) => game.vocabularyGames)
   @JoinColumn({ name: "gameId" })

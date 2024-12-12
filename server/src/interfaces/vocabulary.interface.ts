@@ -1,8 +1,8 @@
 import { IGame } from "./game.interface";
-import { IHardSentence } from "./hardSentence.interface";
+import { IHardSentences } from "./hardSentences.interface";
 import { ILanguage } from "./languageString.interface";
 
 export interface IVocabulary extends IGame {
     text: ILanguage;
-    hardSentences: IHardSentence[]
+    hardSentences: IHardSentences
 }

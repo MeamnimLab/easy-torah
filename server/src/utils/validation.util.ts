@@ -1,4 +1,4 @@
-import { IHardSentence } from "../interfaces/hardSentence.interface";
+import { IHardSentences } from "../interfaces/hardSentences.interface";
 import { ILanguage } from "../interfaces/languageString.interface";
 import { ILevelName } from "../interfaces/levelName.interface";
 import { IQuizAnswer } from "../interfaces/quizAnswer.interface";
@@ -93,45 +93,66 @@ export function validateAndNormalizeTriviaAnswers(value: any): IQuizAnswer[] {
   });
 }
 
+
+
 /**
- * Validates and normalizes an IHardSentence[] object.
+ * Validates and normalizes an IHardSentences object.
+ * The function ensures that the input matches one of the allowed formats:
+ * { he: [] }, { en: [] }, or { en: [], he: [] }.
+ * Each array can either be empty or contain objects with specific properties.
+ *
  * @param value - The input value to validate and normalize.
- * @returns A normalized IHardSentence[] object.
+ * @returns A normalized IHardSentences object.
+ * @throws Error if the input does not match the required format.
  */
-export function validateAndNormalizeVocabularyHardSentences(value: any): IHardSentence[] {
-  if (!Array.isArray(value)) {
+export function validateAndNormalizeVocabularyHardSentences(value: any): IHardSentences {
+  if (!value || typeof value !== "object") {
     throw new Error(
-      "Invalid IHardSentence[] format. Expected an array of IHardSentence objects."
+      "Invalid IHardSentences format. Expected an object with `he` and/or `en` properties."
     );
   }
 
-  return value.map((hardSentence: any) => {
-    if (!hardSentence || typeof hardSentence !== "object") {
-      throw new Error("Each IHardSentence must be an object.");
+  const allowedKeys = ["he", "en"];
+  const keys = Object.keys(value);
+
+  // Validate that the object contains only allowed keys.
+  if (!keys.every((key) => allowedKeys.includes(key))) {
+    throw new Error("Invalid keys in IHardSentences object. Only `he` and/or `en` are allowed.");
+  }
+
+  // Function to validate an array of hard sentence objects.
+  const validateSentenceArray = (arr: any): void => {
+    if (!Array.isArray(arr)) {
+      throw new Error("Each `he` or `en` property must be an array.");
     }
 
-    const { id, sentence, explanation } = hardSentence;
+    arr.forEach((item, index) => {
+      if (
+        !item ||
+        typeof item !== "object" ||
+        typeof item.sentence !== "string" ||
+        typeof item.start !== "number" ||
+        typeof item.end !== "number" ||
+        typeof item.explanation !== "string"
+      ) {
+        throw new Error(
+          `Invalid hard sentence object at index ${index}. Expected an object with sentence (string), start (number), end (number), and explanation (string).`
+        );
+      }
 
-    if (typeof id !== "number") {
-      throw new Error("IHardSentence must have a valid `id` of type number.");
-    }
+      if (item.start < 0 || item.end < item.start) {
+        throw new Error(
+          `Invalid start or end values in hard sentence at index ${index}. Ensure start >= 0 and end >= start.`
+        );
+      }
+    });
+  };
 
-    if (!sentence) {
-      throw new Error(
-        "Each IHardSentence must have a valid `sentence` of type ILanguage object."
-      );
-    }
+  const he = value.he || value.en;
+  const en = value.en || value.he;
 
-    if (!explanation) {
-      throw new Error(
-        "Each IHardSentence must have a valid `explanation` of type ILanguage object."
-      );
-    }
+  validateSentenceArray(he);
+  validateSentenceArray(en);
 
-    return {
-      id,
-      sentence: validateAndNormalizeLanguage(sentence),
-      explanation: validateAndNormalizeLanguage(explanation),
-    };
-  });
+  return { he, en };
 }

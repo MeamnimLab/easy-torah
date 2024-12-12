@@ -1,7 +1,6 @@
-import { ILanguage } from "./languageString.interface";
-
 export interface IHardSentence {
-    id: number;
-    sentence: ILanguage;
-    explanation: ILanguage;
+    sentence: string;
+    start: number;
+    end: number;
+    explanation: string;
 }
