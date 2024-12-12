@@ -55,8 +55,8 @@ export default function Index() {
     content = (
       <>
         <Stack.Navigator
-          // initialRouteName="LevelsOfCreate"
-          initialRouteName="CreateVocabulary"
+          initialRouteName="LevelsOfCreate"
+          // initialRouteName="CreateVocabulary"
           // initialRouteName="Home"
           screenOptions={{
             headerShown: true,

@@ -456,6 +456,7 @@
 
 // export default CreateVocabulary;
 
+import PlayVocabulary from "@/components/playGame/Vocabulary";
 import {
   AntDesign,
   MaterialCommunityIcons,
@@ -582,26 +583,30 @@ const CreateVocabulary = () => {
 
   return (
     <ScrollView style={[styles.screen, screenStyle]}>
-      <Card style={[styles.card, { backgroundColor: colors.myOrange }]}>
-        <TextInput
-          key={key} // Forcing re-render
-          style={[
-            styles.textInput,
-            {
-              textAlign: lang === "he" ? "right" : "left",
-              borderColor: colors.primary,
-            },
-          ]}
-          value={text[lang]}
-          onChangeText={handleTextChange}
-          placeholder={
-            lang === "he" ? "הקלד טקסט בעברית" : "Enter text in English"
-          }
-          onSelectionChange={handleSelectionChange}
-          multiline
-          contextMenuHidden={contextMenuHidden}
-        />
-      </Card>
+      {!preview && (
+        <Card style={[styles.card, { backgroundColor: colors.myOrange }]}>
+          <TextInput
+            key={key} // Forcing re-render
+            style={[
+              styles.textInput,
+              {
+                textAlign: lang === "he" ? "right" : "left",
+                borderColor: colors.primary,
+              },
+            ]}
+            value={text[lang]}
+            onChangeText={handleTextChange}
+            placeholder={
+              lang === "he" ? "הקלד טקסט בעברית" : "Enter text in English"
+            }
+            onSelectionChange={handleSelectionChange}
+            multiline
+            contextMenuHidden={contextMenuHidden}
+          />
+        </Card>
+      )}
+
+      {preview && (<PlayVocabulary game={{text: {he: finalText.he.text, en: finalText.en.text}, hardSentences: []}}/>)}
 
       <View style={styles.buttons}>
         {!isTextSaved && (text["he"].length > 0 || text["en"].length > 0) && (
@@ -629,7 +634,11 @@ const CreateVocabulary = () => {
 
       {isTextSaved && (
         <Button onPress={togglePreview}>
-          {preview == false ? <AntDesign name="eye" /> : <AntDesign name="edit" />}
+          {preview == false ? (
+            <AntDesign name="eye" />
+          ) : (
+            <AntDesign name="edit" />
+          )}
         </Button>
       )}
 
