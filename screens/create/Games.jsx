@@ -25,7 +25,7 @@ const AllSubLevelGamesPage = ({ route, navigation }) => {
   const { sendRequest: postAddGame } = useHttp();
 
   useEffect(() => {
-    let url = `https://easy-torah-production.up.railway.app/api/game/${subLevelId}`;
+    let url = `api/game/${subLevelId}`;
 
     const transformGames = (gamesObj) => {
       setSubLevelGames(gamesObj.data);

@@ -36,7 +36,7 @@ const PlayGamePage = ({ route, navigation }) => {
   const startTimeRef = useRef(Date.now());
 
   useEffect(() => {
-    let url = `https://easy-torah-production.up.railway.app/api/game/${levelId}`;
+    let url = `api/game/${levelId}`;
 
     const transformGames = (gamesObj) => {
       setSubLevelGames(gamesObj.data);
@@ -71,7 +71,7 @@ const PlayGamePage = ({ route, navigation }) => {
 
   useEffect(() => {
     if (isGameFinished) {
-      let url = `https://easy-torah-production.up.railway.app/api/userProgress/finish/1/${levelId}`;
+      let url = `api/userProgress/finish/1/${levelId}`;
 
       const transform = (gamesObj) => {
         console.log(gamesObj.data)

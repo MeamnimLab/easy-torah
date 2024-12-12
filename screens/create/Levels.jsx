@@ -44,7 +44,7 @@ const AllLevelsPage = ({ navigation }) => {
 
   const handleEdit = (updatedLevelData) => {
     console.log(updatedLevelData)
-    const url = `https://easy-torah-production.up.railway.app/api/level/${selectedLevel.id}`;
+    const url = `api/level/${selectedLevel.id}`;
     const body = updatedLevelData;
 
     postEditLevel(
@@ -62,7 +62,7 @@ const AllLevelsPage = ({ navigation }) => {
   };
 
   useEffect(() => {
-    let url = "https://easy-torah-production.up.railway.app/api/level/";
+    let url = "api/level/";
 
     const transformLevels = (levelsObj) => {
       setLevelData(levelsObj.data);
