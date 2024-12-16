@@ -1,5 +1,5 @@
-import PlayVocabulary from "@/components/playGame/Vocabulary";
-import useHttp from "@/hooks/http";
+import PlayVocabulary from "../../../components/playGame/Vocabulary";
+import useHttp from "../../../hooks/http";
 import {
   AntDesign,
   MaterialCommunityIcons,
@@ -59,7 +59,7 @@ const CreateVocabulary = ({ route, navigation }) => {
     const body = {
       text: {}, hardSentences: {}
     }
-    const url = `https://easy-torah-production.up.railway.app/api/game/vocabulary/${subLevelId}`;
+    const url = `api/game/vocabulary/${subLevelId}`;
 
     if (finalText.he.text.length > 0){
       body.text.he = finalText.he.text;

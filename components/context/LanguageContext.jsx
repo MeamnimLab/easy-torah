@@ -77,11 +77,17 @@ export const LanguageProvider = ({ children }) => {
     setLocale(newLocale);
   };
 
+  const toggleLanguage = () => {
+    const newLocale = locale === "he" ? "en" : "he";
+    setLocale(newLocale);
+  };
+
   return (
     <LanguageContext.Provider value={{ 
       t: (key) => i18n.t(key), // Translation function
       locale, 
-      changeLanguage 
+      changeLanguage,
+      toggleLanguage
     }}>
       {children}
     </LanguageContext.Provider>

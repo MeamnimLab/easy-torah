@@ -3,10 +3,10 @@ import { FlatList, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 
 import useHttp from "../hooks/http";
-import { initLevelId } from "@/redux/gameSlice";
+import { initLevelId } from "../redux/gameSlice";
 import { Button, useTheme } from "react-native-paper";
-import LevelGridTile from "@/components/LevelGridTile";
-import Loading from "@/components/ui/Loading";
+import LevelGridTile from "../components/LevelGridTile";
+import Loading from "../components/ui/Loading";
 
 const SubLevelsPage = ({ navigation, route }) => {
   const { colors } = useTheme();
@@ -29,7 +29,7 @@ const SubLevelsPage = ({ navigation, route }) => {
     const pressHandler = () => {
       if (item.hasGame && item.id) {
         dispatch(initLevelId(item.id));
-        const url = `https://easy-torah-production.up.railway.app/api/userProgress/1/${item.id}`;
+        const url = `api/userProgress/1/${item.id}`;
 
         const afterPost = (obj) => {
           console.log(obj)
@@ -51,7 +51,7 @@ const SubLevelsPage = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    let url = `https://easy-torah-production.up.railway.app/api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
+    let url = `api/subLevel/getSubLevelsWithProgress/1/${levelId}`;
 
     const transformSubLevels = (subLevelsObj) => {
       setSubLevelData(subLevelsObj.data);

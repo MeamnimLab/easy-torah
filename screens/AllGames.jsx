@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useTheme } from "react-native-paper";
 import useHttp from "../hooks/http";
 import Loading from '../components/ui/Loading'
-import { useLanguage } from "@/components/context/LanguageContext";
+import { useLanguage } from "../components/context/LanguageContext";
 
 const AllGamesPage = ({ navigation }) => {
   const { colors } = useTheme();
@@ -37,7 +37,7 @@ const AllGamesPage = ({ navigation }) => {
   };
 
   useEffect(() => {
-    let url = "https://easy-torah-production.up.railway.app/api/level/getLevelsWithProgress/1"
+    let url = "api/level/getLevelsWithProgress/1"
 
     const transformLevels = (levelsObj) => {
       setLevelData(levelsObj.data)

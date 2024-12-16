@@ -1,4 +1,5 @@
-import { ILanguage } from "../interfaces/languageString.interface";
+import { IIcon } from "../interfaces/icon.interface";
+import { ILevelName } from "../interfaces/levelName.interface";
 import SubLevelRepository from "../repositories/subLevel.repository";
 import BaseService from "./base/baseService.service";
 
@@ -15,10 +16,11 @@ class SubLevelService extends BaseService {
       return subLevels;
     }
 
-    async editSubLevel(subLevelId: string, name: ILanguage) {
+    async editSubLevel(subLevelId: string, name: ILevelName, icon: IIcon) {
       const subLevel = await this.repositories[0].findById(subLevelId);
       if(!subLevel) return;
       subLevel.name = name;
+      subLevel.icon = icon;
       const updatedSubLevel = await this.repositories[0].save(subLevel)
       return updatedSubLevel;
     }
