@@ -3,7 +3,7 @@
       "id": 11,
       "name": {
         "title": { "he": "א", "en": "1" },
-        "description": { "en": "description", "he": "תאור" }
+        "description": { "en": "description", "he": "דרכי יראת שמיים" }
       },
       "icon": { "name": "help-outline" },
       "levelId": 1,
@@ -11,42 +11,42 @@
     },
     {
       "id": 12,
-      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "כוונה בשכיבה וקימה" } },
       "icon": { "name": "help-outline" },
       "levelId": 1,
       "hasGame": true
     },
     {
       "id": 13,
-      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "ארבע דרכים בעבודת ה'" } },
       "icon": { "name": "help-outline" },
       "levelId": 1,
       "hasGame": false
     },
     {
       "id": 14,
-      "name": { "title": { "he": "ד", "en": "4" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ד", "en": "4" }, "description": { "en": "description", "he": "תחבולה נגד היצר בהשכמה" } },
       "icon": { "name": "help-outline" },
       "levelId": 1,
       "hasGame": false
     },
     {
       "id": 15,
-      "name": { "title": { "he": "ה", "en": "5" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ה", "en": "5" }, "description": { "en": "description", "he": "סדר תיקון חצות" } },
       "icon": { "name": "help-outline" },
       "levelId": 1,
       "hasGame": false
     },
     {
       "id": 16,
-      "name": { "title": { "he": "ו", "en": "6" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ו", "en": "6" }, "description": { "en": "description", "he": "אמירת תהילים בעל פה" } },
       "icon": { "name": "help-outline" },
       "levelId": 1,
       "hasGame": false
     },
     {
       "id": 17,
-      "name": { "title": { "he": "ז", "en": "7" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ז", "en": "7" }, "description": { "en": "description", "he": "שם ה' בתחינות שבמעמדות" } },
       "icon": { "name": "help-outline" },
       "levelId": 1,
       "hasGame": false
@@ -55,7 +55,7 @@
       "id": 21,
       "name": {
         "title": { "he": "א", "en": "1" },
-        "description": { "en": "description", "he": "תאור" }
+        "description": { "en": "description", "he": "למה נוטלים ידים, ואיך" }
       },
       "icon": { "name": "help-outline" },
       "levelId": 2,
@@ -63,56 +63,56 @@
     },
     {
       "id": 22,
-      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "לבישת הציצית" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": true
     },
     {
       "id": 23,
-      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "סדר נטילה ורחיצת פנים" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
     },
     {
       "id": 24,
-      "name": { "title": { "he": "ד", "en": "4" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ד", "en": "4" }, "description": { "en": "description", "he": "נטילה מכלי" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
     },
     {
       "id": 25,
-      "name": { "title": { "he": "ה", "en": "5" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ה", "en": "5" }, "description": { "en": "description", "he": "דברים האסורים לפני הנטילה" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
     },
     {
       "id": 26,
-      "name": { "title": { "he": "ו", "en": "6" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ו", "en": "6" }, "description": { "en": "description", "he": "במה נוטלים" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
     },
     {
       "id": 27,
-      "name": { "title": { "he": "ז", "en": "7" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ז", "en": "7" }, "description": { "en": "description", "he": "ניקיון גוף לפני התפילה" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
     },
     {
       "id": 28,
-      "name": { "title": { "he": "ח", "en": "8" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ח", "en": "8" }, "description": { "en": "description", "he": "ספקות בנטילת ידים" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
     },
     {
       "id": 29,
-      "name": { "title": { "he": "ט", "en": "9" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ט", "en": "9" }, "description": { "en": "description", "he": "דברים המחייבים נטילת ידים" } },
       "icon": { "name": "help-outline" },
       "levelId": 2,
       "hasGame": false
@@ -121,7 +121,7 @@
       "id": 31,
       "name": {
         "title": { "he": "א", "en": "1" },
-        "description": { "en": "description", "he": "תאור" }
+        "description": { "en": "description", "he": "לבישת בגדים בצניעות" }
       },
       "icon": { "name": "help-outline" },
       "levelId": 3,
@@ -129,42 +129,42 @@
     },
     {
       "id": 32,
-      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "הימנעות מלבוש גויים" } },
       "icon": { "name": "help-outline" },
       "levelId": 3,
       "hasGame": true
     },
     {
       "id": 33,
-      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "לבוש נקי וממוצע" } },
       "icon": { "name": "help-outline" },
       "levelId": 3,
       "hasGame": false
     },
     {
       "id": 34,
-      "name": { "title": { "he": "ד", "en": "4" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ד", "en": "4" }, "description": { "en": "description", "he": "קשירת והסרת בגד" } },
       "icon": { "name": "help-outline" },
       "levelId": 3,
       "hasGame": false
     },
     {
       "id": 35,
-      "name": { "title": { "he": "ה", "en": "5" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ה", "en": "5" }, "description": { "en": "description", "he": "לבישת שני בגדים יחד וראש מגולה" } },
       "icon": { "name": "help-outline" },
       "levelId": 3,
       "hasGame": false
     },
     {
       "id": 36,
-      "name": { "title": { "he": "ו", "en": "6" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ו", "en": "6" }, "description": { "en": "description", "he": "הליכה בקומה זקופה" } },
       "icon": { "name": "help-outline" },
       "levelId": 3,
       "hasGame": false
     },
     {
       "id": 37,
-      "name": { "title": { "he": "ז", "en": "7" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ז", "en": "7" }, "description": { "en": "description", "he": "הליכה בין נשים" } },
       "icon": { "name": "help-outline" },
       "levelId": 3,
       "hasGame": false
@@ -173,7 +173,7 @@
       "id": 41,
       "name": {
         "title": { "he": "א", "en": "1" },
-        "description": { "en": "description", "he": "תאור" }
+        "description": { "en": "description", "he": "להזדרז בעשיית צרכיו" }
       },
       "icon": { "name": "help-outline" },
       "levelId": 4,
@@ -181,14 +181,14 @@
     },
     {
       "id": 42,
-      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ב", "en": "2" }, "description": { "en": "description", "he": "צניעות בבית הכסא" } },
       "icon": { "name": "help-outline" },
       "levelId": 4,
       "hasGame": true
     },
     {
       "id": 43,
-      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "תאור" } },
+      "name": { "title": { "he": "ג", "en": "3" }, "description": { "en": "description", "he": "התנהגות ראויה בבית הכסא" } },
       "icon": { "name": "help-outline" },
       "levelId": 4,
       "hasGame": false
