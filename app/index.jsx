@@ -5,7 +5,10 @@ import { Appbar, PaperProvider } from "react-native-paper";
 
 import { theme } from "../styles/theme";
 import store from "../redux/store";
-import { LanguageProvider } from "../components/context/LanguageContext";
+import {
+  LanguageProvider,
+  useLanguage,
+} from "../components/context/LanguageContext";
 import DrawerMenu from "../components/DrawerMenu";
 import HomePage from "../screens/Home";
 import ResultPage from "../screens/Result";
@@ -22,8 +25,22 @@ import SplashScreen from "../screens/SplashScreen";
 const Stack = createStackNavigator();
 
 export default function Index() {
+  return (
+    <Provider store={store}>
+      <LanguageProvider>
+        <PaperProvider theme={theme}>
+          <App />
+        </PaperProvider>
+      </LanguageProvider>
+    </Provider>
+  );
+}
+
+function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
   const [drawerVisible, setDrawerVisible] = useState(false);
+
+  const { toggleLanguage } = useLanguage();
 
   const animationFinishHandler = () => {
     setIsSplashVisible(false);
@@ -41,6 +58,14 @@ export default function Index() {
     <Appbar.Action
       icon="menu"
       onPress={menuPressHandler}
+      style={{ marginRight: 10 }}
+    />
+  );
+
+  const languageHeader = (
+    <Appbar.Action
+      icon="translate"
+      onPress={toggleLanguage}
       style={{ marginRight: 10 }}
     />
   );
@@ -64,7 +89,8 @@ export default function Index() {
             headerTitleStyle: {
               display: "none",
             },
-            headerRight: () => menuHeader,
+            headerRight: () => languageHeader,
+            // headerRight: () => menuHeader,
           }}
         >
           <Stack.Screen name="Home" component={HomePage} />
@@ -90,11 +116,5 @@ export default function Index() {
     );
   }
 
-  return (
-    <Provider store={store}>
-      <LanguageProvider>
-        <PaperProvider theme={theme}>{content}</PaperProvider>
-      </LanguageProvider>
-    </Provider>
-  );
+  return content;
 }
