@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Provider } from "react-redux";
 import { Appbar, PaperProvider } from "react-native-paper";
@@ -39,14 +38,11 @@ export default function Index() {
   };
 
   const menuHeader = (
-    <>
-      <Appbar.Action
-        icon="menu"
-        onPress={menuPressHandler}
-        style={{ marginHorizontal: 10 }}
-      />
-      <Appbar.Content />
-    </>
+    <Appbar.Action
+      icon="menu"
+      onPress={menuPressHandler}
+      style={{ marginRight: 10 }}
+    />
   );
 
   let content = <SplashScreen onAnimationFinish={animationFinishHandler} />;
@@ -68,7 +64,7 @@ export default function Index() {
             headerTitleStyle: {
               display: "none",
             },
-            headerRight: () => (menuHeader),
+            headerRight: () => menuHeader,
           }}
         >
           <Stack.Screen name="Home" component={HomePage} />
@@ -77,7 +73,10 @@ export default function Index() {
           <Stack.Screen name="SubLevels" component={SubLevelsPage} />
           <Stack.Screen name="LevelsOfCreate" component={AllLevelsPage} />
           <Stack.Screen name="SubLevelsOfCreate" component={AllSubLevelsPage} />
-          <Stack.Screen name="SubLevelGamesOfCreate" component={AllSubLevelGamesPage} />
+          <Stack.Screen
+            name="SubLevelGamesOfCreate"
+            component={AllSubLevelGamesPage}
+          />
           <Stack.Screen name="CreateVocabulary" component={CreateVocabulary} />
           <Stack.Screen name="PlayGame" component={PlayGamePage} />
           <Stack.Screen
@@ -94,11 +93,7 @@ export default function Index() {
   return (
     <Provider store={store}>
       <LanguageProvider>
-        <PaperProvider theme={theme}>
-          <NavigationContainer independent={true}>
-            {content}
-          </NavigationContainer>
-        </PaperProvider>
+        <PaperProvider theme={theme}>{content}</PaperProvider>
       </LanguageProvider>
     </Provider>
   );

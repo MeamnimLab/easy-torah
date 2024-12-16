@@ -20,7 +20,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#F7EDE2"
       },
-      "package": "com.rivkyshachar.easytorah"
+      "package": "com.rivkyshachar.easytorah",
+      "newArchEnabled": true
     },
     "web": {
       "bundler": "metro",
