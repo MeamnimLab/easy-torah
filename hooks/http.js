@@ -3,12 +3,14 @@ import { useState, useCallback } from 'react';
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const BASE_URL = "https://easy-torah-production.up.railway.app/"
+  // const BASE_URL = "http://192.168.152.163:3000/";
 
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch(requestConfig.url, {
+      const response = await fetch(`${BASE_URL}${requestConfig.url}`, {
         method: requestConfig.method ? requestConfig.method : 'GET',
         headers: requestConfig.headers ? requestConfig.headers : {},
         body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,

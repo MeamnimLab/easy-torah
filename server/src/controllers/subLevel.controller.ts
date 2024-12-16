@@ -33,9 +33,9 @@ class SubLevelController extends BaseController {
   public editSubLevel = asyncHandler(
     async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       const {subLevelId} = req.params;
-      const {name} = req.body;
+      const {name, icon} = req.body;
 
-      const level = await this.service.editSubLevel(subLevelId, name);
+      const level = await this.service.editSubLevel(subLevelId, name, icon);
       if (level) {
         this.sendResponse(res, level, "Sub level updated successfully", 200);
       } else {

@@ -12,7 +12,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import EditLevelBox from "./EditLevelBox";
 import { ActivityIndicator, Button, TextInput, useTheme } from "react-native-paper";
 
-const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
+const LevelActionModal = React.memo(({ isVisible, onClose, onSave, levelData }) => {
   if (!levelData) return null;
 
   const { colors } = useTheme();
@@ -163,7 +163,7 @@ const LevelActionModal = ({ isVisible, onClose, onSave, levelData }) => {
       </KeyboardAvoidingView>
     </Modal>
   );
-};
+});
 
 const styles = StyleSheet.create({
   modalOverlay: {
