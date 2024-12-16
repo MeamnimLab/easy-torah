@@ -2,8 +2,9 @@ import { Entity, PrimaryColumn, Column, ManyToOne, OneToMany, JoinColumn, Before
 import { Level } from './level.entity';
 import { Game } from './game.entity';
 import { ISubLevel } from '../interfaces/subLevel.interface';
-import { ILanguage } from '../interfaces/languageString.interface';
-import { validateAndNormalizeLanguage } from '../utils/validation.util';
+import { validateAndNormalizeLevelName } from '../utils/validation.util';
+import { ILevelName } from '../interfaces/levelName.interface';
+import { IIcon } from '../interfaces/icon.interface';
 
 
 @Entity('sub_levels')
@@ -13,7 +14,10 @@ export class SubLevel implements ISubLevel {
     id!: number;
 
     @Column("jsonb")
-    name!: ILanguage;
+    name!: ILevelName;
+
+    @Column("jsonb", { default: { name: "help-outline", color: "default" } })
+    icon!: IIcon;
 
     @Column({default: false})
     hasGame!: boolean;
@@ -28,6 +32,6 @@ export class SubLevel implements ISubLevel {
     @BeforeInsert()
     @BeforeUpdate()
     validateAndNormalizeName() {
-        this.name = validateAndNormalizeLanguage(this.name);
+        this.name = validateAndNormalizeLevelName(this.name);
     }
 }

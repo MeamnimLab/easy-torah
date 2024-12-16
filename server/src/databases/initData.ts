@@ -115,7 +115,7 @@ const addData = async <T extends ObjectLiteral>(
   if (name === "level") {
     relationships["name"] = validateAndNormalizeLevelName;
   } else if (name === "subLevel") {
-    relationships["name"] = validateAndNormalizeLanguage;
+    relationships["name"] = validateAndNormalizeLevelName;
   } else if (name === "trivia") {
     relationships["question"] = validateAndNormalizeLanguage;
     relationships["answers"] = validateAndNormalizeTriviaAnswers;

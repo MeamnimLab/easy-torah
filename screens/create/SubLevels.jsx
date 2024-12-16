@@ -18,14 +18,16 @@ const AllSubLevelsPage = ({ navigation, route }) => {
   const renderSubLevel = ({ item }) => {
     const pressHandler = () => {
       if (item.hasGame && item.id) {
-        navigation.navigate("SubLevelGamesOfCreate", {subLevelId: item.id});
+        navigation.navigate("SubLevelGamesOfCreate", { subLevelId: item.id });
       }
     };
 
     return (
       <LevelBox
-        title={item.name[locale]}
+        title={item.name.title[locale]}
+        content={item.name.description[locale]}
         onPress={pressHandler}
+        icon={item.icon.name}
         locked={!item.hasGame}
       />
     );
