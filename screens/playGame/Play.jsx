@@ -12,9 +12,9 @@ import {
   initNumOfQuestions,
   setAnswer,
   setVisited,
-} from "@/redux/gameSlice";
+} from "../../redux/gameSlice";
 import { useTheme } from "react-native-paper";
-import useHttp from "@/hooks/http";
+import useHttp from "../../hooks/http";
 const AnimatedPagerView = Animated.createAnimatedComponent(PagerView);
 
 const PlayGamePage = ({ route, navigation }) => {

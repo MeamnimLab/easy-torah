@@ -4,7 +4,7 @@ import LevelBox from "../../components/LevelBox";
 import { useTheme } from "react-native-paper";
 import useHttp from "../../hooks/http";
 import Loading from "../../components/ui/Loading";
-import { useLanguage } from "@/components/context/LanguageContext";
+import { useLanguage } from "../../components/context/LanguageContext";
 import LevelActionModal from "../../components/LevelActionModal.jsx";
 
 const AllLevelsPage = ({ navigation }) => {

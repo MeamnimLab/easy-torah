@@ -3,10 +3,10 @@ import { FlatList, Text, View } from "react-native";
 import { useDispatch } from "react-redux";
 
 import useHttp from "../hooks/http";
-import { initLevelId } from "@/redux/gameSlice";
+import { initLevelId } from "../redux/gameSlice";
 import { Button, useTheme } from "react-native-paper";
-import LevelGridTile from "@/components/LevelGridTile";
-import Loading from "@/components/ui/Loading";
+import LevelGridTile from "../components/LevelGridTile";
+import Loading from "../components/ui/Loading";
 
 const SubLevelsPage = ({ navigation, route }) => {
   const { colors } = useTheme();

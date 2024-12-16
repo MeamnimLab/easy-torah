@@ -1,5 +1,5 @@
-import PlayVocabulary from "@/components/playGame/Vocabulary";
-import useHttp from "@/hooks/http";
+import PlayVocabulary from "../../../components/playGame/Vocabulary";
+import useHttp from "../../../hooks/http";
 import {
   AntDesign,
   MaterialCommunityIcons,
