@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Level from "../models/level";
-import Trivia from "@/models/games/trivia";
-import TrueFalse from "@/models/games/trueFalse";
-import Vocabulary from "@/models/games/vocabulary";
+import Trivia from "../models/games/trivia";
+import TrueFalse from "../models/games/trueFalse";
+import Vocabulary from "../models/games/vocabulary";
 
 const initialState = {
   levels: [

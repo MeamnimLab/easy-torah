@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import ResultsCard from "../components/result/ResultsCard";
 import TimeSpentCard from "../components/result/TimeSpentCard";
-import { resetGame } from "@/redux/gameSlice";
+import { resetGame } from "../redux/gameSlice";
 import { useDispatch } from "react-redux";
 import { Button, useTheme } from "react-native-paper";
 
