@@ -5,7 +5,7 @@
       "title": {"he":"א", "en":"1"},
       "description": {
         "en": "Laws of Morning Awakening",
-        "he": "דיני השכמת הבקר"
+        "he": "דיני השכמת הבוקר"
       }
     },
     "icon": {
@@ -16,10 +16,10 @@
   {
     "id": 2,
     "name": {
-      "title": "ב",
+      "title": {"he":"ב", "en":"2"},
       "description": {
         "en": "Laws of Handwashing",
-        "he": "הִלְכוֹת נְטִילַת יָדַיִם"
+        "he": "דיני נטילת ידים שחרית"
       }
     },
     "icon": {
@@ -30,10 +30,10 @@
   {
     "id": 3,
     "name": {
-      "title": "ג",
+      "title": {"he":"ג", "en":"3"},
       "description": {
         "en": "Laws of Dressing and Walking",
-        "he": "דִּין לְבִישַׁת בְּגָדָיו וְהִלּוּכוֹ"
+        "he": "דין לבישת בגדיו והילוכו"
       }
     },
     "icon": {
@@ -44,10 +44,10 @@
   {
     "id": 4,
     "name": {
-      "title": "ד",
+      "title": {"he":"ד", "en":"4"},
       "description": {
         "en": "Conduct in the Restroom and the 'Asher Yatzar' Blessing",
-        "he": "הַנְהָגַת בֵּית הַכִּסֵּא וְדִינֵי אֲשֶׁר יָצַר"
+        "he": "הנהגת בית הכיסא וברכת אשר יצר"
       }
     },
     "icon": {
@@ -58,7 +58,7 @@
   {
     "id": 5,
     "name": {
-      "title": "ה",
+      "title": {"he":"ה", "en":"5"},
       "description": {
         "en": "Cleanliness for Sacred Matters",
         "he": "נקיון המקום לדבר שבקדושה"
@@ -72,10 +72,10 @@
   {
     "id": 6,
     "name": {
-      "title": "ו",
+      "title": {"he":"ו", "en":"6"},
       "description": {
         "en": "Laws of Blessings and Responses",
-        "he": "קצת דיני ברכות ודיני ברוך הוא וברוך שמו ואמן"
+        "he": "קצת דיני ברכות ב\"ה וב\"ש ואמן"
       }
     },
     "icon": {
@@ -86,7 +86,7 @@
   {
     "id": 7,
     "name": {
-      "title": "ז",
+      "title": {"he":"ז", "en":"7"},
       "description": {
         "en": "Laws of Morning Blessings",
         "he": "הלכות ברכות השחר"
@@ -100,10 +100,10 @@
   {
     "id": 8,
     "name": {
-      "title": "ח",
+      "title": {"he":"ח", "en":"8"},
       "description": {
         "en": "Forbidden Activities Before Prayer",
-        "he": "דברים האסורים משהאיר היום עד לאחר שיתפלל"
+        "he": "דברים האסורים משהאיר היום"
       }
     },
     "icon": {
@@ -114,11 +114,12 @@
   {
     "id": 9,
     "name": {
-      "title": "ט",
+      "title": {"he":"ט", "en":"9"},
       "description": {
         "en": "Laws of Tzitzit",
-        "he": "הִלְכוֹת צִיצִית"
+        "he": "הלכות ציצית"
       }
+
     },
     "icon": {
       "name": "shirt-outline"
@@ -128,11 +129,12 @@
   {
     "id": 10,
     "name": {
-      "title": "י",
+      "title": {"he":"י", "en":"10"},
       "description": {
         "en": "Laws of Tefillin",
         "he": "הלכות תפילין"
       }
+
     },
     "icon": {
       "name": "cube-outline"
@@ -142,8 +144,8 @@
   {
     "id": 11,
     "name": {
-      "title": "יא",
-      "description": "הלכות תפילה"
+      "title": {"he":"יא", "en":"11"},
+      "description": "הלכות מזוזה"
     },
     "icon": {
       "name": "flag-outline"
@@ -153,8 +155,8 @@
   {
     "id": 12,
     "name": {
-      "title": "יב",
-      "description": "הִלְכוֹת קְרוֹבֵי אִשּׁוּר"
+      "title": {"he":"יב", "en":"12"},
+      "description": "הכנת הגוף לתפילה וכו'"
     },
     "icon": {
       "name": "person-outline"
@@ -164,8 +166,8 @@
   {
     "id": 13,
     "name": {
-      "title": "יג",
-      "description": "הִלְכוֹת סְכוֹת"
+      "title": {"he":"יג", "en":"13"},
+      "description": "דיני קדושת בית הכנסת"
     },
     "icon": {
       "name": "book-outline"
@@ -175,8 +177,8 @@
   {
     "id": 14,
     "name": {
-      "title": "יד",
-      "description": "הִלְכוֹת חַיּוֹת"
+      "title": {"he":"יד", "en":"14"},
+      "description": "דיני פסוקי דזמרה"
     },
     "icon": {
       "name": "paw-outline"
@@ -186,8 +188,8 @@
   {
     "id": 15,
     "name": {
-      "title": "טו",
-      "description": "הִלְכוֹת תּוֹבוּת"
+      "title": {"he":"טו", "en":"15"},
+      "description": "הלכות קדיש וברכו"
     },
     "icon": {
       "name": "reload-outline"
@@ -197,8 +199,8 @@
   {
     "id": 16,
     "name": {
-      "title": "טז",
-      "description": "הִלְכוֹת שׁוֹפָר"
+      "title": {"he":"טז", "en":"16"},
+      "description": "דיני הפסקות בברכות קריאת שמע"
     },
     "icon": {
       "name": "volume-high-outline"
@@ -208,8 +210,8 @@
   {
     "id": 17,
     "name": {
-      "title": "יז",
-      "description": "הִלְכוֹת לֵיל הַסֵּדֶר"
+      "title": {"he":"יז", "en":"17"},
+      "description": "דיני קריאת שמע"
     },
     "icon": {
       "name": "restaurant-outline"
@@ -219,7 +221,7 @@
   {
     "id": 18,
     "name": {
-      "title": "יח",
+      "title": {"he":"יח", "en":"18"},
       "description": "הִלְכוֹת הַפְסָח"
     },
     "icon": {
@@ -230,7 +232,7 @@
   {
     "id": 19,
     "name": {
-      "title": "יט",
+      "title": {"he":"יט", "en":"19"},
       "description": "הִלְכוֹת בַּיְרוּת"
     },
     "icon": {
@@ -241,7 +243,7 @@
   {
     "id": 20,
     "name": {
-      "title": "כ",
+      "title": {"he":"כ", "en":"20"},
       "description": "הִלְכוֹת צְרוֹרֵי פֶּסַח"
     },
     "icon": {
@@ -252,7 +254,7 @@
   {
     "id": 21,
     "name": {
-      "title": "כא",
+      "title": {"he":"כא", "en":"21"},
       "description": "הִלְכוֹת שְׁחִיטַת פֶּסַח"
     },
     "icon": {
